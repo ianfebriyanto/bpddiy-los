@@ -1,9 +1,9 @@
 <body>
-	<a href="<?= base_url('vendor/'); ?>chart.js/Chart.bundle.js">ij</a>
-	<table class="responsive-table">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>No</th>
+				<th>Kewenangan ID</th>
 				<th>Grup ID</th>
 				<th>Menu ID</th>
 				<th>Create</th>
@@ -20,19 +20,120 @@
 			foreach ($kewenangan as $data) : ?>
 				<tr>
 					<td> <?php echo $no++; ?> </td>
+					<td> <?= $data['KEWENANGAN_ID']; ?> </td>
 					<td> <?= $data['GRUP_ID']; ?> </td>
 					<td> <?= $data['MENU_ID']; ?> </td>
 					<td> <?= $data['CREATE']; ?> </td>
 					<td> <?= $data['UPDATE']; ?> </td>
 					<td> <?= $data['DELETE']; ?> </td>
-					<td> <a href="<?= base_url('kewenangan/create') ?>">Create</a></td>
-					<td> <a href="<?= base_url('kewenangan/update') ?>">Update</a> </td>
-					<td> <a href="<?= base_url('kewenangan/delete') ?>">Delete</a> </td>
+					<td> <button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button>
+						<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticBackdropLabel">Entri Data Kewenangan</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<form action="<?= base_url('kewenangan/createAct') ?>" method="post" enctype="multipart/form-data">
+										<div class="modal-body">
+											<div class=" form-group">
+												<label for="GRUP_ID">GRUP ID</label>
+												<input type="text" class="form-control form-control-user" id="GRUP_ID" name="GRUP_ID" placeholder="Masukkan nama menu.">
+											</div>
+											<div class=" form-group">
+												<label for="MENU_ID">Link Menu</label>
+												<input type="text" class="form-control form-control-user" id="MENU_LINK" name="MENU_LINK" placeholder="Masukkan link menu.">
+											</div>
+											<div class=" form-group">
+												<label for="MENU_DISKRIPSI">Deskripsi Menu</label>
+												<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSI" placeholder="Masukkan deskripsi menu.">
+											</div>
+											<div class=" form-group">
+												<label for="MENU_STATUS">Status Menu</label>
+												<input type="text" maxlength="1" class="form-control form-control-user" id="MENU_STATUS" name="MENU_STATUS" placeholder="Masukkan status menu.">
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+											<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					<td> <button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update<?= $data['MENU_ID']; ?>">Update</button>
+						<div class="modal fade" id="update<?= $data['MENU_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticBackdropLabel">Edit Data Kewenangan</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<form action="<?= base_url('kewenangan/updateAct') ?>" method="post" enctype="multipart/form-data">
+										<div class="modal-body">
+											<div class=" form-group">
+												<label for="MENU_NAMA">Nama Menu</label>
+												<input type="text" class="form-control form-control-user" id="MENU_NAMA" name="MENU_NAMA" placeholder="Masukkan nama menu." value="<?= $data['MENU_NAMA']; ?>">
+											</div>
+											<div class=" form-group">
+												<label for="MENU_LINK">Link Menu</label>
+												<input type="text" class="form-control form-control-user" id="MENU_LINK" name="MENU_LINK" placeholder="Masukkan link menu." value="<?= $data['MENU_LINK']; ?>">
+											</div>
+											<div class=" form-group">
+												<label for="MENU_DISKRIPSI">Deskripsi Menu</label>
+												<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSI" placeholder="Masukkan deskripsi menu." value="<?= $data['MENU_DISKRIPSI']; ?>">
+											</div>
+											<div class=" form-group">
+												<label for="MENU_STATUS">Status Menu</label>
+												<input type="text" maxlength="1" class="form-control form-control-user" id="MENU_STATUS" name="MENU_STATUS" placeholder="Masukkan status menu." value="<?= $data['MENU_DISKRIPSI']; ?>">
+											</div>
+										</div>
+										<div class="form-group">
+											<input type="hidden" class="form-control invisible" id="MENU_ID" name="MENU_ID" value="<?= $data['MENU_ID']; ?>">
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+											<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td><button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete<?= $data['MENU_ID']; ?>">Delete</button>
+						<div class="modal fade" id="delete<?= $data['MENU_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticBackdropLabel">Hapus Data Kewenangan</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<form action="<?= base_url('menu/deleteAct') ?>" method="post" enctype="multipart/form-data">
+										<div class="modal-body">
+											Anda yakin untuk menghapus data?
+										</div>
+										<div class="form-group">
+											<input type="hidden" class="form-control invisible" id="MENU_ID" name="MENU_ID" value="<?= $data['MENU_ID']; ?>">
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+											<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
 	</table>
+	<!-- Button trigger modal -->
 
 </body>
-
-</html>

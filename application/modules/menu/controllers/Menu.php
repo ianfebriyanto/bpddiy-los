@@ -11,8 +11,39 @@ class Menu extends MY_Controller
 	}
 	public function index()
 	{
+		$data['tittle'] = 'LOS';
 		$data['menu'] = $this->Menu_model->readData();
-		$this->load->view('templates/header');
+		$this->load->view('templates/header', $data);
 		$this->load->view('menu', $data);
+		$this->load->view('templates/footer');
+	}
+	public function createAct()
+	{
+		$data = [
+			"MENU_NAMA" => $this->input->post('MENU_NAMA'),
+			"MENU_LINK" => $this->input->post('MENU_LINK'),
+			"MENU_DISKRIPSI" => $this->input->post('MENU_DISKRIPSI'),
+			"MENU_STATUS" => $this->input->post('MENU_STATUS')
+		];
+		$this->Menu_model->createData($data);
+		redirect('menu');
+	}
+	public function updateAct()
+	{
+		$id = $this->input->post('MENU_ID');
+		$data = [
+			"MENU_NAMA" => $this->input->post('MENU_NAMA'),
+			"MENU_LINK" => $this->input->post('MENU_LINK'),
+			"MENU_DISKRIPSI" => $this->input->post('MENU_DISKRIPSI'),
+			"MENU_STATUS" => $this->input->post('MENU_STATUS')
+		];
+		$this->Menu_model->updateData($id, $data);
+		redirect('menu');
+	}
+	public function deleteAct()
+	{
+		$id = $this->input->post('MENU_ID');
+		$data['menu'] = $this->Menu_model->deleteData($id);
+		redirect('menu');
 	}
 }
