@@ -1,20 +1,20 @@
 <body>
 
-    <table class="responsive-table">
+    <table class="table table-hover">
         <thead>
             <tr>
-                <th>No</th>
-                <th>User ID</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Nama Lengkap</th>
-                <th>Email</th>
-                <th>Host</th>
-                <th>Date Create</th>
-                <th>Status</th>
-                <th>Create</th>
-                <th>Update</th>
-                <th>Delete</th>
+                <th scope="col">No</th>
+                <th scope="col">User ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">Password</th>
+                <th scope="col">Nama Lengkap</th>
+                <th scope="col">Email</th>
+                <th scope="col">Host</th>
+                <th scope="col">Date Create</th>
+                <th scope="col">Status</th>
+                <th scope="col">Create</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -31,10 +31,134 @@
                     <td> <?= $data['HOST']; ?> </td>
                     <td> <?= $data['DATE_CREATE']; ?> </td>
                     <td> <?= $data['STATUS']; ?> </td>
-                    <td> <a href="<?= base_url('user/create') ?>">Create</a></td>
-                    <td> <a href="<?= base_url('user/update') ?>">Update</a> </td>
-                    <td> <a href="<?= base_url('user/delete') ?>">Delete</a> </td>
-                </tr>
+                    <td> <button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button>
+                        <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Entri Data User</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="<?= base_url('user/createAct') ?>" method="post" enctype="multipart/form-data">
+                                        <div class="modal-body">
+                                            <div class=" form-user">
+                                                <label for="USERNAME">Username</label>
+                                                <input type="text" class="form-control form-control-user" id="USERNAME" name="USERNAME" placeholder="Masukkan nama Username.">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="PASSWORD">Password</label>
+                                                <input type="text" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password.">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="NAMA_LENGKAP">Nama Lengkap</label>
+                                                <input type="text" class="form-control form-control-user" id="NAMA_LENGKAP" name="NAMA_LENGKAP" placeholder="Masukkan Nama Lengkap.">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="EMAIL">Email</label>
+                                                <input type="text" class="form-control form-control-user" id="EMAIL" name="EMAIL" placeholder="Masukkan Email.">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="HOST">Host</label>
+                                                <input type="text" class="form-control form-control-user" id="HOST" name="HOST" placeholder="Masukkan Host.">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="DATE_CREATE">Date create</label>
+                                                <input type="text" class="form-control form-control-user" id="DATE_CREATE" name="DATE_CREATE" placeholder="Masukkan Date Create.">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="STATUS">Status</label>
+                                                <input type="text" class="form-control form-control-user" id="STATUS" name="STATUS" placeholder="Masukkan STATUS.">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <td> <button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update<?= $data['USER_ID']; ?>">Update</button>
+                        <div class="modal fade" id="update<?= $data['USER_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Edit Data User</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="<?= base_url('user/updateAct') ?>" method="post" enctype="multipart/form-data">
+                                        <div class="modal-body">
+                                            <div class=" form-user">
+                                                <label for="USERNAME">Username</label>
+                                                <input type="text" class="form-control form-control-user" id="USERNAME" name="USERNAME" placeholder="Masukkan Username." value="<?= $data['USERNAME']; ?>">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="PASSWORD">Password</label>
+                                                <input type="text" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password."value="<?= $data['PASSWORD']; ?>">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="NAMA_LENGKAP">Nama Lengkap</label>
+                                                <input type="text" class="form-control form-control-user" id="NAMA_LENGKAP" name="NAMA_LENGKAP" placeholder="Masukkan Nama Lengkap."value="<?= $data['NAMA_LENGKAP']; ?>">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="EMAIL">Email</label>
+                                                <input type="text" class="form-control form-control-user" id="EMAIL" name="EMAIL" placeholder="Masukkan Email."value="<?= $data['EMAIL']; ?>">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="HOST">Host</label>
+                                                <input type="text" class="form-control form-control-user" id="HOST" name="HOST" placeholder="Masukkan Host."value="<?= $data['HOST']; ?>">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="DATE_CREATE">Date create</label>
+                                                <input type="text" class="form-control form-control-user" id="DATE_CREATE" name="DATE_CREATE" placeholder="Masukkan Date Create."value="<?= $data['DATE_CREATE']; ?>">
+                                            </div>
+                                            <div class=" form-user">
+                                                <label for="STATUS">Status</label>
+                                                <input type="text" class="form-control form-control-user" id="STATUS" name="STATUS" placeholder="Masukkan STATUS."value="<?= $data['STATUS']; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-user">
+                                            <input type="hidden" class="form-control invisible" id="USER_ID" name="USER_ID" value="<?= $data['USER_ID']; ?>">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete<?= $data['USER_ID']; ?>">Delete</button>
+                        <div class="modal fade" id="delete<?= $data['USER_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="<?= base_url('user/deleteAct') ?>" method="post" enctype="multipart/form-data">
+                                        <div class="modal-body">
+                                            Anda yakin untuk menghapus data?
+                                        </div>
+                                        <div class="form-user">
+                                            <input type="hidden" class="form-control invisible" id="USER_ID" name="USER_ID" value="<?= $data['USER_ID']; ?>">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <tr
             <?php endforeach; ?>
         </tbody>
     </table>
