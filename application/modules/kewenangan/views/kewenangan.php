@@ -11,6 +11,7 @@
 			<th>Create</th>
 			<th>Update</th>
 			<th>Delete</th>
+
 		</tr>
 	</thead>
 	<tbody>
@@ -20,11 +21,23 @@
 			<tr>
 				<td> <?php echo $no++; ?> </td>
 				<td> <?= $data['KEWENANGAN_ID']; ?> </td>
-				<td> <?= $data['GRUP_ID']; ?> </td>
-				<td> <?= $data['MENU_ID']; ?> </td>
-				<td> <?= $data['CREATE']; ?> </td>
-				<td> <?= $data['UPDATE']; ?> </td>
-				<td> <?= $data['DELETE']; ?> </td>
+				<td> <?= $data['GRUP_NAMA']; ?> </td>
+				<td> <?= $data['MENU_NAMA']; ?> </td>
+				<td> <?php if ($data['CREATE'] == 1) {
+							echo '<i class="far fa-check-square fa-2x">';
+						} else {
+							echo '<i class="fas fa-ban fa-2x">';
+						} ?> </td>
+				<td> <?php if ($data['UPDATE'] == 1) {
+							echo '<i class="far fa-check-square fa-2x">';
+						} else {
+							echo '<i class="fas fa-ban fa-2x">';
+						} ?> </td>
+				<td> <?php if ($data['DELETE'] == 1) {
+							echo '<i class="far fa-check-square fa-2x">';
+						} else {
+							echo '<i class="fas fa-ban fa-2x">';
+						} ?> </td>
 				<td> <button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button>
 					<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
@@ -37,13 +50,21 @@
 								</div>
 								<form action="<?= base_url('kewenangan/createAct') ?>" method="post" enctype="multipart/form-data">
 									<div class="modal-body">
+										<label for="GRUP_ID">Nama Grup</label>
+										<select class="form-control" id="GRUP_ID" name="GRUP_ID">
+											<?php
+											foreach ($namaGrup as $data2) : ?>
+												<option value="<?= $data2['GRUP_ID']; ?>"><?= $data2['GRUP_NAMA']; ?> </option>
+											<?php endforeach; ?>
+										</select>
 										<div class="form-group">
-											<label for="GRUP_ID">GRUP ID</label>
-											<input type="text" class="form-control form-control-user" id="GRUP_ID" name="GRUP_ID" placeholder="Masukkan Grup ID.">
-										</div>
-										<div class="form-group">
-											<label for="MENU_ID">Menu ID</label>
-											<input type="text" class="form-control form-control-user" id="MENU_ID" name="MENU_ID" placeholder="Masukkan Menu ID.">
+											<label for="MENU_ID">Nama Menu</label>
+											<select class="form-control" id="MENU_ID" name="MENU_ID">
+												<?php
+												foreach ($namaMenu as $data3) : ?>
+													<option value="<?= $data3['MENU_ID']; ?>"><?= $data3['MENU_NAMA']; ?> </option>
+												<?php endforeach; ?>
+											</select>
 										</div>
 										<div class="form-group">
 											<label for="CREATE">Create</label>
@@ -97,12 +118,22 @@
 								<form action="<?= base_url('kewenangan/updateAct') ?>" method="post" enctype="multipart/form-data">
 									<div class="modal-body">
 										<div class="form-group">
-											<label for="GRUP_ID">GRUP ID</label>
-											<input type="text" class="form-control form-control-user" id="GRUP_ID" name="GRUP_ID" placeholder="Masukkan Grup ID. " value="<?= $data['GRUP_ID']; ?>">
+											<label for="GRUP_ID">Nama Grup</label>
+											<select class="form-control" id="GRUP_ID" name="GRUP_ID">
+												<?php
+												foreach ($namaGrup as $data2) : ?>
+													<option value="<?= $data2['GRUP_ID']; ?>"><?= $data2['GRUP_NAMA']; ?> </option>
+												<?php endforeach; ?>
+											</select>
 										</div>
 										<div class="form-group">
-											<label for="MENU_ID">Menu ID</label>
-											<input type="text" class="form-control form-control-user" id="MENU_ID" name="MENU_ID" placeholder="Masukkan Menu ID." value="<?= $data['MENU_ID']; ?>">
+											<label for="MENU_ID">Nama Menu</label>
+											<select class="form-control" id="MENU_ID" name="MENU_ID">
+												<?php
+												foreach ($namaMenu as $data3) : ?>
+													<option value="<?= $data3['MENU_ID']; ?>"><?= $data3['MENU_NAMA']; ?> </option>
+												<?php endforeach; ?>
+											</select>
 										</div>
 										<div class="form-group">
 											<label for="CREATE">Create</label>

@@ -4,13 +4,23 @@ class Kewenangan_model extends CI_Model
 {
     public function readData()
     {
-        return $this->db->get('TBL_KEWENANGAN')->result_array();
+        $this->db->select('*');
+        $this->db->from('TBL_KEWENANGAN');
+        $this->db->join('TBL_MENU', 'TBL_MENU.MENU_ID = TBL_KEWENANGAN.MENU_ID');
+        $this->db->join('TBL_GRUP', 'TBL_GRUP.GRUP_ID = TBL_KEWENANGAN.GRUP_ID');
+        return $this->db->get()->result_array();
     }
     public function readNamaMenu()
     {
-        $this->db->select('MENU_NAMA');
+        $this->db->select('MENU_NAMA, MENU_ID');
         $this->db->from('TBL_MENU');
-        return $query = $this->db->get()->result_array();
+        return $this->db->get()->result_array();
+    }
+    public function readNamaGrup()
+    {
+        $this->db->select('GRUP_NAMA, GRUP_ID');
+        $this->db->from('TBL_GRUP');
+        return $this->db->get()->result_array();
     }
     public function createData($data)
     {

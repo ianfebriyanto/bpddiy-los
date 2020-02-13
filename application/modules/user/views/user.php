@@ -28,7 +28,11 @@
                 <td> <?= $data['EMAIL']; ?> </td>
                 <td> <?= $data['HOST']; ?> </td>
                 <td> <?= $data['DATE_CREATE']; ?> </td>
-                <td> <?= $data['STATUS']; ?> </td>
+                <td> <?php if ($data['STATUS'] == 1) {
+                            echo '<i class="far fa-check-square fa-2x">';
+                        } else {
+                            echo '<i class="fas fa-ban fa-2x">';
+                        } ?> </td>
                 <td> <button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button>
                     <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
