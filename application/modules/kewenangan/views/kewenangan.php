@@ -6,9 +6,9 @@
 				<th>Kewenangan ID</th>
 				<th>Grup ID</th>
 				<th>Menu ID</th>
-				<th>Create</th>
-				<th>Update</th>
-				<th>Delete</th>
+				<th>Kewenangan Create</th>
+				<th>Kewenangan Update</th>
+				<th>Kewenangan Delete</th>
 				<th>Create</th>
 				<th>Update</th>
 				<th>Delete</th>
@@ -38,21 +38,25 @@
 									</div>
 									<form action="<?= base_url('kewenangan/createAct') ?>" method="post" enctype="multipart/form-data">
 										<div class="modal-body">
-											<div class=" form-group">
+											<div class="form-group">
 												<label for="GRUP_ID">GRUP ID</label>
-												<input type="text" class="form-control form-control-user" id="GRUP_ID" name="GRUP_ID" placeholder="Masukkan nama menu.">
+												<input type="text" class="form-control form-control-user" id="GRUP_ID" name="GRUP_ID" placeholder="Masukkan Grup ID.">
 											</div>
-											<div class=" form-group">
-												<label for="MENU_ID">Link Menu</label>
-												<input type="text" class="form-control form-control-user" id="MENU_LINK" name="MENU_LINK" placeholder="Masukkan link menu.">
+											<div class="form-group">
+												<label for="MENU_ID">Menu ID</label>
+												<input type="text" class="form-control form-control-user" id="MENU_ID" name="MENU_ID" placeholder="Masukkan Menu ID.">
 											</div>
-											<div class=" form-group">
-												<label for="MENU_DISKRIPSI">Deskripsi Menu</label>
-												<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSI" placeholder="Masukkan deskripsi menu.">
+											<div class="form-group">
+												<label for="CREATE">Kewenangan Create</label>
+												<input type="text" maxlength="1" class="form-control form-control-user" id="CREATE" name="CREATE" placeholder="Masukkan kewenangan create.">
 											</div>
-											<div class=" form-group">
-												<label for="MENU_STATUS">Status Menu</label>
-												<input type="text" maxlength="1" class="form-control form-control-user" id="MENU_STATUS" name="MENU_STATUS" placeholder="Masukkan status menu.">
+											<div class="form-group">
+												<label for="UPDATE">Kewenangann Update</label>
+												<input type="text" maxlength="1" class="form-control form-control-user" id="UPDATE" name="UPDATE" placeholder="Masukkan kewenangan update.">
+											</div>
+											<div class="form-group">
+												<label for="DELETE">Kewenangann Delete</label>
+												<input type="text" maxlength="1" class="form-control form-control-user" id="DELETE" name="DELETE" placeholder="Masukkan kewenangan delete.">
 											</div>
 										</div>
 										<div class="modal-footer">
@@ -73,27 +77,31 @@
 											<span aria-hidden="true">&times;</span>
 										</button>
 									</div>
-									<form action="<?= base_url('kewenangan/updateAct') ?>" method="post" enctype="multipart/form-data">
+									<form action="<?= base_url('kewenangan/createAct') ?>" method="post" enctype="multipart/form-data">
 										<div class="modal-body">
-											<div class=" form-group">
-												<label for="MENU_NAMA">Nama Menu</label>
-												<input type="text" class="form-control form-control-user" id="MENU_NAMA" name="MENU_NAMA" placeholder="Masukkan nama menu." value="<?= $data['MENU_NAMA']; ?>">
+											<div class="form-group">
+												<label for="GRUP_ID">GRUP ID</label>
+												<input type="text" class="form-control form-control-user" id="GRUP_ID" name="GRUP_ID" placeholder="Masukkan Grup ID. " value="<?= $data['GRUP_ID']; ?>">
 											</div>
-											<div class=" form-group">
-												<label for="MENU_LINK">Link Menu</label>
-												<input type="text" class="form-control form-control-user" id="MENU_LINK" name="MENU_LINK" placeholder="Masukkan link menu." value="<?= $data['MENU_LINK']; ?>">
+											<div class="form-group">
+												<label for="MENU_ID">Menu ID</label>
+												<input type="text" class="form-control form-control-user" id="MENU_ID" name="MENU_ID" placeholder="Masukkan Menu ID."value="<?= $data['MENU_ID']; ?>">
 											</div>
-											<div class=" form-group">
-												<label for="MENU_DISKRIPSI">Deskripsi Menu</label>
-												<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSI" placeholder="Masukkan deskripsi menu." value="<?= $data['MENU_DISKRIPSI']; ?>">
+											<div class="form-group">
+												<label for="CREATE">Kewenangan Create</label>
+												<input type="text" maxlength="1" class="form-control form-control-user" id="CREATE" name="CREATE" placeholder="Masukkan kewenangan create."value="<?= $data['CREATE']; ?>">
 											</div>
-											<div class=" form-group">
-												<label for="MENU_STATUS">Status Menu</label>
-												<input type="text" maxlength="1" class="form-control form-control-user" id="MENU_STATUS" name="MENU_STATUS" placeholder="Masukkan status menu." value="<?= $data['MENU_DISKRIPSI']; ?>">
+											<div class="form-group">
+												<label for="UPDATE">Kewenangann Update</label>
+												<input type="text" maxlength="1" class="form-control form-control-user" id="UPDATE" name="UPDATE" placeholder="Masukkan kewenangan update."value="<?= $data['UPDATE']; ?>">
 											</div>
-										</div>
-										<div class="form-group">
-											<input type="hidden" class="form-control invisible" id="MENU_ID" name="MENU_ID" value="<?= $data['MENU_ID']; ?>">
+											<div class="form-group">
+												<label for="DELETE">Kewenangann Delete</label>
+												<input type="text" maxlength="1" class="form-control form-control-user" id="DELETE" name="DELETE" placeholder="Masukkan kewenangan delete."value="<?= $data['DELETE']; ?>">
+											</div>
+											<div class="form-group">
+                                            	<input type="hidden" class="form-control invisible" id="KEWENANGAN_ID" name="KEWENANGAN_ID" value="<?= $data['KEWENANGAN_ID']; ?>">
+                                        	</div>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

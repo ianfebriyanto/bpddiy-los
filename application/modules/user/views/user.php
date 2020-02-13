@@ -43,31 +43,23 @@
                                     </div>
                                     <form action="<?= base_url('user/createAct') ?>" method="post" enctype="multipart/form-data">
                                         <div class="modal-body">
-                                            <div class=" form-user">
+                                            <div class="form-group">
                                                 <label for="USERNAME">Username</label>
                                                 <input type="text" class="form-control form-control-user" id="USERNAME" name="USERNAME" placeholder="Masukkan nama Username.">
                                             </div>
-                                            <div class=" form-user">
+                                            <div class="form-group">
                                                 <label for="PASSWORD">Password</label>
                                                 <input type="text" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password.">
                                             </div>
-                                            <div class=" form-user">
+                                            <div class="form-group">
                                                 <label for="NAMA_LENGKAP">Nama Lengkap</label>
                                                 <input type="text" class="form-control form-control-user" id="NAMA_LENGKAP" name="NAMA_LENGKAP" placeholder="Masukkan Nama Lengkap.">
                                             </div>
-                                            <div class=" form-user">
+                                            <div class="form-group">
                                                 <label for="EMAIL">Email</label>
                                                 <input type="text" class="form-control form-control-user" id="EMAIL" name="EMAIL" placeholder="Masukkan Email.">
                                             </div>
-                                            <div class=" form-user">
-                                                <label for="HOST">Host</label>
-                                                <input type="text" class="form-control form-control-user" id="HOST" name="HOST" placeholder="Masukkan Host.">
-                                            </div>
-                                            <div class=" form-user">
-                                                <label for="DATE_CREATE">Date create</label>
-                                                <input type="text" class="form-control form-control-user" id="DATE_CREATE" name="DATE_CREATE" placeholder="Masukkan Date Create.">
-                                            </div>
-                                            <div class=" form-user">
+                                            <div class="form-group">
                                                 <label for="STATUS">Status</label>
                                                 <input type="text" class="form-control form-control-user" id="STATUS" name="STATUS" placeholder="Masukkan STATUS.">
                                             </div>
@@ -92,37 +84,29 @@
                                     </div>
                                     <form action="<?= base_url('user/updateAct') ?>" method="post" enctype="multipart/form-data">
                                         <div class="modal-body">
-                                            <div class=" form-user">
+                                            <div class="form-group">
                                                 <label for="USERNAME">Username</label>
                                                 <input type="text" class="form-control form-control-user" id="USERNAME" name="USERNAME" placeholder="Masukkan Username." value="<?= $data['USERNAME']; ?>">
                                             </div>
-                                            <div class=" form-user">
+                                            <div class="form-group">
                                                 <label for="PASSWORD">Password</label>
-                                                <input type="text" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password."value="<?= $data['PASSWORD']; ?>">
+                                                <input type="text" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password." value="<?= $data['PASSWORD']; ?>">
                                             </div>
-                                            <div class=" form-user">
+                                            <div class="form-group">
                                                 <label for="NAMA_LENGKAP">Nama Lengkap</label>
-                                                <input type="text" class="form-control form-control-user" id="NAMA_LENGKAP" name="NAMA_LENGKAP" placeholder="Masukkan Nama Lengkap."value="<?= $data['NAMA_LENGKAP']; ?>">
+                                                <input type="text" class="form-control form-control-user" id="NAMA_LENGKAP" name="NAMA_LENGKAP" placeholder="Masukkan Nama Lengkap." value="<?= $data['NAMA_LENGKAP']; ?>">
                                             </div>
-                                            <div class=" form-user">
+                                            <div class="form-group">
                                                 <label for="EMAIL">Email</label>
-                                                <input type="text" class="form-control form-control-user" id="EMAIL" name="EMAIL" placeholder="Masukkan Email."value="<?= $data['EMAIL']; ?>">
+                                                <input type="text" class="form-control form-control-user" id="EMAIL" name="EMAIL" placeholder="Masukkan Email." value="<?= $data['EMAIL']; ?>">
                                             </div>
-                                            <div class=" form-user">
-                                                <label for="HOST">Host</label>
-                                                <input type="text" class="form-control form-control-user" id="HOST" name="HOST" placeholder="Masukkan Host."value="<?= $data['HOST']; ?>">
-                                            </div>
-                                            <div class=" form-user">
-                                                <label for="DATE_CREATE">Date create</label>
-                                                <input type="text" class="form-control form-control-user" id="DATE_CREATE" name="DATE_CREATE" placeholder="Masukkan Date Create."value="<?= $data['DATE_CREATE']; ?>">
-                                            </div>
-                                            <div class=" form-user">
+                                            <div class="form-group">
                                                 <label for="STATUS">Status</label>
-                                                <input type="text" class="form-control form-control-user" id="STATUS" name="STATUS" placeholder="Masukkan STATUS."value="<?= $data['STATUS']; ?>">
+                                                <input type="text" class="form-control form-control-user" id="STATUS" name="STATUS" placeholder="Masukkan STATUS." value="<?= $data['STATUS']; ?>">
                                             </div>
-                                        </div>
-                                        <div class="form-user">
-                                            <input type="hidden" class="form-control invisible" id="USER_ID" name="USER_ID" value="<?= $data['USER_ID']; ?>">
+                                            <div class="form-group">
+                                                <input type="hidden" class="form-control invisible" id="USER_ID" name="USER_ID" value="<?= $data['USER_ID']; ?>">
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -132,13 +116,12 @@
                                 </div>
                             </div>
                         </div>
-                    </td>
                     <td><button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete<?= $data['USER_ID']; ?>">Delete</button>
                         <div class="modal fade" id="delete<?= $data['USER_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="staticBackdropLabel">Delete Data User</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -158,11 +141,11 @@
                                 </div>
                             </div>
                         </div>
-                    <tr
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+    <!-- Button trigger modal -->
 
 </body>
-
-</html>

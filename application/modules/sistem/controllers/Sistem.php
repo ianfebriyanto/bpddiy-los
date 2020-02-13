@@ -12,30 +12,32 @@ class Sistem extends MY_Controller
 	}
 	public function index()
 	{
+		$data['tittle'] = 'LOS';
 		$data['sistem'] = $this->Sistem_model->readData();
-		$this->load->view('templates/header',$data);
+		$this->load->view('templates/header', $data);
 		$this->load->view('sistem', $data);
 	}
 	public function createAct()
 	{
+		$id = $this->input->post('SISTEM_ID');
 		$data = [
 			"SISTEM_NAMA" => $this->input->post('SISTEM_NAMA'),
 			"SISTEM_DISKRIPSI" => $this->input->post('SISTEM_DISKRIPSI'),
-			"SISTEM_VERSI" =>$this->input->post('SISTEM_VERSI')
-		];
+			"SISTEM_VERSI" => $this->input->post('SISTEM_VERSI')
 
+		];
 		$this->Sistem_model->createData($data);
-		redirect('sistem');
+		redirect('Sistem');
 	}
 
-		public function updateAct()
+	public function updateAct()
 	{
 		$id = $this->input->post('SISTEM_ID');
 		$data = [
 			"SISTEM_NAMA" => $this->input->post('SISTEM_NAMA'),
-			"SISTEM_DiSKRIPSI" => $this->input->post('SISTEM_DiSKRIPSI'),
-			"SISTEM_VERSI" =>$this->input->post('SISTEM_VERSI')
-		
+			"SISTEM_DISKRIPSI" => $this->input->post('SISTEM_DISKRIPSI'),
+			"SISTEM_VERSI" => $this->input->post('SISTEM_VERSI')
+
 		];
 		$this->Sistem_model->updateData($id, $data);
 		redirect('Sistem');

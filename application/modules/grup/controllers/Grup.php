@@ -22,7 +22,8 @@ class Grup extends MY_Controller
 	{
 		$data = [
 			"GRUP_NAMA" => $this->input->post('GRUP_NAMA'),
-			"GRUP_DISKRIPSI" => $this->input->post('GRUP_DISKRIPSI')
+			"GRUP_DISKRIPSI" => $this->input->post('GRUP_DISKRIPSI'),
+			"USER_ID" => $this->input->post('USER_ID')
 		];
 		$this->Grup_model->createData($data);
 		redirect('grup');
@@ -32,7 +33,8 @@ class Grup extends MY_Controller
 		$id = $this->input->post('GRUP_ID');
 		$data = [
 			"GRUP_NAMA" => $this->input->post('GRUP_NAMA'),
-			"GRUP_DISKRIPSI" => $this->input->post('GRUP_DISKRIPSI')
+			"GRUP_DISKRIPSI" => $this->input->post('GRUP_DISKRIPSI'),
+			"USER_ID" => $this->input->post('USER_ID')
 		];
 		$this->Grup_model->updateData($id, $data);
 		redirect('grup');

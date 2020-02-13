@@ -7,6 +7,7 @@
 				<th scope="col">Grup ID</th>
 				<th scope="col">Grup Nama</th>
 				<th scope="col">Grup Diskripsi</th>
+				<th scope="col">User ID</th>
 				<th scope="col">Create</th>
 				<th scope="col">Update</th>
 				<th scope="col">Delete</th>
@@ -21,6 +22,7 @@
 					<td> <?= $data['GRUP_ID']; ?> </td>
 					<td> <?= $data['GRUP_NAMA']; ?> </td>
 					<td> <?= $data['GRUP_DISKRIPSI']; ?> </td>
+					<td> <?= $data['USER_ID']; ?> </td>
 					<td> <button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button>
 						<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
@@ -40,6 +42,10 @@
 											<div class=" form-group">
 												<label for="GRUP_DISKRIPSI">Deskripsi Grup</label>
 												<input type="text" class="form-control form-control-user" id="GRUP_DISKRIPSI" name="GRUP_DISKRIPSI" placeholder="Masukkan deskripsi grup.">
+											</div>
+											<div class=" form-group">
+												<label for="GRUP_DISKRIPSI">User ID</label>
+												<input type="text" class="form-control form-control-user" id="USER_ID" name="USER_ID" placeholder="Masukkan user id.">
 											</div>
 										</div>
 										<div class="modal-footer">
@@ -62,13 +68,17 @@
 									</div>
 									<form action="<?= base_url('grup/updateAct') ?>" method="post" enctype="multipart/form-data">
 										<div class="modal-body">
-											<div class=" form-group">
+											<div class="form-group">
 												<label for="GRUP_NAMA">Nama Grup</label>
 												<input type="text" class="form-control form-control-user" id="GRUP_NAMA" name="GRUP_NAMA" placeholder="Masukkan nama grup." value="<?= $data['GRUP_NAMA']; ?>">
 											</div>
-											<div class=" form-group">
+											<div class="form-group">
 												<label for="GRUP_DISKRIPSI">Deskripsi Grup</label>
 												<input type="text" class="form-control form-control-user" id="GRUP_DISKRIPSI" name="GRUP_DISKRIPSI" placeholder="Masukkan deskripsi grup." value="<?= $data['GRUP_DISKRIPSI']; ?>">
+											</div>
+											<div class=" form-group">
+												<label for="GRUP_DISKRIPSI">User ID</label>
+												<input type="text" class="form-control form-control-user" id="USER_ID" name="USER_ID" placeholder="Masukkan user id." value="<?= $data['USER_ID']; ?>">
 											</div>
 										</div>
 										<div class="form-group">
@@ -88,7 +98,7 @@
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+										<h5 class="modal-title" id="staticBackdropLabel">Delete Data Grup</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
