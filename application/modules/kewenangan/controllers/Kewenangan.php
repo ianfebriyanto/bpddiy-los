@@ -15,6 +15,7 @@ class Kewenangan extends MY_Controller
 		$data['kewenangan'] = $this->Kewenangan_model->readData();
 		$data['namaMenu'] = $this->Kewenangan_model->readNamaMenu();
 		$this->load->view('templates/header', $data);
+		$this->load->view('templates/navbar', $data);
 		$this->load->view('kewenangan', $data);
 		$this->load->view('templates/footer');
 	}

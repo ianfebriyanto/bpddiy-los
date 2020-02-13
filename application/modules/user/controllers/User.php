@@ -16,7 +16,9 @@ class User extends MY_Controller
 		$data['tittle'] = 'LOS';
 		$data['user'] = $this->User_model->readData();
 		$this->load->view('templates/header', $data);
+		$this->load->view('templates/navbar', $data);
 		$this->load->view('user', $data);
+		$this->load->view('templates/footer');
 	}
 	public function createAct()
 	{
@@ -47,7 +49,7 @@ class User extends MY_Controller
 			"STATUS" => $this->input->post('STATUS'),
 		];
 		$this->User_model->updateData($id, $data);
-		redirect('USER');
+		redirect('user');
 	}
 	public function deleteAct()
 	{

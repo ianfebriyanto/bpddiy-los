@@ -14,6 +14,7 @@ class Menu extends MY_Controller
 		$data['tittle'] = 'LOS';
 		$data['menu'] = $this->Menu_model->readData();
 		$this->load->view('templates/header', $data);
+		$this->load->view('templates/navbar', $data);
 		$this->load->view('menu', $data);
 		$this->load->view('templates/footer');
 	}

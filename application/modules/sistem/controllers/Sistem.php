@@ -15,7 +15,9 @@ class Sistem extends MY_Controller
 		$data['tittle'] = 'LOS';
 		$data['sistem'] = $this->Sistem_model->readData();
 		$this->load->view('templates/header', $data);
+		$this->load->view('templates/navbar', $data);
 		$this->load->view('sistem', $data);
+		$this->load->view('templates/footer');
 	}
 	public function createAct()
 	{
@@ -27,7 +29,7 @@ class Sistem extends MY_Controller
 
 		];
 		$this->Sistem_model->createData($data);
-		redirect('Sistem');
+		redirect('sistem');
 	}
 
 	public function updateAct()
@@ -40,12 +42,12 @@ class Sistem extends MY_Controller
 
 		];
 		$this->Sistem_model->updateData($id, $data);
-		redirect('Sistem');
+		redirect('sistem');
 	}
 	public function deleteAct()
 	{
 		$id = $this->input->post('SISTEM_ID');
 		$data['Sistem'] = $this->Sistem_model->deleteData($id);
-		redirect('Sistem');
+		redirect('sistem');
 	}
 }
