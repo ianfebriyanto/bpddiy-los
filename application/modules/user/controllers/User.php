@@ -54,7 +54,7 @@ class User extends MY_Controller
 	public function deleteAct()
 	{
 		$id = $this->input->post('USER_ID');
-		$data['grup'] = $this->User_model->deleteData($id);
-		redirect('grup');
+		$data['user'] = $this->User_model->deleteData($id);
+		redirect('user');
 	}
 }

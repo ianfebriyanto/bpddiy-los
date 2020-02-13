@@ -46,16 +46,34 @@
 											<input type="text" class="form-control form-control-user" id="MENU_ID" name="MENU_ID" placeholder="Masukkan Menu ID.">
 										</div>
 										<div class="form-group">
-											<label for="CREATE">Kewenangan Create</label>
-											<input type="text" maxlength="1" class="form-control form-control-user" id="CREATE" name="CREATE" placeholder="Masukkan kewenangan create.">
+											<label for="CREATE">Create</label>
+											<div class="form-check">
+												<input class="form-check-input" type="hidden" id="CREATE" name="CREATE" value="0">
+												<input class="form-check-input" type="checkbox" id="CREATE" name="CREATE" value="1">
+												<label class="form-check-label" for="gridCheck">
+													Active
+												</label>
+											</div>
 										</div>
 										<div class="form-group">
-											<label for="UPDATE">Kewenangann Update</label>
-											<input type="text" maxlength="1" class="form-control form-control-user" id="UPDATE" name="UPDATE" placeholder="Masukkan kewenangan update.">
+											<label for="UPDATE">Update</label>
+											<div class="form-check">
+												<input class="form-check-input" type="hidden" id="UPDATE" name="UPDATE" value="0">
+												<input class="form-check-input" type="checkbox" id="UPDATE" name="UPDATE" value="1">
+												<label class="form-check-label" for="gridCheck">
+													Active
+												</label>
+											</div>
 										</div>
 										<div class="form-group">
-											<label for="DELETE">Kewenangann Delete</label>
-											<input type="text" maxlength="1" class="form-control form-control-user" id="DELETE" name="DELETE" placeholder="Masukkan kewenangan delete.">
+											<label for="DELETE">Delete</label>
+											<div class="form-check">
+												<input class="form-check-input" type="hidden" id="DELETE" name="DELETE" value="0">
+												<input class="form-check-input" type="checkbox" id="DELETE" name="DELETE" value="1">
+												<label class="form-check-label" for="gridCheck">
+													Active
+												</label>
+											</div>
 										</div>
 									</div>
 									<div class="modal-footer">
@@ -66,8 +84,8 @@
 							</div>
 						</div>
 					</div>
-				<td> <button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update<?= $data['MENU_ID']; ?>">Update</button>
-					<div class="modal fade" id="update<?= $data['MENU_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<td> <button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update<?= $data['KEWENANGAN_ID']; ?>">Update</button>
+					<div class="modal fade" id="update<?= $data['KEWENANGAN_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -76,7 +94,7 @@
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
-								<form action="<?= base_url('kewenangan/createAct') ?>" method="post" enctype="multipart/form-data">
+								<form action="<?= base_url('kewenangan/updateAct') ?>" method="post" enctype="multipart/form-data">
 									<div class="modal-body">
 										<div class="form-group">
 											<label for="GRUP_ID">GRUP ID</label>
@@ -87,16 +105,46 @@
 											<input type="text" class="form-control form-control-user" id="MENU_ID" name="MENU_ID" placeholder="Masukkan Menu ID." value="<?= $data['MENU_ID']; ?>">
 										</div>
 										<div class="form-group">
-											<label for="CREATE">Kewenangan Create</label>
-											<input type="text" maxlength="1" class="form-control form-control-user" id="CREATE" name="CREATE" placeholder="Masukkan kewenangan create." value="<?= $data['CREATE']; ?>">
+											<label for="CREATE">Create</label>
+											<div class="form-check">
+												<input class="form-check-input" type="hidden" id="CREATE" name="CREATE" value="0" <?php if ($data['CREATE'] == 0) {
+																																		echo "";
+																																	} ?>>
+												<input class="form-check-input" type="checkbox" id="CREATE" name="CREATE" value="1" <?php if ($data['CREATE'] == 1) {
+																																		echo "checked";
+																																	} ?>>
+												<label class="form-check-label" for="gridCheck">
+													Active
+												</label>
+											</div>
 										</div>
 										<div class="form-group">
-											<label for="UPDATE">Kewenangann Update</label>
-											<input type="text" maxlength="1" class="form-control form-control-user" id="UPDATE" name="UPDATE" placeholder="Masukkan kewenangan update." value="<?= $data['UPDATE']; ?>">
+											<label for="UPDATE">Update</label>
+											<div class="form-check">
+												<input class="form-check-input" type="hidden" id="UPDATE" name="UPDATE" value="0" <?php if ($data['UPDATE'] == 0) {
+																																		echo "";
+																																	} ?>>
+												<input class="form-check-input" type="checkbox" id="UPDATE" name="UPDATE" value="1" <?php if ($data['UPDATE'] == 1) {
+																																		echo "checked";
+																																	} ?>>
+												<label class="form-check-label" for="gridCheck">
+													Active
+												</label>
+											</div>
 										</div>
 										<div class="form-group">
-											<label for="DELETE">Kewenangann Delete</label>
-											<input type="text" maxlength="1" class="form-control form-control-user" id="DELETE" name="DELETE" placeholder="Masukkan kewenangan delete." value="<?= $data['DELETE']; ?>">
+											<label for="DELETE">Delete</label>
+											<div class="form-check">
+												<input class="form-check-input" type="hidden" id="DELETE" name="DELETE" value="0" <?php if ($data['DELETE'] == 0) {
+																																		echo "";
+																																	} ?>>
+												<input class="form-check-input" type="checkbox" id="DELETE" name="DELETE" value="1" <?php if ($data['DELETE'] == 1) {
+																																		echo "checked";
+																																	} ?>>
+												<label class="form-check-label" for="gridCheck">
+													Active
+												</label>
+											</div>
 										</div>
 										<div class="form-group">
 											<input type="hidden" class="form-control invisible" id="KEWENANGAN_ID" name="KEWENANGAN_ID" value="<?= $data['KEWENANGAN_ID']; ?>">
@@ -111,8 +159,8 @@
 						</div>
 					</div>
 				</td>
-				<td><button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete<?= $data['MENU_ID']; ?>">Delete</button>
-					<div class="modal fade" id="delete<?= $data['MENU_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<td><button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete<?= $data['KEWENANGAN_ID']; ?>">Delete</button>
+					<div class="modal fade" id="delete<?= $data['KEWENANGAN_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -121,12 +169,12 @@
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
-								<form action="<?= base_url('menu/deleteAct') ?>" method="post" enctype="multipart/form-data">
+								<form action="<?= base_url('kewenangan/deleteAct') ?>" method="post" enctype="multipart/form-data">
 									<div class="modal-body">
 										Anda yakin untuk menghapus data?
 									</div>
 									<div class="form-group">
-										<input type="hidden" class="form-control invisible" id="MENU_ID" name="MENU_ID" value="<?= $data['MENU_ID']; ?>">
+										<input type="hidden" class="form-control invisible" id="KEWENANGAN_ID" name="KEWENANGAN_ID" value="<?= $data['KEWENANGAN_ID']; ?>">
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

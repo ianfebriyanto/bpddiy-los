@@ -59,13 +59,18 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="STATUS">Status</label>
-                                            <input type="text" class="form-control form-control-user" id="STATUS" name="STATUS" placeholder="Masukkan STATUS.">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="hidden" id="STATUS" name="STATUS" value="0">
+                                                <input class="form-check-input" type="checkbox" id="STATUS" name="STATUS" value="1">
+                                                <label class="form-check-label" for="gridCheck">
+                                                    Active
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                        <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
-                                    </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
+                                        </div>
                                 </form>
                             </div>
                         </div>
@@ -100,7 +105,17 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="STATUS">Status</label>
-                                            <input type="text" class="form-control form-control-user" id="STATUS" name="STATUS" placeholder="Masukkan STATUS." value="<?= $data['STATUS']; ?>">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="hidden" id="STATUS" name="STATUS" value="0" <?php if ($data['STATUS'] == 0) {
+                                                                                                                                        echo "";
+                                                                                                                                    } ?>>
+                                                <input class="form-check-input" type="checkbox" id="STATUS" name="STATUS" value="1" <?php if ($data['STATUS'] == 1) {
+                                                                                                                                        echo "checked";
+                                                                                                                                    } ?>>
+                                                <label class="form-check-label" for="gridCheck">
+                                                    Active
+                                                </label>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <input type="hidden" class="form-control invisible" id="USER_ID" name="USER_ID" value="<?= $data['USER_ID']; ?>">
