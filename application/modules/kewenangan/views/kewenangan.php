@@ -2,9 +2,8 @@
 	<thead>
 		<tr>
 			<th>No</th>
-			<th>Kewenangan ID</th>
-			<th>Grup ID</th>
-			<th>Menu ID</th>
+			<th>Nama Grup</th>
+			<th>Nama Menu</th>
 			<th>Kewenangan Create</th>
 			<th>Kewenangan Update</th>
 			<th>Kewenangan Delete</th>
@@ -20,7 +19,6 @@
 		foreach ($kewenangan as $data) : ?>
 			<tr>
 				<td> <?php echo $no++; ?> </td>
-				<td> <?= $data['KEWENANGAN_ID']; ?> </td>
 				<td> <?= $data['GRUP_NAMA']; ?> </td>
 				<td> <?= $data['MENU_NAMA']; ?> </td>
 				<td> <?php if ($data['CREATE'] == 1) {
@@ -50,13 +48,15 @@
 								</div>
 								<form action="<?= base_url('kewenangan/createAct') ?>" method="post" enctype="multipart/form-data">
 									<div class="modal-body">
-										<label for="GRUP_ID">Nama Grup</label>
-										<select class="form-control" id="GRUP_ID" name="GRUP_ID">
-											<?php
-											foreach ($namaGrup as $data2) : ?>
-												<option value="<?= $data2['GRUP_ID']; ?>"><?= $data2['GRUP_NAMA']; ?> </option>
-											<?php endforeach; ?>
-										</select>
+										<div class="form-group">
+											<label for="GRUP_ID">Nama Grup</label>
+											<select class="form-control" id="GRUP_ID" name="GRUP_ID">
+												<?php
+												foreach ($namaGrup as $data2) : ?>
+													<option value="<?= $data2['GRUP_ID']; ?>"><?= $data2['GRUP_NAMA']; ?> </option>
+												<?php endforeach; ?>
+											</select>
+										</div>
 										<div class="form-group">
 											<label for="MENU_ID">Nama Menu</label>
 											<select class="form-control" id="MENU_ID" name="MENU_ID">
@@ -101,6 +101,7 @@
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
 										<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
 									</div>
+									<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 								</form>
 							</div>
 						</div>
@@ -185,6 +186,7 @@
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
 										<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
 									</div>
+									<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 								</form>
 							</div>
 						</div>
@@ -211,6 +213,7 @@
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
 										<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
 									</div>
+									<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 								</form>
 							</div>
 						</div>

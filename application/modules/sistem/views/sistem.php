@@ -2,7 +2,6 @@
     <thead>
         <tr>
             <th scope="col">No</th>
-            <th scope="col">Sistem ID</th>
             <th scope="col">Sistem Nama</th>
             <th scope="col">Sistem Diskripsi</th>
             <th scope="col">Sistem Versi</th>
@@ -17,7 +16,6 @@
         foreach ($sistem as $data) : ?>
             <tr>
                 <td> <?php echo $no++; ?> </td>
-                <td> <?= $data['SISTEM_ID']; ?> </td>
                 <td> <?= $data['SISTEM_NAMA']; ?> </td>
                 <td> <?= $data['SISTEM_DISKRIPSI']; ?> </td>
                 <td> <?= $data['SISTEM_VERSI']; ?> </td>
@@ -50,6 +48,7 @@
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                                         <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
                                     </div>
+                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 </form>
                             </div>
                         </div>
@@ -86,6 +85,7 @@
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                                         <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
                                     </div>
+                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 </form>
                             </div>
                         </div>
@@ -111,6 +111,7 @@
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                                         <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
                                     </div>
+                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 </form>
                             </div>
                         </div>

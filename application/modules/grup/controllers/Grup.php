@@ -14,6 +14,7 @@ class Grup extends MY_Controller
 	{
 		$data['tittle'] = 'LOS';
 		$data['grup'] = $this->Grup_model->readData();
+		$data['username'] = $this->Grup_model->readUsername();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('grup', $data);

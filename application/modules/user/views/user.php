@@ -2,7 +2,6 @@
     <thead>
         <tr>
             <th scope="col">No</th>
-            <th scope="col">User ID</th>
             <th scope="col">Username</th>
             <th scope="col">Password</th>
             <th scope="col">Nama Lengkap</th>
@@ -21,7 +20,6 @@
         foreach ($user as $data) : ?>
             <tr>
                 <td> <?php echo $no++; ?> </td>
-                <td> <?= $data['USER_ID']; ?> </td>
                 <td> <?= $data['USERNAME']; ?> </td>
                 <td> <?= $data['PASSWORD']; ?> </td>
                 <td> <?= $data['NAMA_LENGKAP']; ?> </td>
@@ -51,7 +49,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="PASSWORD">Password</label>
-                                            <input type="text" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password.">
+                                            <input type="password" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password.">
                                         </div>
                                         <div class="form-group">
                                             <label for="NAMA_LENGKAP">Nama Lengkap</label>
@@ -75,6 +73,7 @@
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                                             <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
                                         </div>
+                                        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 </form>
                             </div>
                         </div>
@@ -97,7 +96,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="PASSWORD">Password</label>
-                                            <input type="text" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password." value="<?= $data['PASSWORD']; ?>">
+                                            <input type="password" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password." value="<?= $data['PASSWORD']; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="NAMA_LENGKAP">Nama Lengkap</label>
@@ -129,6 +128,7 @@
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                                         <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
                                     </div>
+                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 </form>
                             </div>
                         </div>
@@ -154,6 +154,7 @@
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                                         <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
                                     </div>
+                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 </form>
                             </div>
                         </div>
