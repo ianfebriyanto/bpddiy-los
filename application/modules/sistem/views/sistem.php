@@ -5,9 +5,9 @@
             <th scope="col">Sistem Nama</th>
             <th scope="col">Sistem Diskripsi</th>
             <th scope="col">Sistem Versi</th>
-            <th>Create</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th></th>
+            <th>Aksi</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>

@@ -7,13 +7,6 @@ class Grup_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('TBL_GRUP');
-        $this->db->join('TBL_USER', 'TBL_USER.USER_ID = TBL_GRUP.USER_ID');
-        return $this->db->get()->result_array();
-    }
-    public function readUsername()
-    {
-        $this->db->select('USERNAME, USER_ID');
-        $this->db->from('TBL_USER');
         return $this->db->get()->result_array();
     }
     public function createData($data)

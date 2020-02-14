@@ -3,15 +3,15 @@
         <tr>
             <th scope="col">No</th>
             <th scope="col">Username</th>
-            <th scope="col">Password</th>
             <th scope="col">Nama Lengkap</th>
             <th scope="col">Email</th>
             <th scope="col">Host</th>
             <th scope="col">Date Create</th>
+            <th scope="col">Nama Grup</th>
             <th scope="col">Status</th>
-            <th scope="col">Create</th>
-            <th scope="col">Update</th>
-            <th scope="col">Delete</th>
+            <th scope="col"></th>
+            <th scope="col">Aksi</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -21,11 +21,11 @@
             <tr>
                 <td> <?php echo $no++; ?> </td>
                 <td> <?= $data['USERNAME']; ?> </td>
-                <td> <?= $data['PASSWORD']; ?> </td>
                 <td> <?= $data['NAMA_LENGKAP']; ?> </td>
                 <td> <?= $data['EMAIL']; ?> </td>
                 <td> <?= $data['HOST']; ?> </td>
                 <td> <?= $data['DATE_CREATE']; ?> </td>
+                <td> <?= $data['GRUP_NAMA']; ?> </td>
                 <td> <?php if ($data['STATUS'] == 1) {
                             echo '<i class="far fa-check-square fa-2x">';
                         } else {
@@ -60,6 +60,15 @@
                                             <input type="text" class="form-control form-control-user" id="EMAIL" name="EMAIL" placeholder="Masukkan Email.">
                                         </div>
                                         <div class="form-group">
+                                            <label for="GRUP_ID">Level Grup</label>
+                                            <select class="form-control" id="GRUP_ID" name="GRUP_ID">
+                                                <?php
+                                                foreach ($namaGrup as $data2) : ?>
+                                                    <option value="<?= $data2['GRUP_ID']; ?>"><?= $data2['GRUP_NAMA']; ?> </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="STATUS">Status</label>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="hidden" id="STATUS" name="STATUS" value="0">
@@ -69,11 +78,12 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                            <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
-                                        </div>
-                                        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                        <button type="submit" class="btn btn-primary" value="upload">Simpan</button>
+                                    </div>
+                                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                 </form>
                             </div>
                         </div>
@@ -107,6 +117,17 @@
                                             <input type="text" class="form-control form-control-user" id="EMAIL" name="EMAIL" placeholder="Masukkan Email." value="<?= $data['EMAIL']; ?>">
                                         </div>
                                         <div class="form-group">
+                                            <label for="GRUP_ID">Level Grup</label>
+                                            <select class="form-control" id="GRUP_ID" name="GRUP_ID">
+                                                <?php
+                                                foreach ($namaGrup as $data2) : ?>
+                                                    <option value="<?= $data2['GRUP_ID']; ?>" <?php if ($data2['GRUP_NAMA'] == $data['GRUP_NAMA']) {
+                                                                                                    echo 'selected';
+                                                                                                } ?>><?= $data2['GRUP_NAMA']; ?> </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="STATUS">Status</label>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="hidden" id="STATUS" name="STATUS" value="0" <?php if ($data['STATUS'] == 0) {
@@ -119,6 +140,9 @@
                                                     Active
                                                 </label>
                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" class="form-control invisible" id="DATE_CREATE" name="DATE_CREATE" value="<?= $data['DATE_CREATE']; ?>">
                                         </div>
                                         <div class="form-group">
                                             <input type="hidden" class="form-control invisible" id="USER_ID" name="USER_ID" value="<?= $data['USER_ID']; ?>">

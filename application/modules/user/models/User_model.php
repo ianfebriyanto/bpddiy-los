@@ -4,9 +4,18 @@ class User_model extends CI_Model
 {
     public function readData()
     {
-        return $this->db->get('TBL_USER')->result_array();
+        $this->db->select('*');
+        $this->db->from('TBL_USER');
+        $this->db->join('TBL_GRUP', 'TBL_USER.GRUP_ID = TBL_GRUP.GRUP_ID');
+        return $this->db->get()->result_array();
     }
-     public function createData($data)
+    public function readNamaGrup()
+    {
+        $this->db->select('GRUP_NAMA, GRUP_ID');
+        $this->db->from('TBL_GRUP');
+        return $this->db->get()->result_array();
+    }
+    public function createData($data)
     {
         $this->db->insert('TBL_USER', $data);
     }

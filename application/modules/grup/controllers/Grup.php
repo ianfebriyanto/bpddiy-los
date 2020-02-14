@@ -14,7 +14,6 @@ class Grup extends MY_Controller
 	{
 		$data['tittle'] = 'LOS';
 		$data['grup'] = $this->Grup_model->readData();
-		$data['username'] = $this->Grup_model->readUsername();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('grup', $data);
@@ -25,7 +24,6 @@ class Grup extends MY_Controller
 		$data = [
 			"GRUP_NAMA" => $this->input->post('GRUP_NAMA'),
 			"GRUP_DISKRIPSI" => $this->input->post('GRUP_DISKRIPSI'),
-			"USER_ID" => $this->input->post('USER_ID')
 		];
 		$this->Grup_model->createData($data);
 		redirect('grup');
@@ -36,7 +34,6 @@ class Grup extends MY_Controller
 		$data = [
 			"GRUP_NAMA" => $this->input->post('GRUP_NAMA'),
 			"GRUP_DISKRIPSI" => $this->input->post('GRUP_DISKRIPSI'),
-			"USER_ID" => $this->input->post('USER_ID')
 		];
 		$this->Grup_model->updateData($id, $data);
 		redirect('grup');

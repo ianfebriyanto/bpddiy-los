@@ -7,9 +7,9 @@
 			<th>Kewenangan Create</th>
 			<th>Kewenangan Update</th>
 			<th>Kewenangan Delete</th>
-			<th>Create</th>
-			<th>Update</th>
-			<th>Delete</th>
+			<th></th>
+			<th>Aksi</th>
+			<th></th>
 
 		</tr>
 	</thead>
@@ -123,7 +123,9 @@
 											<select class="form-control" id="GRUP_ID" name="GRUP_ID">
 												<?php
 												foreach ($namaGrup as $data2) : ?>
-													<option value="<?= $data2['GRUP_ID']; ?>"><?= $data2['GRUP_NAMA']; ?> </option>
+													<option value="<?= $data2['GRUP_ID']; ?>" <?php if ($data2['GRUP_NAMA'] == $data['GRUP_NAMA']) {
+																									echo 'selected';
+																								} ?>><?= $data2['GRUP_NAMA']; ?> </option>
 												<?php endforeach; ?>
 											</select>
 										</div>
@@ -132,7 +134,9 @@
 											<select class="form-control" id="MENU_ID" name="MENU_ID">
 												<?php
 												foreach ($namaMenu as $data3) : ?>
-													<option value="<?= $data3['MENU_ID']; ?>"><?= $data3['MENU_NAMA']; ?> </option>
+													<option value="<?= $data3['MENU_ID']; ?>" <?php if ($data3['MENU_NAMA'] == $data['MENU_NAMA']) {
+																									echo 'selected';
+																								} ?>><?= $data3['MENU_NAMA']; ?> </option>
 												<?php endforeach; ?>
 											</select>
 										</div>

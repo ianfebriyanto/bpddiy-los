@@ -6,9 +6,9 @@
 			<th>Menu Link</th>
 			<th>Menu Diskripsi</th>
 			<th>Menu Status</th>
-			<th>Create</th>
-			<th>Update</th>
-			<th>Delete</th>
+			<th></th>
+			<th>Aksi</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,10 +21,10 @@
 				<td> <?= $data['MENU_LINK']; ?> </td>
 				<td> <?= $data['MENU_DISKRIPSI']; ?> </td>
 				<td> <?php if ($data['MENU_STATUS'] == 1) {
-                            echo '<i class="far fa-check-square fa-2x">';
-                        } else {
-                            echo '<i class="fas fa-ban fa-2x">';
-                        } ?> </td>
+							echo '<i class="far fa-check-square fa-2x">';
+						} else {
+							echo '<i class="fas fa-ban fa-2x">';
+						} ?> </td>
 				<td> <button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button>
 					<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
@@ -50,15 +50,15 @@
 											<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSI" placeholder="Masukkan deskripsi menu.">
 										</div>
 										<div class="form-group">
-                                            <label for="MENU_STATUS">Status</label>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="hidden" id="MENU_STATUS" name="MENU_STATUS" value="0">
-                                                <input class="form-check-input" type="checkbox" id="MENU_STATUS" name="MENU_STATUS" value="1">
-                                                <label class="form-check-label" for="gridCheck">
-                                                    Active
-                                                </label>
-                                            </div>
-                                        </div>
+											<label for="MENU_STATUS">Status</label>
+											<div class="form-check">
+												<input class="form-check-input" type="hidden" id="MENU_STATUS" name="MENU_STATUS" value="0">
+												<input class="form-check-input" type="checkbox" id="MENU_STATUS" name="MENU_STATUS" value="1">
+												<label class="form-check-label" for="gridCheck">
+													Active
+												</label>
+											</div>
+										</div>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -94,27 +94,27 @@
 											<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSI" placeholder="Masukkan deskripsi menu." value="<?= $data['MENU_DISKRIPSI']; ?>">
 										</div>
 										<div class="form-group">
-                                            <label for="MENU_STATUS">Status</label>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="hidden" id="MENU_STATUS" name="MENU_STATUS" value="0" <?php if ($data['MENU_STATUS'] == 0) {
-                                                                                                                                        echo "";
-                                                                                                                                    } ?>>
-                                                <input class="form-check-input" type="checkbox" id="MENU_STATUS" name="MENU_STATUS" value="1"  <?php if ($data['MENU_STATUS'] == 1) {
-                                                                                                                                        echo "checked";
-                                                                                                                                    } ?>>
-                                                <label class="form-check-label" for="gridCheck">
-                                                    Active
-                                                </label>
-                                            </div>
-                                        </div>
-									<div class="form-group">
-										<input type="hidden" class="form-control invisible" id="MENU_ID" name="MENU_ID" value="<?= $data['MENU_ID']; ?>">
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-										<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
-									</div>
-									<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+											<label for="MENU_STATUS">Status</label>
+											<div class="form-check">
+												<input class="form-check-input" type="hidden" id="MENU_STATUS" name="MENU_STATUS" value="0" <?php if ($data['MENU_STATUS'] == 0) {
+																																				echo "";
+																																			} ?>>
+												<input class="form-check-input" type="checkbox" id="MENU_STATUS" name="MENU_STATUS" value="1" <?php if ($data['MENU_STATUS'] == 1) {
+																																					echo "checked";
+																																				} ?>>
+												<label class="form-check-label" for="gridCheck">
+													Active
+												</label>
+											</div>
+										</div>
+										<div class="form-group">
+											<input type="hidden" class="form-control invisible" id="MENU_ID" name="MENU_ID" value="<?= $data['MENU_ID']; ?>">
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+											<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
+										</div>
+										<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 								</form>
 							</div>
 						</div>

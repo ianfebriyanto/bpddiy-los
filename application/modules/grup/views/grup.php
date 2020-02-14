@@ -4,10 +4,9 @@
 			<th scope="col">No</th>
 			<th scope="col">Nama Grup</th>
 			<th scope="col">Deskripsi</th>
-			<th scope="col">Username</th>
-			<th scope="col">Create</th>
-			<th scope="col">Update</th>
-			<th scope="col">Delete</th>
+			<th scope="col"></th>
+			<th scope="col">Aksi</th>
+			<th scope="col"></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -18,7 +17,6 @@
 				<td> <?php echo $no++; ?> </td>
 				<td> <?= $data['GRUP_NAMA']; ?> </td>
 				<td> <?= $data['GRUP_DISKRIPSI']; ?> </td>
-				<td> <?= $data['USERNAME']; ?> </td>
 				<td> <button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button>
 					<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
@@ -38,15 +36,6 @@
 										<div class=" form-group">
 											<label for="GRUP_DISKRIPSI">Deskripsi Grup</label>
 											<input type="text" class="form-control form-control-user" id="GRUP_DISKRIPSI" name="GRUP_DISKRIPSI" placeholder="Masukkan deskripsi grup.">
-										</div>
-										<div class="form-group">
-											<label for="USER_ID">Username</label>
-											<select class="form-control" id="USER_ID" name="USER_ID">
-												<?php
-												foreach ($username as $data2) : ?>
-													<option value="<?= $data2['USER_ID']; ?>"><?= $data2['USERNAME']; ?> </option>
-												<?php endforeach; ?>
-											</select>
 										</div>
 									</div>
 									<div class="modal-footer">
@@ -78,12 +67,6 @@
 											<label for="GRUP_DISKRIPSI">Deskripsi Grup</label>
 											<input type="text" class="form-control form-control-user" id="GRUP_DISKRIPSI" name="GRUP_DISKRIPSI" placeholder="Masukkan deskripsi grup." value="<?= $data['GRUP_DISKRIPSI']; ?>">
 										</div>
-										<select class="form-control" id="USER_ID" name="USER_ID">
-											<?php
-											foreach ($username as $data2) : ?>
-												<option value="<?= $data2['USER_ID']; ?>"><?= $data2['USERNAME']; ?> </option>
-											<?php endforeach; ?>
-										</select>
 									</div>
 									<div class="form-group">
 										<input type="hidden" class="form-control invisible" id="GRUP_ID" name="GRUP_ID" value="<?= $data['GRUP_ID']; ?>">

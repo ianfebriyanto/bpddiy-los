@@ -15,6 +15,7 @@ class User extends MY_Controller
 	{
 		$data['tittle'] = 'LOS';
 		$data['user'] = $this->User_model->readData();
+		$data['namaGrup'] = $this->User_model->readNamaGrup();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('user', $data);
@@ -29,7 +30,8 @@ class User extends MY_Controller
 			"EMAIL" => $this->input->post('EMAIL'),
 			"HOST" =>  $this->input->ip_address(),
 			"DATE_CREATE" => date('Y-m-d H:i:s'),
-			"STATUS" => $this->input->post('STATUS')
+			"STATUS" => $this->input->post('STATUS'),
+			"GRUP_ID" => $this->input->post('GRUP_ID')
 		];
 
 		$this->User_model->createData($data);
@@ -45,8 +47,9 @@ class User extends MY_Controller
 			"NAMA_LENGKAP" => $this->input->post('NAMA_LENGKAP'),
 			"EMAIL" => $this->input->post('EMAIL'),
 			"HOST" =>  $this->input->ip_address(),
-			"DATE_CREATE" => date('Y-m-d H:i:s'),
+			"DATE_CREATE" => $this->input->post('DATE_CREATE'),
 			"STATUS" => $this->input->post('STATUS'),
+			"GRUP_ID" => $this->input->post('GRUP_ID')
 		];
 		$this->User_model->updateData($id, $data);
 		redirect('user');
