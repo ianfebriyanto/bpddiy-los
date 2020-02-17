@@ -15,7 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <?php echo $contents ?>
+            <?php if(isset($contents)) echo $contents; ?>
         </div>
     </div>
 </div>
