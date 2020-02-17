@@ -230,3 +230,4 @@
 <!-- Button trigger modal -->
 
 </body>
+</div>
