@@ -15,6 +15,6 @@ class Abc extends MY_Controller
             'tini',
             'rudi'
         ];
-        $this->template->load('master', 'index', compact('style', 'script', 'contents', 'data'));
+        $this->template->load('master', 'index', compact('style', 'script', 'data'));
     }
 }
