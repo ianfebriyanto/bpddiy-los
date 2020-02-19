@@ -1,7 +1,7 @@
 <?php
 function is_logged_in()
 {
-    $ci = get_instance();
+    $ci = &get_instance();
     if (!$ci->session->userdata('USERNAME')) {
         redirect('login');
     }

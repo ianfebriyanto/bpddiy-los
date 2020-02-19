@@ -8,7 +8,6 @@ class Login extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('Login_model');
-		$this->load->library('form_validation');
 	}
 	public function index()
 	{

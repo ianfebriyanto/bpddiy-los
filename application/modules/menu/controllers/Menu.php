@@ -7,8 +7,6 @@ class Menu extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('Menu_model');
-		$this->load->library('form_validation');
-		is_logged_in();
 	}
 	public function index()
 	{

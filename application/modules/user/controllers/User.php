@@ -6,11 +6,8 @@ class User extends MY_Controller
 
 	public function __construct()
 	{
-		ini_set('date.timezone', 'Asia/Jakarta');
 		parent::__construct();
 		$this->load->model('User_model');
-		$this->load->library('form_validation');
-		is_logged_in();
 	}
 
 	public function index()
