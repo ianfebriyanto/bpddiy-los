@@ -48,7 +48,7 @@ class User extends MY_Controller
 		$id = $this->input->post('USER_ID');
 		$data = [
 			"USERNAME" => $this->input->post('USERNAME'),
-			"PASSWORD" => password_hash($this->input->post('PASSWORD'), PASSWORD_DEFAULT),
+			"PASSWORD" => $this->input->post('PASSWORD'),
 			"NAMA_LENGKAP" => $this->input->post('NAMA_LENGKAP'),
 			"EMAIL" => $this->input->post('EMAIL'),
 			"HOST" =>  $this->input->ip_address(),

@@ -22,10 +22,11 @@ class Login extends MY_Controller
 		$username = $this->input->post('USERNAME');
 		$password = $this->input->post('PASSWORD');
 		$userLogin = $this->db->get_where('TBL_USER', ['USERNAME' => $username])->row_array();
-		print_r('hehe');
+
 		if ($userLogin) {
 			if ($userLogin['STATUS'] == 1) {
 				if (password_verify($password, $userLogin['PASSWORD'])) {
+					print_r('hehe');
 					$data = [
 						'USERNAME' => $userLogin['USERNAME'],
 						'GRUP_ID' => $userLogin['GRUP_ID'],
