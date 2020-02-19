@@ -9,11 +9,14 @@ class Grup extends MY_Controller
 		parent::__construct();
 		$this->load->model('Grup_model');
 		$this->load->library('form_validation');
+		is_logged_in();
 	}
 	public function index()
 	{
 		$data['tittle'] = 'LOS';
 		$data['grup'] = $this->Grup_model->readData();
+		$GRUP_ID = $this->session->userdata('GRUP_ID');
+		$data['namaMenu'] = $this->Grup_model->readMenu($GRUP_ID);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('grup', $data);

@@ -10,17 +10,22 @@ class User extends MY_Controller
 		parent::__construct();
 		$this->load->model('User_model');
 		$this->load->library('form_validation');
+		is_logged_in();
 	}
+
 	public function index()
 	{
 		$data['tittle'] = 'LOS';
+		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['user'] = $this->User_model->readData();
+		$data['namaMenu'] = $this->User_model->readMenu($GRUP_ID);
 		$data['namaGrup'] = $this->User_model->readNamaGrup();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('user', $data);
 		$this->load->view('templates/footer');
 	}
+
 	public function createAct()
 	{
 		$data = [

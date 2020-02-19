@@ -17,25 +17,31 @@ class Login extends MY_Controller
 		$this->load->view('login', $data);
 		$this->load->view('templates/footer');
 	}
-	public function coba()
+	public function loginAct()
 	{
 		$username = $this->input->post('USERNAME');
 		$password = $this->input->post('PASSWORD');
 		$userLogin = $this->db->get_where('TBL_USER', ['USERNAME' => $username])->row_array();
-
+		print_r('hehe');
 		if ($userLogin) {
 			if ($userLogin['STATUS'] == 1) {
 				if (password_verify($password, $userLogin['PASSWORD'])) {
 					$data = [
-						'email' => $userLogin['email'],
-						'role_id' => $userLogin['role_id']
+						'USERNAME' => $userLogin['USERNAME'],
+						'GRUP_ID' => $userLogin['GRUP_ID'],
 					];
 					$this->session->set_userdata($data);
-					redirect('user');
+					redirect('kewenangan');
 				}
 			} else if ($userLogin['STATUS'] == 0) {
 				redirect('grup');
 			}
 		}
+	}
+	public function logout()
+	{
+		$this->session->unset_userdata('USERNAME');
+		$this->session->unset_userdata('GRUP_ID');
+		redirect('login');
 	}
 }

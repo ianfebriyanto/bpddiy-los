@@ -6,7 +6,7 @@
 			<img src="<?= base_url('assets/'); ?>images/bpd.jpg" class="card-img-top">
 			<div class="card-body bg-light">
 				<h5 class="card-title">LOS - BPDDIY</h5>
-				<form action="<?= base_url('login/coba') ?>" method="post" enctype="multipart/form-data">
+				<form action="<?= base_url('login/loginAct') ?>" method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="USERNAME">Username</label>
 						<input type="text" class="form-control" id="USERNAME" name="USERNAME">

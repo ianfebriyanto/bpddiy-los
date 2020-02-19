@@ -8,6 +8,7 @@ class Kewenangan extends MY_Controller
 		parent::__construct();
 		$this->load->model('Kewenangan_model');
 		$this->load->library('form_validation');
+		is_logged_in();
 	}
 	public function index()
 	{
@@ -15,6 +16,8 @@ class Kewenangan extends MY_Controller
 		$data['kewenangan'] = $this->Kewenangan_model->readData();
 		$data['namaMenu'] = $this->Kewenangan_model->readNamaMenu();
 		$data['namaGrup'] = $this->Kewenangan_model->readNamaGrup();
+		$GRUP_ID = $this->session->userdata('GRUP_ID');
+		$data['namaMenu'] = $this->Kewenangan_model->readMenu($GRUP_ID);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('kewenangan', $data);
