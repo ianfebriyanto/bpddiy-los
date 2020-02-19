@@ -5,6 +5,7 @@
 		<div class="card o-hidden border-0 shadow-sm my-5">
 			<img src="<?= base_url('assets/'); ?>images/bpd.jpg" class="card-img-top">
 			<div class="card-body bg-light">
+				<?= $this->session->flashdata('message'); ?>
 				<h5 class="card-title">LOS - BPDDIY</h5>
 				<form action="<?= base_url('login/loginAct') ?>" method="post" enctype="multipart/form-data">
 					<div class="form-group">

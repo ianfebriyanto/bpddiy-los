@@ -26,19 +26,29 @@ class Login extends MY_Controller
 		if ($userLogin) {
 			if ($userLogin['STATUS'] == 1) {
 				if (password_verify($password, $userLogin['PASSWORD'])) {
-					print_r('hehe');
 					$data = [
 						'USERNAME' => $userLogin['USERNAME'],
 						'GRUP_ID' => $userLogin['GRUP_ID'],
 					];
 					$this->session->set_userdata($data);
 					redirect('kewenangan');
+				} else {
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+					Password Yang Anda Inputkan Salah. </div>');
+					redirect('login');
 				}
-			} else if ($userLogin['STATUS'] == 0) {
-				redirect('grup');
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+			Akun Anda Tidak Aktif. </div>');
+				redirect('login');
 			}
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+		Akun Tidak Terdaftar. </div>');
+			redirect('login');
 		}
 	}
+
 	public function logout()
 	{
 		$this->session->unset_userdata('USERNAME');

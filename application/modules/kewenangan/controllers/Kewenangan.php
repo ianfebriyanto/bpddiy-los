@@ -14,7 +14,7 @@ class Kewenangan extends MY_Controller
 	{
 		$data['tittle'] = 'LOS';
 		$data['kewenangan'] = $this->Kewenangan_model->readData();
-		$data['namaMenu'] = $this->Kewenangan_model->readNamaMenu();
+		$data['namaMenuOption'] = $this->Kewenangan_model->readNamaMenu();
 		$data['namaGrup'] = $this->Kewenangan_model->readNamaGrup();
 		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['namaMenu'] = $this->Kewenangan_model->readMenu($GRUP_ID);
