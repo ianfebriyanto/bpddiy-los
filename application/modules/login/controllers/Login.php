@@ -46,7 +46,7 @@ class Login extends MY_Controller
 				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-			Akun anda tidak aktif </div>');
+			Akun anda tidak aktif.</div>');
 				redirect('login');
 			}
 		} else {

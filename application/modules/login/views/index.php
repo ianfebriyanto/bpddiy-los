@@ -6,7 +6,7 @@
 				<div class="card-body bg-light">
 					<?= $this->session->flashdata('message'); ?>
 					<h5 class="card-title">LOS - BPDDIY</h5>
-					<form action="<?= base_url('login/loginAct') ?>" method="post" enctype="multipart/form-data">
+					<form action="<?= base_url('login') ?>" method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="USERNAME">Username</label>
 							<input type="text" class="form-control" id="USERNAME" name="USERNAME" placeholder=" Masukkan username" value="<?= set_value('USERNAME'); ?>">
