@@ -10,16 +10,12 @@ class Kewenangan extends MY_Controller
 	}
 	public function index()
 	{
-		$data['tittle'] = 'LOS';
+		$data['style']  = $this->load->view('style', '', true);
+		$data['script']  = $this->load->view('script', '', true);
 		$data['kewenangan'] = $this->Kewenangan_model->readData();
-		$data['namaMenuOption'] = $this->Kewenangan_model->readNamaMenu();
-		$data['namaGrup'] = $this->Kewenangan_model->readNamaGrup();
 		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['namaMenu'] = $this->Kewenangan_model->readMenu($GRUP_ID);
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/navbar', $data);
-		$this->load->view('kewenangan', $data);
-		$this->load->view('templates/footer');
+		$this->template->load('master_dashboard', 'index', $data);
 	}
 	public function createAct()
 	{

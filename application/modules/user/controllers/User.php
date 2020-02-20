@@ -12,15 +12,12 @@ class User extends MY_Controller
 
 	public function index()
 	{
-		$data['tittle'] = 'LOS';
-		$GRUP_ID = $this->session->userdata('GRUP_ID');
+		$data['style']  = $this->load->view('style', '', true);
+		$data['script']  = $this->load->view('script', '', true);
 		$data['user'] = $this->User_model->readData();
+		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['namaMenu'] = $this->User_model->readMenu($GRUP_ID);
-		$data['namaGrup'] = $this->User_model->readNamaGrup();
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/navbar', $data);
-		$this->load->view('user', $data);
-		$this->load->view('templates/footer');
+		$this->template->load('master_dashboard', 'index', $data);
 	}
 
 	public function createAct()
