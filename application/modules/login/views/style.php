@@ -12,8 +12,4 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-
-    .my-6 {
-        margin-left: ($spacer * 3) !important;
-    }
 </style>

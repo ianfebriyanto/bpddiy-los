@@ -13,13 +13,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body class="bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <?php if (isset($contents)) echo $contents; ?>
-            </div>
-        </div>
-    </div>
+
+    <?php if (isset($contents)) echo $contents; ?>
+
 </body>
 <script src="<?= base_url('assets/'); ?>jquery/jquery-3.4.1.slim.min.js"></script>
 <script src="<?= base_url('assets/'); ?>popper/popper.min.js"></script>
