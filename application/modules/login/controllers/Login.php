@@ -34,17 +34,17 @@ class Login extends MY_Controller
 					redirect('kewenangan');
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-					Password Yang Anda Inputkan Salah. </div>');
+					Password yang anda inputkan salah. </div>');
 					redirect('login');
 				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-			Akun Anda Tidak Aktif. </div>');
+			Akun anda tidak aktif </div>');
 				redirect('login');
 			}
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-		Akun Tidak Terdaftar. </div>');
+		Akun tidak terdaftar. </div>');
 			redirect('login');
 		}
 	}
