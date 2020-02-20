@@ -9,11 +9,13 @@
 					<form action="<?= base_url('login/loginAct') ?>" method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="USERNAME">Username</label>
-							<input type="text" class="form-control" id="USERNAME" name="USERNAME">
+							<input type="text" class="form-control" id="USERNAME" name="USERNAME" placeholder=" Masukkan username" value="<?= set_value('USERNAME'); ?>">
+							<?= form_error('USERNAME', '<small class="text-danger pl-3">', '</small>') ?>
 						</div>
 						<div class="form-group">
 							<label for="PASSWORD">Password</label>
-							<input type="password" class="form-control" id="PASSWORD" name="PASSWORD">
+							<input type="password" class="form-control" id="PASSWORD" name="PASSWORD" placeholder=" Masukkan password" value="<?= set_value('PASSWORD'); ?>">
+							<?= form_error('PASSWORD', '<small class="text-danger pl-3">', '</small>') ?>
 						</div>
 						<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 						<button type="submit" class="btn btn-primary">Login</button>

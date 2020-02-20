@@ -8,13 +8,20 @@ class Login extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('Login_model');
+		$this->load->library('form_validation');
 	}
 	public function index()
 	{
-		$style = $this->load->view('style', '', true);
-		$script = $this->load->view('script', '', true);
-		$data = [];
-		$this->template->load('master', 'index', compact('style', 'script', 'data'));
+		$this->form_validation->set_rules('USERNAME', 'USERNAME', 'required|trim');
+		$this->form_validation->set_rules('PASSWORD', 'PASSWORD', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$style = $this->load->view('style', '', true);
+			$script = $this->load->view('script', '', true);
+			$data = [];
+			$this->template->load('master', 'index', compact('style', 'script', 'data'));
+		} else {
+			$this->loginAct();
+		}
 	}
 
 	public function loginAct()

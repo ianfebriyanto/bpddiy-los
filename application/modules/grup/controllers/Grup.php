@@ -16,6 +16,7 @@ class Grup extends MY_Controller
 		$data['script']  = $this->load->view('script', '', true);
 		$data['grup'] = $this->Grup_model->readData();
 		$GRUP_ID = $this->session->userdata('GRUP_ID');
+		$data['USERNAME'] = $this->session->userdata('USERNAME');
 		$data['namaMenu'] = $this->Grup_model->readMenu($GRUP_ID);
 		$this->template->load('master_dashboard', 'index', $data);
 	}
