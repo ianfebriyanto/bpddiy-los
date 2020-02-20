@@ -11,11 +11,12 @@ class Login extends MY_Controller
 	}
 	public function index()
 	{
-		$data['tittle'] = 'LOS';
-		$this->load->view('templates/header', $data);
-		$this->load->view('login', $data);
-		$this->load->view('templates/footer');
+		$style = $this->load->view('style', '', true);
+		$script = $this->load->view('script', '', true);
+		$data = [];
+		$this->template->load('master', 'index', compact('style', 'script', 'data'));
 	}
+
 	public function loginAct()
 	{
 		$username = $this->input->post('USERNAME');

@@ -1,8 +1,8 @@
 <div class="row justify-content-center">
 
-	<div class="col-xl-6 col-lg-12 col-md-6">
+	<div class="col-xl-6 col-lg-12 col-md-6 my-5">
 
-		<div class="card o-hidden border-0 shadow-sm my-5">
+		<div class="card o-hidden border-0 shadow-sm">
 			<img src="<?= base_url('assets/'); ?>images/bpd.jpg" class="card-img-top">
 			<div class="card-body bg-light">
 				<?= $this->session->flashdata('message'); ?>
