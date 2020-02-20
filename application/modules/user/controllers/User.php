@@ -6,21 +6,20 @@ class User extends MY_Controller
 
 	public function __construct()
 	{
-		ini_set('date.timezone', 'Asia/Jakarta');
 		parent::__construct();
 		$this->load->model('User_model');
-		$this->load->library('form_validation');
 	}
+
 	public function index()
 	{
-		$data['tittle'] = 'LOS';
+		$data['style']  = $this->load->view('style', '', true);
+		$data['script']  = $this->load->view('script', '', true);
 		$data['user'] = $this->User_model->readData();
-		$data['namaGrup'] = $this->User_model->readNamaGrup();
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/navbar', $data);
-		$this->load->view('user', $data);
-		$this->load->view('templates/footer');
+		$GRUP_ID = $this->session->userdata('GRUP_ID');
+		$data['namaMenu'] = $this->User_model->readMenu($GRUP_ID);
+		$this->template->load('master_dashboard', 'index', $data);
 	}
+
 	public function createAct()
 	{
 		$data = [
@@ -43,7 +42,7 @@ class User extends MY_Controller
 		$id = $this->input->post('USER_ID');
 		$data = [
 			"USERNAME" => $this->input->post('USERNAME'),
-			"PASSWORD" => password_hash($this->input->post('PASSWORD'), PASSWORD_DEFAULT),
+			"PASSWORD" => $this->input->post('PASSWORD'),
 			"NAMA_LENGKAP" => $this->input->post('NAMA_LENGKAP'),
 			"EMAIL" => $this->input->post('EMAIL'),
 			"HOST" =>  $this->input->ip_address(),

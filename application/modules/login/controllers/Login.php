@@ -8,16 +8,16 @@ class Login extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('Login_model');
-		$this->load->library('form_validation');
 	}
 	public function index()
 	{
-		$data['tittle'] = 'LOS';
-		$this->load->view('templates/header', $data);
-		$this->load->view('login', $data);
-		$this->load->view('templates/footer');
+		$style = $this->load->view('style', '', true);
+		$script = $this->load->view('script', '', true);
+		$data = [];
+		$this->template->load('master', 'index', compact('style', 'script', 'data'));
 	}
-	public function coba()
+
+	public function loginAct()
 	{
 		$username = $this->input->post('USERNAME');
 		$password = $this->input->post('PASSWORD');
@@ -27,15 +27,32 @@ class Login extends MY_Controller
 			if ($userLogin['STATUS'] == 1) {
 				if (password_verify($password, $userLogin['PASSWORD'])) {
 					$data = [
-						'email' => $userLogin['email'],
-						'role_id' => $userLogin['role_id']
+						'USERNAME' => $userLogin['USERNAME'],
+						'GRUP_ID' => $userLogin['GRUP_ID'],
 					];
 					$this->session->set_userdata($data);
-					redirect('user');
+					redirect('kewenangan');
+				} else {
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+					Password yang anda inputkan salah. </div>');
+					redirect('login');
 				}
-			} else if ($userLogin['STATUS'] == 0) {
-				redirect('grup');
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+			Akun anda tidak aktif </div>');
+				redirect('login');
 			}
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+		Akun tidak terdaftar. </div>');
+			redirect('login');
 		}
+	}
+
+	public function logout()
+	{
+		$this->session->unset_userdata('USERNAME');
+		$this->session->unset_userdata('GRUP_ID');
+		redirect('login');
 	}
 }

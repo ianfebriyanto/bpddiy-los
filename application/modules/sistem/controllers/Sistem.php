@@ -8,25 +8,22 @@ class Sistem extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('Sistem_model');
-		$this->load->library('form_validation');
 	}
 	public function index()
 	{
-		$data['tittle'] = 'LOS';
+		$data['style']  = $this->load->view('style', '', true);
+		$data['script']  = $this->load->view('script', '', true);
 		$data['sistem'] = $this->Sistem_model->readData();
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/navbar', $data);
-		$this->load->view('sistem', $data);
-		$this->load->view('templates/footer');
+		$GRUP_ID = $this->session->userdata('GRUP_ID');
+		$data['namaMenu'] = $this->Sistem_model->readMenu($GRUP_ID);
+		$this->template->load('master_dashboard', 'index', $data);
 	}
 	public function createAct()
 	{
-		$id = $this->input->post('SISTEM_ID');
 		$data = [
 			"SISTEM_NAMA" => $this->input->post('SISTEM_NAMA'),
 			"SISTEM_DISKRIPSI" => $this->input->post('SISTEM_DISKRIPSI'),
 			"SISTEM_VERSI" => $this->input->post('SISTEM_VERSI')
-
 		];
 		$this->Sistem_model->createData($data);
 		redirect('sistem');

@@ -3,11 +3,12 @@
 class Abc extends MY_Controller
 {
     public function __construct()
-	{
-		parent::__construct();
+    {
+        parent::__construct();
     }
-    
-    public function index() {
+
+    public function index()
+    {
         $style = $this->load->view('style', '', true);
         $script = $this->load->view('script', '', true);
         $data = [

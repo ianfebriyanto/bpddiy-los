@@ -61,7 +61,7 @@
 											<label for="MENU_ID">Nama Menu</label>
 											<select class="form-control" id="MENU_ID" name="MENU_ID">
 												<?php
-												foreach ($namaMenu as $data3) : ?>
+												foreach ($namaMenuOption as $data3) : ?>
 													<option value="<?= $data3['MENU_ID']; ?>"><?= $data3['MENU_NAMA']; ?> </option>
 												<?php endforeach; ?>
 											</select>
@@ -230,4 +230,3 @@
 <!-- Button trigger modal -->
 
 </body>
-</div>

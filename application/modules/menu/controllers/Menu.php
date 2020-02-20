@@ -7,16 +7,15 @@ class Menu extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('Menu_model');
-		$this->load->library('form_validation');
 	}
 	public function index()
 	{
-		$data['tittle'] = 'LOS';
+		$data['style']  = $this->load->view('style', '', true);
+		$data['script']  = $this->load->view('script', '', true);
 		$data['menu'] = $this->Menu_model->readData();
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/navbar', $data);
-		$this->load->view('menu', $data);
-		$this->load->view('templates/footer');
+		$GRUP_ID = $this->session->userdata('GRUP_ID');
+		$data['namaMenu'] = $this->Menu_model->readMenu($GRUP_ID);
+		$this->template->load('master_dashboard', 'index', $data);
 	}
 	public function createAct()
 	{
