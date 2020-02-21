@@ -8,9 +8,9 @@
 				<th>Kewenangan Create</th>
 				<th>Kewenangan Update</th>
 				<th>Kewenangan Delete</th>
-				<th>d</th>
+				<th></th>
 				<th>Aksi</th>
-				<th>d</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>

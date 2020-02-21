@@ -35,14 +35,17 @@
                                             <div class="form-group">
                                                 <label for="SISTEM_NAMA">Sistem nama</label>
                                                 <input type="text" class="form-control form-control-sistem" id="Sistem_Nama" name="SISTEM_NAMA" placeholder="Masukkan Sistem Nama.">
+                                                <?= form_error('SISTEM_NAMA', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="SISTEM_DISKRIPSI">Sistem Deskripsi</label>
                                                 <input type="text" class="form-control form-control-sistem" id="SISTEM_DISKRIPSI" name="SISTEM_DISKRIPSI" placeholder="Masukkan Sistem Deskripsi.">
+                                                <?= form_error('SISTEM_DISKRIPSI', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="SISTEM_VERSI">Sistem Versi</label>
                                                 <input type="text" class="form-control form-control-sistem" id="SISTEM_VERSI" name="SISTEM_VERSI" placeholder="Masukkan Sistem Versi.">
+                                                <?= form_error('SISTEM_VERSI', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -68,15 +71,18 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="SISTEM_NAMA">Sistem nama</label>
-                                                <input type="text" class="form-control form-control-sistem" id="SISTEM_NAMA" name="SISTEM_NAMA" placeholder="Masukkan Nama." value="<?= $data['SISTEM_NAMA']; ?>">
+                                                <input type="text" class="form-control form-control-sistem" id="SISTEM_NAMA" name="SISTEM_NAMAu" placeholder="Masukkan Nama." value="<?= $data['SISTEM_NAMA']; ?>">
+                                                <?= form_error('SISTEM_NAMAu', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="SISTEM_DISKRIPSI">Sistem Deskripsi</label>
-                                                <input type="text" class="form-control form-control-sistem" id="SISTEM_DISKRIPSI" name="SISTEM_DISKRIPSI" placeholder="Masukkan Sistem Deskripsi." value="<?= $data['SISTEM_DISKRIPSI']; ?>">
+                                                <input type="text" class="form-control form-control-sistem" id="SISTEM_DISKRIPSI" name="SISTEM_DISKRIPSIu" placeholder="Masukkan Sistem Deskripsi." value="<?= $data['SISTEM_DISKRIPSI']; ?>">
+                                                <?= form_error('SISTEM_DISKRIPSIu', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="SISTEM_VERSI">Sistem Versi</label>
-                                                <input type="text" class="form-control form-control-sistem" id="SISTEM_VERSI" name="SISTEM_VERSI" placeholder="Masukkan Sistem Versi." value="<?= $data['SISTEM_VERSI']; ?>">
+                                                <input type="text" class="form-control form-control-sistem" id="SISTEM_VERSI" name="SISTEM_VERSIu" placeholder="Masukkan Sistem Versi." value="<?= $data['SISTEM_VERSI']; ?>">
+                                                <?= form_error('SISTEM_VERSIu', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <input type="hidden" class="form-control invisible" id="SISTEM_ID" name="SISTEM_ID" value="<?= $data['SISTEM_ID']; ?>">

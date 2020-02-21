@@ -41,14 +41,17 @@
 											<div class=" form-group">
 												<label for="MENU_NAMA">Nama Menu</label>
 												<input type="text" class="form-control form-control-user" id="MENU_NAMA" name="MENU_NAMA" placeholder="Masukkan nama menu.">
+												<?= form_error('MENU_NAMA', '<small class="text-danger pl-3">', '</small>') ?>
 											</div>
 											<div class=" form-group">
 												<label for="MENU_LINK">Link Menu</label>
 												<input type="text" class="form-control form-control-user" id="MENU_LINK" name="MENU_LINK" placeholder="Masukkan link menu.">
+												<?= form_error('MENU_LINK', '<small class="text-danger pl-3">', '</small>') ?>
 											</div>
 											<div class=" form-group">
 												<label for="MENU_DISKRIPSI">Deskripsi Menu</label>
 												<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSI" placeholder="Masukkan deskripsi menu.">
+												<?= form_error('MENU_DISKRIPSI', '<small class="text-danger pl-3">', '</small>') ?>
 											</div>
 											<div class="form-group">
 												<label for="MENU_STATUS">Status</label>
@@ -84,15 +87,18 @@
 										<div class="modal-body">
 											<div class=" form-group">
 												<label for="MENU_NAMA">Nama Menu</label>
-												<input type="text" class="form-control form-control-user" id="MENU_NAMA" name="MENU_NAMA" placeholder="Masukkan nama menu." value="<?= $data['MENU_NAMA']; ?>">
+												<input type="text" class="form-control form-control-user" id="MENU_NAMA" name="MENU_NAMAu" placeholder="Masukkan nama menu." value="<?= $data['MENU_NAMA']; ?>">
+												<?= form_error('MENU_NAMAu', '<small class="text-danger pl-3">', '</small>') ?>
 											</div>
 											<div class=" form-group">
 												<label for="MENU_LINK">Link Menu</label>
-												<input type="text" class="form-control form-control-user" id="MENU_LINK" name="MENU_LINK" placeholder="Masukkan link menu." value="<?= $data['MENU_LINK']; ?>">
+												<input type="text" class="form-control form-control-user" id="MENU_LINK" name="MENU_LINKu" placeholder="Masukkan link menu." value="<?= $data['MENU_LINK']; ?>">
+												<?= form_error('MENU_LINKu', '<small class="text-danger pl-3">', '</small>') ?>
 											</div>
 											<div class=" form-group">
 												<label for="MENU_DISKRIPSI">Deskripsi Menu</label>
-												<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSI" placeholder="Masukkan deskripsi menu." value="<?= $data['MENU_DISKRIPSI']; ?>">
+												<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSIu" placeholder="Masukkan deskripsi menu." value="<?= $data['MENU_DISKRIPSI']; ?>">
+												<?= form_error('MENU_DISKRIPSIu', '<small class="text-danger pl-3">', '</small>') ?>
 											</div>
 											<div class="form-group">
 												<label for="MENU_STATUS">Status</label>

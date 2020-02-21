@@ -33,10 +33,12 @@
                                             <div class=" form-group">
                                                 <label for="GRUP_NAMA">Nama Grup</label>
                                                 <input type="text" class="form-control form-control-user" id="GRUP_NAMA" name="GRUP_NAMA" placeholder="Masukkan nama grup.">
+                                                <?= form_error('GRUP_NAMA', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class=" form-group">
                                                 <label for="GRUP_DISKRIPSI">Deskripsi Grup</label>
                                                 <input type="text" class="form-control form-control-user" id="GRUP_DISKRIPSI" name="GRUP_DISKRIPSI" placeholder="Masukkan deskripsi grup.">
+                                                <?= form_error('GRUP_DISKRIPSI', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -62,11 +64,13 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="GRUP_NAMA">Nama Grup</label>
-                                                <input type="text" class="form-control form-control-user" id="GRUP_NAMA" name="GRUP_NAMA" placeholder="Masukkan nama grup." value="<?= $data['GRUP_NAMA']; ?>">
+                                                <input type="text" class="form-control form-control-user" id="GRUP_NAMA" name="GRUP_NAMAu" placeholder="Masukkan nama grup." value="<?= $data['GRUP_NAMA']; ?>">
+                                                <?= form_error('GRUP_NAMAu', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="GRUP_DISKRIPSI">Deskripsi Grup</label>
-                                                <input type="text" class="form-control form-control-user" id="GRUP_DISKRIPSI" name="GRUP_DISKRIPSI" placeholder="Masukkan deskripsi grup." value="<?= $data['GRUP_DISKRIPSI']; ?>">
+                                                <input type="text" class="form-control form-control-user" id="GRUP_DISKRIPSI" name="GRUP_DISKRIPSIu" placeholder="Masukkan deskripsi grup." value="<?= $data['GRUP_DISKRIPSI']; ?>">
+                                                <?= form_error('GRUP_DISKRIPSIu', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                         </div>
                                         <div class="form-group">

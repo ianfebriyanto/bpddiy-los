@@ -19,26 +19,40 @@ class Menu extends MY_Controller
 	}
 	public function createAct()
 	{
-		$data = [
-			"MENU_NAMA" => $this->input->post('MENU_NAMA'),
-			"MENU_LINK" => $this->input->post('MENU_LINK'),
-			"MENU_DISKRIPSI" => $this->input->post('MENU_DISKRIPSI'),
-			"MENU_STATUS" => $this->input->post('MENU_STATUS')
-		];
-		$this->Menu_model->createData($data);
-		redirect('menu');
+		$this->form_validation->set_rules('MENU_NAMA', 'MENU_NAMA', 'required|trim');
+		$this->form_validation->set_rules('MENU_LINK', 'MENU_LINK', 'required|trim');
+		$this->form_validation->set_rules('MENU_DISKRIPSI', 'MENU_DISKRIPSI', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$this->index();
+		} else {
+			$data = [
+				"MENU_NAMA" => $this->input->post('MENU_NAMA'),
+				"MENU_LINK" => $this->input->post('MENU_LINK'),
+				"MENU_DISKRIPSI" => $this->input->post('MENU_DISKRIPSI'),
+				"MENU_STATUS" => $this->input->post('MENU_STATUS')
+			];
+			$this->Menu_model->createData($data);
+			redirect('menu');
+		}
 	}
 	public function updateAct()
 	{
-		$id = $this->input->post('MENU_ID');
-		$data = [
-			"MENU_NAMA" => $this->input->post('MENU_NAMA'),
-			"MENU_LINK" => $this->input->post('MENU_LINK'),
-			"MENU_DISKRIPSI" => $this->input->post('MENU_DISKRIPSI'),
-			"MENU_STATUS" => $this->input->post('MENU_STATUS')
-		];
-		$this->Menu_model->updateData($id, $data);
-		redirect('menu');
+		$this->form_validation->set_rules('MENU_NAMAu', 'MENU_NAMA', 'required|trim');
+		$this->form_validation->set_rules('MENU_LINKu', 'MENU_LINK', 'required|trim');
+		$this->form_validation->set_rules('MENU_DISKRIPSIu', 'MENU_DISKRIPSI', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$this->index();
+		} else {
+			$id = $this->input->post('MENU_ID');
+			$data = [
+				"MENU_NAMA" => $this->input->post('MENU_NAMAu'),
+				"MENU_LINK" => $this->input->post('MENU_LINKu'),
+				"MENU_DISKRIPSI" => $this->input->post('MENU_DISKRIPSIu'),
+				"MENU_STATUS" => $this->input->post('MENU_STATUS')
+			];
+			$this->Menu_model->updateData($id, $data);
+			redirect('menu');
+		}
 	}
 	public function deleteAct()
 	{

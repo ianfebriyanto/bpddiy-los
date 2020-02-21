@@ -23,22 +23,34 @@ class Grup extends MY_Controller
 
 	public function createAct()
 	{
-		$data = [
-			"GRUP_NAMA" => $this->input->post('GRUP_NAMA'),
-			"GRUP_DISKRIPSI" => $this->input->post('GRUP_DISKRIPSI'),
-		];
-		$this->Grup_model->createData($data);
-		redirect('grup');
+		$this->form_validation->set_rules('GRUP_NAMA', 'GRUP_NAMA', 'required|trim');
+		$this->form_validation->set_rules('GRUP_DISKRIPSI', 'GRUP_DISKRIPSI', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$this->index();
+		} else {
+			$data = [
+				"GRUP_NAMA" => $this->input->post('GRUP_NAMA'),
+				"GRUP_DISKRIPSI" => $this->input->post('GRUP_DISKRIPSI'),
+			];
+			$this->Grup_model->createData($data);
+			redirect('grup');
+		}
 	}
 	public function updateAct()
 	{
-		$id = $this->input->post('GRUP_ID');
-		$data = [
-			"GRUP_NAMA" => $this->input->post('GRUP_NAMA'),
-			"GRUP_DISKRIPSI" => $this->input->post('GRUP_DISKRIPSI'),
-		];
-		$this->Grup_model->updateData($id, $data);
-		redirect('grup');
+		$this->form_validation->set_rules('GRUP_NAMAu', 'GRUP_NAMA', 'required|trim');
+		$this->form_validation->set_rules('GRUP_DISKRIPSIu', 'GRUP_DISKRIPSI', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$this->index();
+		} else {
+			$id = $this->input->post('GRUP_ID');
+			$data = [
+				"GRUP_NAMA" => $this->input->post('GRUP_NAMAu'),
+				"GRUP_DISKRIPSI" => $this->input->post('GRUP_DISKRIPSIu'),
+			];
+			$this->Grup_model->updateData($id, $data);
+			redirect('grup');
+		}
 	}
 	public function deleteAct()
 	{

@@ -47,18 +47,22 @@
                                             <div class="form-group">
                                                 <label for="USERNAME">Username</label>
                                                 <input type="text" class="form-control form-control-user" id="USERNAME" name="USERNAME" placeholder="Masukkan nama Username.">
+                                                <?= form_error('USERNAME', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="PASSWORD">Password</label>
                                                 <input type="password" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password.">
+                                                <?= form_error('PASSWORD', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="NAMA_LENGKAP">Nama Lengkap</label>
                                                 <input type="text" class="form-control form-control-user" id="NAMA_LENGKAP" name="NAMA_LENGKAP" placeholder="Masukkan Nama Lengkap.">
+                                                <?= form_error('NAMA_LENGKAP', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="EMAIL">Email</label>
                                                 <input type="text" class="form-control form-control-user" id="EMAIL" name="EMAIL" placeholder="Masukkan Email.">
+                                                <?= form_error('EMAIL', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="GRUP_ID">Level Grup</label>
@@ -103,19 +107,23 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="USERNAME">Username</label>
-                                                <input type="text" class="form-control form-control-user" id="USERNAME" name="USERNAME" placeholder="Masukkan Username." value="<?= $data['USERNAME']; ?>">
+                                                <input type="text" class="form-control form-control-user" id="USERNAME" name="USERNAMEu" placeholder="Masukkan Username." value="<?= $data['USERNAME']; ?>">
+                                                <?= form_error('USERNAMEu', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="PASSWORD">Password</label>
-                                                <input type="password" class="form-control form-control-user" id="PASSWORD" name="PASSWORD" placeholder="Masukkan Password." value="<?= $data['PASSWORD']; ?>">
+                                                <input type="password" class="form-control form-control-user" id="PASSWORD" name="PASSWORDu" placeholder="Masukkan Password." value="<?= $data['PASSWORD']; ?>">
+                                                <?= form_error('PASSWORDu', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="NAMA_LENGKAP">Nama Lengkap</label>
-                                                <input type="text" class="form-control form-control-user" id="NAMA_LENGKAP" name="NAMA_LENGKAP" placeholder="Masukkan Nama Lengkap." value="<?= $data['NAMA_LENGKAP']; ?>">
+                                                <input type="text" class="form-control form-control-user" id="NAMA_LENGKAP" name="NAMA_LENGKAPu" placeholder="Masukkan Nama Lengkap." value="<?= $data['NAMA_LENGKAP']; ?>">
+                                                <?= form_error('NAMA_LENGKAPu', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="EMAIL">Email</label>
-                                                <input type="text" class="form-control form-control-user" id="EMAIL" name="EMAIL" placeholder="Masukkan Email." value="<?= $data['EMAIL']; ?>">
+                                                <input type="text" class="form-control form-control-user" id="EMAIL" name="EMAILu" placeholder="Masukkan Email." value="<?= $data['EMAIL']; ?>">
+                                                <?= form_error('EMAILu', '<small class="text-danger pl-3">', '</small>') ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="GRUP_ID">Level Grup</label>
