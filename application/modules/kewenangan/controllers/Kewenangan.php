@@ -50,4 +50,30 @@ class Kewenangan extends MY_Controller
 		$data['kewenangan'] = $this->Kewenangan_model->deleteData($id);
 		redirect('kewenangan');
 	}
+	function get_ajax()
+	{
+		$list = $this->Kewenangan_model->get_datatables();
+		$data = array();
+		$no = @$_POST['start'];
+		foreach ($list as $item) {
+			$no++;
+			$row = array();
+			$row[] = $no . ".";
+			$row[] = $item->GRUP_NAMA;
+			$row[] = $item->MENU_NAMA;
+			$row[] = $item->CREATE;
+			$row[] = $item->UPDATE;
+			$row[] = $item->DELETE;
+			$row[] = '<button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button> 
+			<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->MENU_ID . '">Update</button>
+			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->MENU_ID . '">Delete</button>';
+			$data[] = $row;
+		}
+		$output = array(
+			"recordsTotal" => $this->Kewenangan_model->count_all(),
+			"recordsFiltered" => $this->Kewenangan_model->count_filtered(),
+			"data" => $data,
+		);
+		echo json_encode($output);
+	}
 }

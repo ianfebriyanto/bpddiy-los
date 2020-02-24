@@ -75,4 +75,33 @@ class User extends MY_Controller
 		$data['user'] = $this->User_model->deleteData($id);
 		redirect('user');
 	}
+	function get_ajax()
+	{
+
+		$list = $this->User_model->get_datatables();
+		$data = array();
+		$no = @$_POST['start'];
+		foreach ($list as $item) {
+			$no++;
+			$row = array();
+			$row[] = $no . ".";
+			$row[] = $item->USERNAME;
+			$row[] = $item->NAMA_LENGKAP;
+			$row[] = $item->EMAIL;
+			$row[] = $item->HOST;
+			$row[] = $item->DATE_CREATE;
+			$row[] = $item->GRUP_NAMA;
+			$row[] = $item->STATUS;
+			$row[] = '<button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button> 
+			<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->USER_ID . '">Update</button>
+			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->USER_ID . '">Delete</button>';
+			$data[] = $row;
+		}
+		$output = array(
+			"recordsTotal" => $this->User_model->count_all(),
+			"recordsFiltered" => $this->User_model->count_filtered(),
+			"data" => $data,
+		);
+		echo json_encode($output);
+	}
 }

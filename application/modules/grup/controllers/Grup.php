@@ -58,4 +58,27 @@ class Grup extends MY_Controller
 		$data['grup'] = $this->Grup_model->deleteData($id);
 		redirect('grup');
 	}
+	function get_ajax()
+	{
+		$list = $this->Grup_model->get_datatables();
+		$data = array();
+		$no = @$_POST['start'];
+		foreach ($list as $item) {
+			$no++;
+			$row = array();
+			$row[] = $no . ".";
+			$row[] = $item->GRUP_NAMA;
+			$row[] = $item->GRUP_DISKRIPSI;
+			$row[] = '<button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button>
+					<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->GRUP_ID . '">Update</button>
+					<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->GRUP_ID . '">Delete</button>';
+			$data[] = $row;
+		}
+		$output = array(
+			"recordsTotal" => $this->Grup_model->count_all(),
+			"recordsFiltered" => $this->Grup_model->count_filtered(),
+			"data" => $data,
+		);
+		echo json_encode($output);
+	}
 }

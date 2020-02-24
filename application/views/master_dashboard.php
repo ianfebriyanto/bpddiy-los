@@ -10,7 +10,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="<?= base_url('assets/'); ?>bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>datatablesbs/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="<?= base_url('assets/'); ?>jquery/jquery-3.4.1.slim.min.js"></script>
+    <script src="<?= base_url('assets/'); ?>datatablesbs/js/jquery-3.3.1.js"></script>
     <?php if (isset($style)) echo $style; ?>
 </head>
 
@@ -38,8 +38,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </div>
     </div>
-</body>
 
+</body>
 <script src="<?= base_url('assets/'); ?>datatablesbs/js/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('assets/'); ?>datatablesbs/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?= base_url('assets/'); ?>popper/popper.min.js"></script>
