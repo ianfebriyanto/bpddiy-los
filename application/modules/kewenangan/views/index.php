@@ -1,17 +1,27 @@
 <div class="container-fluid">
-	<table id="dataTableKewenangan" class="table table-hover table-bordered" style="width:100%">
-		<thead>
-			<tr>
-				<th>No</th>
-				<th>Nama Grup</th>
-				<th>Nama Menu</th>
-				<th>Kewenangan Create</th>
-				<th>Kewenangan Update</th>
-				<th>Kewenangan Delete</th>
-				<th>Aksi</th>
-			</tr>
-		</thead>
-	</table>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">Menu Kewenangan</h6>
+		</div>
+		<div class="card-header py-3">
+			<div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
+		</div>
+		<div class="card-body">
+			<table id="dataTableKewenangan" class="table table-hover table-bordered" style="width:100%">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Nama Grup</th>
+						<th>Nama Menu</th>
+						<th>Kewenangan Create</th>
+						<th>Kewenangan Update</th>
+						<th>Kewenangan Delete</th>
+						<th>Aksi</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
 </div>
 <?php foreach ($kewenangan as $data) : ?>
 	<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
