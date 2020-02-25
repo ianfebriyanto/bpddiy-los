@@ -16,6 +16,11 @@ class Kewenangan_model extends CI_Model
         $this->db->from('TBL_MENU');
         return $this->db->get()->result_array();
     }
+    public function readKewenangan()
+    {
+        return $this->db->query("SELECT TBL_GRUP.GRUP_NAMA, TBL_GRUP.GRUP_DISKRIPSI, TBL_GRUP.GRUP_ID  from TBL_KEWENANGAN join TBL_GRUP ON TBL_GRUP.GRUP_ID = TBL_KEWENANGAN.GRUP_ID GROUP BY TBL_GRUP.GRUP_NAMA, TBL_GRUP.GRUP_DISKRIPSI, TBL_GRUP.GRUP_ID;")->result_array();
+    }
+
     public function readNamaGrup()
     {
         $this->db->select('GRUP_NAMA, GRUP_ID');

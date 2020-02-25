@@ -13,6 +13,7 @@ class Kewenangan extends MY_Controller
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
 		$data['kewenangan'] = $this->Kewenangan_model->readData();
+		$data['readKewenangan'] = $this->Kewenangan_model->readKewenangan();
 		$data['namaMenuOption'] = $this->Kewenangan_model->readNamaMenu();
 		$data['namaGrup'] = $this->Kewenangan_model->readNamaGrup();
 		$GRUP_ID = $this->session->userdata('GRUP_ID');
@@ -52,13 +53,14 @@ class Kewenangan extends MY_Controller
 	}
 	function get_ajax()
 	{
+		$GRUP = $this->input->post('hehe');
 		$list = $this->Kewenangan_model->get_datatables();
 		$data = array();
 		$no = @$_POST['start'];
 		foreach ($list as $item) {
 			$no++;
 			$row = array();
-			$row[] = $no . ".";
+			$row[] = $GRUP . ".";
 			$row[] = $item->GRUP_NAMA;
 			$row[] = $item->MENU_NAMA;
 			$row[] = $item->CREATE;
