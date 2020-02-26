@@ -7,19 +7,6 @@
 			<div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
 		</div>
 		<div class="card-body">
-			<!-- <table id="dataTableKewenangan" class="table table-hover table-bordered" style="width:100%">
-				<thead>
-					<tr>
-						<th>No</th>
-						<th>Nama Grup</th>
-						<th>Nama Menu</th>
-						<th>Kewenangan Create</th>
-						<th>Kewenangan Update</th>
-						<th>Kewenangan Delete</th>
-						<th>Aksi</th>
-					</tr>
-				</thead>
-			</table> -->
 			<div class="row row-cols-1 row-cols-md-3">
 				<?php foreach ($readKewenangan as $data) : ?>
 					<div class="col mb-4">
@@ -27,8 +14,8 @@
 							<div class="card-body">
 								<h5 class="card-title"><?= $data['GRUP_NAMA']; ?></h5>
 								<p class="card-text"><?= $data['GRUP_DISKRIPSI']; ?></p>
-								<button type="button" id="deatilBtn" name="detailBtn" class="btn btn-primary" data-toggle="modal" data-target="#detail<?= $data['GRUP_ID']; ?>" value="<?= $data['GRUP_ID']; ?>"><?= $data['GRUP_ID']; ?></button>
-								<div class="modal fade" id="detail<?= $data['GRUP_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<button type="button" id="deatilBtn" name="detailBtn" class="btn btn-primary" data-toggle="modal" data-target="#detail" onClick="simpan(<?= $data['GRUP_ID']; ?>)">Detail</button>
+								<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 									<div class="modal-dialog modal-xl" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -165,7 +152,7 @@
 							<label for="MENU_ID">Nama Menu</label>
 							<select class="form-control" id="MENU_ID" name="MENU_ID">
 								<?php
-								foreach ($namaMenu as $data3) : ?>
+								foreach ($namaMenuOption as $data3) : ?>
 									<option value="<?= $data3['MENU_ID']; ?>" <?php if ($data3['MENU_NAMA'] == $data['MENU_NAMA']) {
 																					echo 'selected';
 																				} ?>><?= $data3['MENU_NAMA']; ?> </option>

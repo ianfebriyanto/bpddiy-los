@@ -1,15 +1,22 @@
 <div class="container-fluid">
-    <table id="dataTableSistem" class="table table-hover table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th scope="col">No</th>
-                <th scope="col">Sistem Nama</th>
-                <th scope="col">Sistem Diskripsi</th>
-                <th scope="col">Sistem Versi</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-    </table>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Menu Grup</h6>
+        </div>
+        <div class="card-body">
+            <table id="dataTableSistem" class="table table-hover table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Sistem Nama</th>
+                        <th scope="col">Sistem Diskripsi</th>
+                        <th scope="col">Sistem Versi</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 </div>
 <?php foreach ($sistem as $data) : ?>
     <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">

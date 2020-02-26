@@ -1,19 +1,26 @@
 <div class="container-fluid">
-    <table id="dataTableUser" class="table table-hover table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Username</th>
-                <th scope="col">Nama Lengkap</th>
-                <th scope="col">Email</th>
-                <th scope="col">Host</th>
-                <th scope="col">Date Create</th>
-                <th scope="col">Nama Grup</th>
-                <th scope="col">Status</th>
-                <th scope="col">Aksi</th>
-            </tr>
-        </thead>
-    </table>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Menu Grup</h6>
+        </div>
+        <div class="card-body">
+            <table id="dataTableUser" class="table table-hover table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Nama Lengkap</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Host</th>
+                        <th scope="col">Date Create</th>
+                        <th scope="col">Nama Grup</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 </div>
 <?php
 foreach ($user as $data) : ?>
