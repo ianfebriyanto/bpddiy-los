@@ -17,8 +17,12 @@ class Login extends MY_Controller
 		if ($this->form_validation->run() == false) {
 			$style = $this->load->view('style', '', true);
 			$script = $this->load->view('script', '', true);
+			$is_logged_in = $this->session->userdata('is_logged_in');
 			$data = [];
 			$this->template->load('master', 'index', compact('style', 'script', 'data'));
+			if (isset($is_logged_in) || $is_logged_in == true) {
+				redirect('dashboard');
+			}
 		} else {
 			$this->loginAct();
 		}
@@ -36,9 +40,10 @@ class Login extends MY_Controller
 					$data = [
 						'USERNAME' => $userLogin['USERNAME'],
 						'GRUP_ID' => $userLogin['GRUP_ID'],
+						'is_logged_in' => true
 					];
 					$this->session->set_userdata($data);
-					redirect('kewenangan');
+					redirect('dashboard');
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 					Password yang anda inputkan salah. </div>');
@@ -60,6 +65,7 @@ class Login extends MY_Controller
 	{
 		$this->session->unset_userdata('USERNAME');
 		$this->session->unset_userdata('GRUP_ID');
+		$this->session->unset_userdata('is_logged_in');
 		redirect('login');
 	}
 }

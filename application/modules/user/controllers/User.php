@@ -19,8 +19,13 @@ class User extends MY_Controller
 		$data['namaMenu'] = $this->User_model->readMenu($GRUP_ID);
 		$data['namaGrup'] = $this->User_model->readNamaGrup();
 		$this->template->load('master_dashboard', 'index', $data);
+		$kewenangan = in_array(9, array_column($data['namaMenu'], 'MENU_ID'));
+		if (!$kewenangan) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. </div>');
+			redirect('dashboard');
+		}
 	}
-
 	public function createAct()
 	{
 		$this->form_validation->set_rules('USERNAME', 'USERNAME', 'required|trim');

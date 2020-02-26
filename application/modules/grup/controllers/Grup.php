@@ -19,6 +19,12 @@ class Grup extends MY_Controller
 		$data['USERNAME'] = $this->session->userdata('USERNAME');
 		$data['namaMenu'] = $this->Grup_model->readMenu($GRUP_ID);
 		$this->template->load('master_dashboard', 'index', $data);
+		$kewenangan = in_array(10, array_column($data['namaMenu'], 'MENU_ID'));
+		if (!$kewenangan) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. </div>');
+			redirect('dashboard');
+		}
 	}
 
 	public function createAct()

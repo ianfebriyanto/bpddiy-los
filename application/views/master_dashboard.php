@@ -24,6 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="<?= base_url('dashboard'); ?>">Dashboard<span class="sr-only"></span></a>
                         <a class="nav-item nav-link" href="<?= base_url('login/logout'); ?>">Logout<span class="sr-only"></span></a>
                         <?php foreach ($namaMenu as $data) : ?>
                             <a class="nav-item nav-link" href="<?= base_url($data['MENU_LINK']) ?>"><?= $data['MENU_NAMA']; ?><span class="sr-only"></span></a>
