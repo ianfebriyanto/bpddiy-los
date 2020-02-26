@@ -140,12 +140,7 @@
 						<div class="form-group">
 							<label for="GRUP_ID">Nama Grup</label>
 							<select class="form-control" id="GRUP_ID" name="GRUP_ID">
-								<?php
-								foreach ($namaGrup as $data2) : ?>
-									<option value="<?= $data2['GRUP_ID']; ?>" <?php if ($data2['GRUP_NAMA'] == $data['GRUP_NAMA']) {
-																					echo 'selected';
-																				} ?>><?= $data2['GRUP_NAMA']; ?> </option>
-								<?php endforeach; ?>
+								<option value="<?= $data['GRUP_ID']; ?>"><?= $data['GRUP_NAMA']; ?> </option>
 							</select>
 						</div>
 						<div class="form-group">

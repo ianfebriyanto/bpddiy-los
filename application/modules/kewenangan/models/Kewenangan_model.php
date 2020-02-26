@@ -80,8 +80,7 @@ class Kewenangan_model extends CI_Model
     }
     function get_datatables()
     {
-        $GRUP = $this->input->post('id');
-        $this->_get_datatables_query($GRUP);
+        $this->_get_datatables_query();
         if (@$_POST['length'] != -1)
             $this->db->limit(@$_POST['length'], @$_POST['start']);
         $query = $this->db->get();
@@ -89,8 +88,7 @@ class Kewenangan_model extends CI_Model
     }
     function count_filtered()
     {
-        $GRUP = $this->input->post('id');
-        $this->_get_datatables_query($GRUP);
+        $this->_get_datatables_query();
         $query = $this->db->get();
         return $query->num_rows();
     }

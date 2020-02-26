@@ -8,10 +8,10 @@
     });
 
     function simpan(id) {
+        $('#dataTableKewenangan').DataTable().clear().destroy();
         $('#dataTableKewenangan').DataTable({
             "processing": true,
             "serverSide": true,
-            "destroy": true,
             "order": [],
             "ajax": {
                 url: "<?= base_url('kewenangan/get_ajax'); ?>",
@@ -26,4 +26,11 @@
             }],
         });
     }
+    $(document).on('show.bs.modal', '.modal', function() {
+        var zIndex = 1040 + (10 * $('.modal:visible').length);
+        $(this).css('z-index', zIndex);
+        setTimeout(function() {
+            $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+        }, 0);
+    });
 </script>
