@@ -84,7 +84,7 @@ class Kantor extends MY_Controller
 			$row[] = $item->LEVEL;
 			$row[] = $item->NAME;
 			$row[] = $item->STATUS;
-			$row[] = '<button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button> 
+			$row[] = '
 			<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->KD_KANTOR . '">Update</button>
 			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->KD_KANTOR . '">Delete</button>';
 			$data[] = $row;
