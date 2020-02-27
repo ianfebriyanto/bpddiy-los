@@ -18,7 +18,7 @@ class Kantor extends MY_Controller
 		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['namaMenu'] = $this->Kantor_model->readMenu($GRUP_ID);
 		$this->template->load('master_dashboard', 'index', $data);
-		$kewenangan = in_array(16, array_column($data['namaMenu'], 'MENU_ID'));
+		$kewenangan = in_array(14, array_column($data['namaMenu'], 'MENU_ID'));
 		if (!$kewenangan) {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. </div>');

@@ -19,6 +19,12 @@ class Referensi extends MY_Controller
 		$data['USERNAME'] = $this->session->userdata('USERNAME');
 		$data['namaMenu'] = $this->Referensi_model->readMenu($GRUP_ID);
 		$this->template->load('master_dashboard', 'index', $data);
+				$kewenangan = in_array(13, array_column($data['namaMenu'], 'MENU_ID'));
+		if (!$kewenangan) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. </div>');
+			redirect('dashboard');
+		}
 	}
 
 	public function createAct()
@@ -89,9 +95,8 @@ class Referensi extends MY_Controller
 			$row[] = $item->GROUP_ID2;
 			$row[] = $item->REF2;
 			$row[] = $item->DESC2;
-			$row[] = '<button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button> 
-			<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->REFERENSI_ID . '">Update</button>
-			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->REFERENSI_ID . '">Delete</button>';
+			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->REFERENSI_ID . '">Update</button>
+						<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->REFERENSI_ID . '">Delete</button>';
 			$data[] = $row;
 		}
 		$output = array(

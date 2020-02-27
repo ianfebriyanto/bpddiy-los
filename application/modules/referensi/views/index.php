@@ -1,18 +1,28 @@
 <div class="container-fluid">
-    <table id="dataTableReferensi" class="table table-hover table-bordered" style="width:100%">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Menu Menu</h6>
+        </div>
+        <div class="card-header py-3">
+            <div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
+        </div>
+        <div class="card-body">    
+            <table id="dataTableReferensi" class="table table-hover table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Group_Id</th>
+                <th scope="col">Group ID</th>
                 <th scope="col">Ref</th>
                 <th scope="col">Desc</th>
-                <th scope="col">Group_Id2</th>
+                <th scope="col">Group ID</th>
                 <th scope="col">Ref2</th>
                 <th scope="col">Desc2</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
     </table>
+        </div>
+    </div>
 </div>
 <?php foreach ($referensi as $data) : ?>
     <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
