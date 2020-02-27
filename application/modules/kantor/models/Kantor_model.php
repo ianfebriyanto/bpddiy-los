@@ -12,21 +12,21 @@ class Kantor_model extends CI_Model
     }
     public function updateData($id, $data)
     {
-        $this->db->where('KD_KANTOR', $id);
+        $this->db->where('KANTOR_ID', $id);
         $this->db->update('TBL_KANTOR', $data);
     }
     public function deleteData($id)
     {
-        $this->db->where('KD_KANTOR', $id);
+        $this->db->where('KANTOR_ID', $id);
         $this->db->delete('TBL_KANTOR');
     }
     public function readMenu($GRUP_ID)
     {
         return $this->db->query("SELECT TBL_MENU.MENU_NAMA, TBL_MENU.MENU_LINK, TBL_MENU.MENU_ID  FROM TBL_KEWENANGAN, TBL_GRUP, TBL_MENU WHERE TBL_GRUP.GRUP_ID=$GRUP_ID AND TBL_KEWENANGAN.GRUP_ID = TBL_GRUP.GRUP_ID AND TBL_KEWENANGAN.MENU_ID=TBL_MENU.MENU_ID")->result_array();
     }
-    var $column_order = array(null, 'PARENT', null, 'LEVEL', null, 'NAME');
-    var $column_search = array('KD_KANTOR');
-    var $order = array('KD_KANTOR' => 'asc');
+    var $column_order = array(null, 'KD_KANTOR', 'PARENT', 'NAME');
+    var $column_search = array('KD_KANTOR', 'NAME');
+    var $order = array('KANTOR_ID' => 'asc');
     private function _get_datatables_query()
     {
         $this->db->select('*');
@@ -69,7 +69,7 @@ class Kantor_model extends CI_Model
     }
     function count_all()
     {
-        $this->db->from('TBL_SISTEM');
+        $this->db->from('TBL_KANTOR');
         return $this->db->count_all_results();
     }
 }

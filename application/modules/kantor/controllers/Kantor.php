@@ -18,7 +18,7 @@ class Kantor extends MY_Controller
 		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['namaMenu'] = $this->Kantor_model->readMenu($GRUP_ID);
 		$this->template->load('master_dashboard', 'index', $data);
-		$kewenangan = in_array(14, array_column($data['namaMenu'], 'MENU_ID'));
+		$kewenangan = in_array(16, array_column($data['namaMenu'], 'MENU_ID'));
 		if (!$kewenangan) {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. </div>');
@@ -27,6 +27,7 @@ class Kantor extends MY_Controller
 	}
 	public function createAct()
 	{
+		$this->form_validation->set_rules('KD_KANTOR', 'KD_KANTOR', 'required|trim');
 		$this->form_validation->set_rules('PARENT', 'PARENT', 'required|trim');
 		$this->form_validation->set_rules('LEVEL', 'LEVEL', 'required|trim');
 		$this->form_validation->set_rules('NAME', 'NAME', 'required|trim');
@@ -34,6 +35,7 @@ class Kantor extends MY_Controller
 			$this->index();
 		} else {
 			$data = [
+				"KD_KANTOR" => $this->input->post('KD_KANTOR'),
 				"PARENT" => $this->input->post('PARENT'),
 				"LEVEL" => $this->input->post('LEVEL'),
 				"NAME" => $this->input->post('NAME'),
@@ -46,15 +48,16 @@ class Kantor extends MY_Controller
 
 	public function updateAct()
 	{
+		$this->form_validation->set_rules('KD_KANTORu', 'KD_KANTOR', 'required|trim');
 		$this->form_validation->set_rules('PARENTu', 'PARENT', 'required|trim');
 		$this->form_validation->set_rules('LEVELu', 'LEVEL', 'required|trim');
 		$this->form_validation->set_rules('NAMEu', 'NAME', 'required|trim');
-		$this->form_validation->set_rules('STATUSu', 'STATUS', 'required|trim');
 		if ($this->form_validation->run() == false) {
 			$this->index();
 		} else {
-			$id = $this->input->post('KD_KANTOR');
+			$id = $this->input->post('KANTOR_ID');
 			$data = [
+				"KD_KANTOR" => $this->input->post('KD_KANTORu'),
 				"PARENT" => $this->input->post('PARENTu'),
 				"LEVEL" => $this->input->post('LEVELu'),
 				"NAME" => $this->input->post('NAMEu'),
@@ -66,13 +69,12 @@ class Kantor extends MY_Controller
 	}
 	public function deleteAct()
 	{
-		$id = $this->input->post('KD_KANTOR');
+		$id = $this->input->post('KANTOR_ID');
 		$data['Kantor'] = $this->Kantor_model->deleteData($id);
 		redirect('kantor');
 	}
 	function get_ajax()
 	{
-
 		$list = $this->Kantor_model->get_datatables();
 		$data = array();
 		$no = @$_POST['start'];
@@ -80,13 +82,13 @@ class Kantor extends MY_Controller
 			$no++;
 			$row = array();
 			$row[] = $no . ".";
+			$row[] = $item->KD_KANTOR;
 			$row[] = $item->PARENT;
 			$row[] = $item->LEVEL;
 			$row[] = $item->NAME;
 			$row[] = $item->STATUS;
-			$row[] = '
-			<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->KD_KANTOR . '">Update</button>
-			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->KD_KANTOR . '">Delete</button>';
+			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->KANTOR_ID . '">Update</button>
+			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->KANTOR_ID . '">Delete</button>';
 			$data[] = $row;
 		}
 		$output = array(

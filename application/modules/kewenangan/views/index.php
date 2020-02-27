@@ -1,61 +1,60 @@
-<div class="container-fluid">
-	<div class="card shadow mb-4">
-		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">Menu Kewenangan</h6>
-		</div>
-		<div class="card-header py-3">
-			<div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
-		</div>
-		<div class="card-body">
-			<div class="row row-cols-1 row-cols-md-3">
-				<?php foreach ($readKewenangan as $data) : ?>
-					<div class="col mb-4">
-						<div class="card">
-							<div class="card-body">
-								<h5 class="card-title"><?= $data['GRUP_NAMA']; ?></h5>
-								<p class="card-text"><?= $data['GRUP_DISKRIPSI']; ?></p>
-								<button type="button" id="deatilBtn" name="detailBtn" class="btn btn-primary" data-toggle="modal" data-target="#detail" onClick="simpan(<?= $data['GRUP_ID']; ?>)">Detail</button>
-								<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-									<div class="modal-dialog modal-xl" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h5 class="modal-title" id="staticBackdropLabel">Detail Data Kewenangan</h5>
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
+<div class="card shadow mb-4">
+	<div class="card-header py-3">
+		<h6 class="m-0 font-weight-bold text-primary">Menu Kewenangan</h6>
+	</div>
+	<div class="card-header py-3">
+		<div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
+	</div>
+	<div class="card-body">
+		<div class="row row-cols-1 row-cols-md-3">
+			<?php foreach ($readKewenangan as $data) : ?>
+				<div class="col mb-4">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title"><?= $data['GRUP_NAMA']; ?></h5>
+							<p class="card-text"><?= $data['GRUP_DISKRIPSI']; ?></p>
+							<button type="button" id="deatilBtn" name="detailBtn" class="btn btn-primary" data-toggle="modal" data-target="#detail" onClick="simpan(<?= $data['GRUP_ID']; ?>)">Detail</button>
+							<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<div class="modal-dialog modal-xl" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="staticBackdropLabel">Detail Data Kewenangan</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="table-responsive">
+												<table id="dataTableKewenangan" class="table table-hover table-bordered" style="width:100%">
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Nama Grup</th>
+															<th>Nama Menu</th>
+															<th>Kewenangan Create</th>
+															<th>Kewenangan Update</th>
+															<th>Kewenangan Delete</th>
+															<th>Aksi</th>
+														</tr>
+													</thead>
+												</table>
 											</div>
-											<div class="modal-body">
-												<div class="table-responsive">
-													<table id="dataTableKewenangan" class="table table-hover table-bordered" style="width:100%">
-														<thead>
-															<tr>
-																<th>No</th>
-																<th>Nama Grup</th>
-																<th>Nama Menu</th>
-																<th>Kewenangan Create</th>
-																<th>Kewenangan Update</th>
-																<th>Kewenangan Delete</th>
-																<th>Aksi</th>
-															</tr>
-														</thead>
-													</table>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-												<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
-											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+											<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				<?php endforeach; ?>
-			</div>
+				</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </div>
+
 <?php foreach ($kewenangan as $data) : ?>
 	<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">

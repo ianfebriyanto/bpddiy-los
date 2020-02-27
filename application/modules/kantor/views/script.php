@@ -15,7 +15,11 @@
                 url: "<?= base_url('kantor/get_ajax'); ?>",
                 type: "POST"
             },
-            
+            "columnDefs": [{
+                "targets": [0, 3, 5, 6],
+                "orderable": false,
+            }],
+
         });
     });
 </script>

@@ -1,25 +1,23 @@
-<div class="container-fluid">
-	<div class="card shadow mb-4">
-		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">Menu Menu</h6>
-		</div>
-		<div class="card-header py-3">
-			<div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
-		</div>
-		<div class="card-body">
-			<table id="dataTableMenu" class="table table-hover table-bordered" style="width:100%">
-				<thead>
-					<tr>
-						<th>No</th>
-						<th>Menu Nama</th>
-						<th>Menu Link</th>
-						<th>Menu Diskripsi</th>
-						<th>Menu Status</th>
-						<th>Aksi</th>
-					</tr>
-				</thead>
-			</table>
-		</div>
+<div class="card shadow mb-4">
+	<div class="card-header py-3">
+		<h6 class="m-0 font-weight-bold text-primary">Menu Menu</h6>
+	</div>
+	<div class="card-header py-3">
+		<div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
+	</div>
+	<div class="card-body">
+		<table id="dataTableMenu" class="table table-hover table-bordered" style="width:100%">
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Menu Nama</th>
+					<th>Menu Link</th>
+					<th>Menu Diskripsi</th>
+					<th>Menu Status</th>
+					<th>Aksi</th>
+				</tr>
+			</thead>
+		</table>
 	</div>
 </div>
 <?php foreach ($menu as $data) : ?>

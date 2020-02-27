@@ -1,26 +1,25 @@
-<div class="container-fluid">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Menu Grup</h6>
-        </div>
-        <div class="card-header py-3">
-            <div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
-        </div>
-        <div class="card-body">
-            <table id="dataTableSistem" class="table table-hover table-bordered" style="width:100%">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Sistem Nama</th>
-                        <th scope="col">Sistem Diskripsi</th>
-                        <th scope="col">Sistem Versi</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Menu Grup</h6>
+    </div>
+    <div class="card-header py-3">
+        <div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
+    </div>
+    <div class="card-body">
+        <table id="dataTableSistem" class="table table-hover table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Sistem Nama</th>
+                    <th scope="col">Sistem Diskripsi</th>
+                    <th scope="col">Sistem Versi</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+        </table>
     </div>
 </div>
+
 <?php foreach ($sistem as $data) : ?>
     <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
