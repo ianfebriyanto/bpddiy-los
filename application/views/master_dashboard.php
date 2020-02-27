@@ -17,22 +17,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <body id="page-top" class="bg">
     <div id="wrapper">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary topbar mb-4 static-top">
-            <a class="navbar-brand" href="<?= base_url(''); ?>">LOS - BPDDIY</a>
+            <a class="navbar-brand  text-light font-weight-bold px-3" href="<?= base_url(''); ?>">LOS - BPDDIY</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="<?= base_url('dashboard'); ?>">Dashboard<span class="sr-only"></span></a>
-                        <a class="nav-item nav-link" href="<?= base_url('login/logout'); ?>">Logout<span class="sr-only"></span></a>
-                        <?php foreach ($namaMenu as $data) : ?>
-                            <a class="nav-item nav-link" href="<?= base_url($data['MENU_LINK']) ?>"><?= $data['MENU_NAMA']; ?><span class="sr-only"></span></a>
-                        <?php endforeach; ?>
-                    </div>
+            <div class="collapse navbar-collapse justify-content-between" id="nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light font-weight-bold px-2" href="<?= base_url('dashboard'); ?>">Dashboard<span class="sr-only"></span></a>
+                    </li>
+
+                    <?php foreach ($namaMenu as $data) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-light font-weight-bold px-2" href="<?= base_url($data['MENU_LINK']) ?>"><?= $data['MENU_NAMA']; ?><span class="sr-only"></span></a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <div class="form-inline ml-3">
+                    <a class="nav-item nav-link text-light font-weight-bold px-2" href="<?= base_url('login/logout'); ?>">Logout<span class="sr-only"></span></a>
                 </div>
             </div>
         </nav>
+
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <?php if (isset($contents)) echo $contents; ?>

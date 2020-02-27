@@ -79,8 +79,7 @@ class Sistem extends MY_Controller
 			$row[] = $item->SISTEM_NAMA;
 			$row[] = $item->SISTEM_DISKRIPSI;
 			$row[] = $item->SISTEM_VERSI;
-			$row[] = '<button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button> 
-			<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->SISTEM_ID . '">Update</button>
+			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->SISTEM_ID . '">Update</button>
 			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->SISTEM_ID . '">Delete</button>';
 			$data[] = $row;
 		}

@@ -16,7 +16,6 @@ class Grup extends MY_Controller
 		$data['script']  = $this->load->view('script', '', true);
 		$data['grup'] = $this->Grup_model->readData();
 		$GRUP_ID = $this->session->userdata('GRUP_ID');
-		$data['USERNAME'] = $this->session->userdata('USERNAME');
 		$data['namaMenu'] = $this->Grup_model->readMenu($GRUP_ID);
 		$this->template->load('master_dashboard', 'index', $data);
 		$kewenangan = in_array(10, array_column($data['namaMenu'], 'MENU_ID'));
@@ -75,8 +74,7 @@ class Grup extends MY_Controller
 			$row[] = $no . ".";
 			$row[] = $item->GRUP_NAMA;
 			$row[] = $item->GRUP_DISKRIPSI;
-			$row[] = '<button type="button" id="createBtn" name="createBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#create">Create</button>
-					<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->GRUP_ID . '">Update</button>
+			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->GRUP_ID . '">Update</button>
 					<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->GRUP_ID . '">Delete</button>';
 			$data[] = $row;
 		}

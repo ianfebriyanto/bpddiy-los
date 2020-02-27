@@ -20,11 +20,11 @@ class Kantor_model extends CI_Model
         $this->db->where('KD_KANTOR', $id);
         $this->db->delete('TBL_KANTOR');
     }
-   public function readMenu($GRUP_ID)
+    public function readMenu($GRUP_ID)
     {
-        return $this->db->query("SELECT TBL_MENU.MENU_NAMA, TBL_MENU.MENU_LINK  FROM TBL_KEWENANGAN, TBL_GRUP, TBL_MENU WHERE TBL_GRUP.GRUP_ID=$GRUP_ID AND TBL_KEWENANGAN.GRUP_ID = TBL_GRUP.GRUP_ID AND TBL_KEWENANGAN.MENU_ID=TBL_MENU.MENU_ID")->result_array();
+        return $this->db->query("SELECT TBL_MENU.MENU_NAMA, TBL_MENU.MENU_LINK, TBL_MENU.MENU_ID  FROM TBL_KEWENANGAN, TBL_GRUP, TBL_MENU WHERE TBL_GRUP.GRUP_ID=$GRUP_ID AND TBL_KEWENANGAN.GRUP_ID = TBL_GRUP.GRUP_ID AND TBL_KEWENANGAN.MENU_ID=TBL_MENU.MENU_ID")->result_array();
     }
-    var $column_order = array(null, 'PARENT', null,'LEVEL', null, 'NAME');
+    var $column_order = array(null, 'PARENT', null, 'LEVEL', null, 'NAME');
     var $column_search = array('KD_KANTOR');
     var $order = array('KD_KANTOR' => 'asc');
     private function _get_datatables_query()
