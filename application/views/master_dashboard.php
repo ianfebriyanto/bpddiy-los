@@ -53,7 +53,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-white topbar mb-4 static-top">
-                    <button type="button" class="btn text-primary" id="sidebarToggle"><i class="fas fa-bars"></i></button>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

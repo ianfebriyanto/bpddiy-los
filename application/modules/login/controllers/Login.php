@@ -45,18 +45,24 @@ class Login extends MY_Controller
 					$this->session->set_userdata($data);
 					redirect('dashboard');
 				} else {
-					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-					Password yang anda inputkan salah. </div>');
+					$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					Password yang anda inputkan salah. <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button> </div>');
 					redirect('login');
 				}
 			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-			Akun anda tidak aktif.</div>');
+				$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			Akun anda tidak aktif.<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button> </div>');
 				redirect('login');
 			}
 		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-		Akun tidak terdaftar. </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		Akun tidak terdaftar. <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button> </div>');
 			redirect('login');
 		}
 	}

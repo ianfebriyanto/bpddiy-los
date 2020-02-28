@@ -18,8 +18,10 @@ class Menu extends MY_Controller
 		$this->template->load('master_dashboard', 'index', $data);
 		$kewenangan = in_array(13, array_column($data['namaMenu'], 'MENU_ID'));
 		if (!$kewenangan) {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button> </div>');
 			redirect('dashboard');
 		}
 	}

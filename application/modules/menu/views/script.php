@@ -16,7 +16,7 @@
                 type: "POST"
             },
             "columnDefs": [{
-                "targets": [0, 2, 3],
+                "targets": [0, 2, 3, 4, 5],
                 "orderable": false,
             }],
         });

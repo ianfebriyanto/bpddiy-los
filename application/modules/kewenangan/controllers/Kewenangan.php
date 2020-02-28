@@ -12,17 +12,19 @@ class Kewenangan extends MY_Controller
 	{
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
+		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['kewenangan'] = $this->Kewenangan_model->readData();
 		$data['readKewenangan'] = $this->Kewenangan_model->readKewenangan();
-		$data['namaMenuOption'] = $this->Kewenangan_model->readNamaMenu();
+		$data['namaMenuOption'] = $this->Kewenangan_model->readNamaMenu($GRUP_ID);
 		$data['namaGrup'] = $this->Kewenangan_model->readNamaGrup();
-		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['namaMenu'] = $this->Kewenangan_model->readMenu($GRUP_ID);
 		$this->template->load('master_dashboard', 'index', $data);
-		$kewenangan = in_array(11, array_column($data['namaMenu'], 'MENU_ID'));
+		$kewenangan = in_array('/kewenangan', array_column($data['namaMenu'], 'MENU_LINK'));
 		if (!$kewenangan) {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. </div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button> </div>');
 			redirect('dashboard');
 		}
 	}
