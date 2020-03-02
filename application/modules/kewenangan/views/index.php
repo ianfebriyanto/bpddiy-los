@@ -6,6 +6,7 @@
 		<div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
 	</div>
 	<div class="card-body">
+		<?= $this->session->flashdata('message'); ?>
 		<div class="row row-cols-1 row-cols-md-3">
 			<?php foreach ($readKewenangan as $data) : ?>
 				<div class="col mb-4">

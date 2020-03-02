@@ -19,8 +19,9 @@ class Referensi extends MY_Controller
 		$data['USERNAME'] = $this->session->userdata('USERNAME');
 		$data['namaMenu'] = $this->Referensi_model->readMenu($GRUP_ID);
 		$this->template->load('master_dashboard', 'index', $data);
-		$kewenangan = in_array(13, array_column($data['namaMenu'], 'MENU_ID'));
-		if (!$kewenangan) {
+		$kewenangan = in_array('/referensi', array_column($data['namaMenu'], 'MENU_LINK'));
+		$menuStatus = $this->db->get_where('TBL_MENU', ['MENU_LINK' => '/referensi'])->row_array();
+		if (!$kewenangan || $menuStatus['MENU_STATUS'] == 0) {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 			Anda tidak memiliki kewenangan untuk mengakses menu tersebut.<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>

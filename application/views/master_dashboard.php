@@ -19,7 +19,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <body id="page-top" class="bg">
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
-            <hr class="my-1">
             <li class="sidebar-brand d-flex align-items-center justify-content-center ">
                 <a class="nav-link text-white" href="<?= base_url('dashboard'); ?>">
                     LOS

@@ -17,8 +17,9 @@ class Sistem extends MY_Controller
 		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['namaMenu'] = $this->Sistem_model->readMenu($GRUP_ID);
 		$this->template->load('master_dashboard', 'index', $data);
-		$kewenangan = in_array(12, array_column($data['namaMenu'], 'MENU_ID'));
-		if (!$kewenangan) {
+		$kewenangan = in_array('/sistem', array_column($data['namaMenu'], 'MENU_LINK'));
+		$menuStatus = $this->db->get_where('TBL_MENU', ['MENU_LINK' => '/sistem'])->row_array();
+		if (!$kewenangan || $menuStatus['MENU_STATUS'] == 0) {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
