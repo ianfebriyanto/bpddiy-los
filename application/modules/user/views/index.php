@@ -9,7 +9,7 @@
         <table id="dataTableUser" class="table table-hover table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">No</th>
                     <th scope="col">Username</th>
                     <th scope="col">Nama Lengkap</th>
                     <th scope="col">Email</th>

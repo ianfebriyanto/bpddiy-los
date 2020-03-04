@@ -75,11 +75,8 @@
                                         <input type="date" class="form-control" id="inputAddress">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputAddress">Jenis Debitur</label>
-                                        <select class="custom-select">
-                                            <option value="1">Personal</option>
-                                            <option value="2">Badan Usaha</option>
-                                        </select>
+                                        <label for="inputAddress">Alamat Lengkap</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAddress">Provinsi</label>
@@ -114,10 +111,6 @@
                                         <select class="custom-select">
                                             <option value="1"></option>
                                         </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress">Alamat Lengkap</label>
-                                        <input type="text" class="form-control" id="inputAddress">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAddress">Nomor Telephone</label>
@@ -195,15 +188,12 @@
                                     Syarat dan Ketentuan
                                 </div>
                                 <div class="card-body">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputEmail4">Email</label>
-                                            <input type="email" class="form-control" id="inputEmail4">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputPassword4">Password</label>
-                                            <input type="password" class="form-control" id="inputPassword4">
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="inputAddress">Jenis Debitur</label>
+                                        <select class="custom-select">
+                                            <option value="1">Personal</option>
+                                            <option value="2">Badan Usaha</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAddress">Address</label>

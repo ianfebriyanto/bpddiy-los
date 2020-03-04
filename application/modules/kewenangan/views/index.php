@@ -7,10 +7,12 @@
 		<div class="row row-cols-1 row-cols-md-3">
 			<?php foreach ($namaGrup as $data) : ?>
 				<div class="col mb-4">
-					<div class="card">
+					<div class="card h-100">
 						<div class="card-body">
-							<h5 class="card-title"><?= $data['GRUP_NAMA']; ?></h5>
+							<h5 class="card-title text-dark"><?= $data['GRUP_NAMA']; ?></h5>
 							<p class="card-text"><?= $data['GRUP_DISKRIPSI']; ?></p>
+						</div>
+						<div class="card-footer bg-white">
 							<button type="button" id="deatilBtn" name="detailBtn" class="btn btn-primary" data-toggle="modal" data-target="#detail<?= $data['GRUP_NAMA']; ?>" onClick="simpan(<?= $data['GRUP_ID']; ?>)">Detail</button>
 							<div class="modal fade" id="detail<?= $data['GRUP_NAMA']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 								<div class="modal-dialog modal-xl" role="document">

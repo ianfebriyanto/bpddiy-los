@@ -65,7 +65,29 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <?php endforeach; ?>
                             </ul>
                             <div class="form-inline ml-3">
-                                <a class="nav-item nav-link text-primary font-weight-bold px-2" href="<?= base_url('login/logout'); ?>">Logout<span class="sr-only"></span></a>
+                                <button type="button" id="logoutBtn" name="logoutBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#logout">Logout <i class="fas fa-sign-out-alt"></i></button>
+                                <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Logout BPDDIY-LOS</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="<?= base_url('login/logout'); ?>" method="post" enctype="multipart/form-data">
+                                                <div class="modal-body">
+                                                    Anda yakin untuk logout dari BPDDIY-LOS?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                    <button type="submit" class="btn btn-primary" value="upload">Logout</button>
+                                                </div>
+                                                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
