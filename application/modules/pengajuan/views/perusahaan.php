@@ -9,21 +9,21 @@
                     <div class="connecting-line"></div>
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="nav-item">
-                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1" class="nav-link active">
+                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Data Diri" class="nav-link active">
                                 <span class="round-tab">
-                                    <i class="fa fa-building"></i>
+                                    <i class="fas fa-user"></i>
                                 </span>
                             </a>
                         </li>
                         <li role="presentation" class="nav-item">
-                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2" class="nav-link disabled">
+                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Fasilitas" class="nav-link disabled">
                                 <span class="round-tab">
-                                    <i class="fa fa-info"></i>
+                                    <i class="fas fa-clipboard-list"></i>
                                 </span>
                             </a>
                         </li>
                         <li role="presentation" class="nav-item">
-                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3" class="nav-link disabled">
+                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Syarat & K" class="nav-link disabled">
                                 <span class="round-tab">
                                     <i class="fa fa-money"></i>
                                 </span>

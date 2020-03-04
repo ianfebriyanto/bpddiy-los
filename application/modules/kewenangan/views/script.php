@@ -8,8 +8,8 @@
     });
 
     function simpan(id) {
-        $('#dataTableKewenangan').DataTable().clear().destroy();
-        $('#dataTableKewenangan').DataTable({
+        $('#dataTableKewenangan' + id).DataTable().clear().destroy();
+        $('#dataTableKewenangan' + id).DataTable({
             "processing": true,
             "serverSide": true,
             "order": [],
@@ -21,9 +21,14 @@
                 }
             },
             "columnDefs": [{
-                "targets": [0, 3, 4, 5, 6],
-                "orderable": false,
-            }],
+                    "targets": [0, 2, 3, 4, 5],
+                    "orderable": false,
+                },
+                {
+                    "targets": [2, 3, 4],
+                    "className": "text-center",
+                }
+            ],
         });
     }
     $(document).on('show.bs.modal', '.modal', function() {

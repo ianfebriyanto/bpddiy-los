@@ -90,6 +90,11 @@ class User extends MY_Controller
 		$data = array();
 		$no = @$_POST['start'];
 		foreach ($list as $item) {
+			if (($item->STATUS) == 0) {
+				$item->STATUS = '<span style="color: Tomato;"><i class="fas fa-ban"></i></span>';
+			} else {
+				$item->STATUS = '<span style="color: Dodgerblue;"><i class="fas fa-check"></i></span>';
+			}
 			$no++;
 			$row = array();
 			$row[] = $no . ".";

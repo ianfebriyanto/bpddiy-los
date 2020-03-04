@@ -16,9 +16,14 @@
                 type: "POST"
             },
             "columnDefs": [{
-                "targets": [0, 2, 3, 4, 5],
-                "orderable": false,
-            }],
+                    "targets": [0, 2, 3, 4, 5],
+                    "orderable": false,
+                },
+                {
+                    "targets": [4],
+                    "className": "text-center",
+                }
+            ],
         });
     });
 </script>

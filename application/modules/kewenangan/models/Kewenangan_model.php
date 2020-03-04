@@ -23,7 +23,7 @@ class Kewenangan_model extends CI_Model
 
     public function readNamaGrup()
     {
-        $this->db->select('GRUP_NAMA, GRUP_ID');
+        $this->db->select('GRUP_NAMA, GRUP_ID, GRUP_DISKRIPSI');
         $this->db->from('TBL_GRUP');
         return $this->db->get()->result_array();
     }

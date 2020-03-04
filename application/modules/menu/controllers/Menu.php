@@ -75,6 +75,11 @@ class Menu extends MY_Controller
 		$data = array();
 		$no = @$_POST['start'];
 		foreach ($list as $item) {
+			if (($item->MENU_STATUS) == 0) {
+				$item->MENU_STATUS = '<span style="color: Tomato;"><i class="fas fa-ban"></i></span>';
+			} else {
+				$item->MENU_STATUS = '<span style="color: Dodgerblue;"><i class="fas fa-check"></i></span>';
+			}
 			$no++;
 			$row = array();
 			$row[] = $no . ".";

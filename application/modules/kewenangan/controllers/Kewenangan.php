@@ -119,10 +119,24 @@ class Kewenangan extends MY_Controller
 		$data = array();
 		$no = @$_POST['start'];
 		foreach ($list as $item) {
+			if (($item->CREATE) == 0) {
+				$item->CREATE = '<span style="color: Tomato;"><i class="fas fa-ban"></i></span>';
+			} else {
+				$item->CREATE = '<span style="color: Dodgerblue;"><i class="fas fa-check"></i></span>';
+			}
+			if (($item->UPDATE) == 0) {
+				$item->UPDATE = '<span style="color: Tomato;"><i class="fas fa-ban"></i></span>';
+			} else {
+				$item->UPDATE = '<span style="color: Dodgerblue;"><i class="fas fa-check"></i></span>';
+			}
+			if (($item->DELETE) == 0) {
+				$item->DELETE = '<span style="color: Tomato;"><i class="fas fa-ban"></i></span>';
+			} else {
+				$item->DELETE = '<span style="color: Dodgerblue;"><i class="fas fa-check"></i></span>';
+			}
 			$no++;
 			$row = array();
 			$row[] = $no . ".";
-			$row[] = $item->GRUP_NAMA;
 			$row[] = $item->MENU_NAMA;
 			$row[] = $item->CREATE;
 			$row[] = $item->UPDATE;

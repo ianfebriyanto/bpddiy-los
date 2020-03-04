@@ -17,7 +17,7 @@
 
     .connecting-line {
         height: 2px;
-        background: #e0e0e0;
+        background: #5ac0de;
         position: absolute;
         width: 80%;
         margin: 0 auto;
@@ -51,12 +51,24 @@
         font-size: 25px;
     }
 
+    span.round-tab:visited {
+        color: #333;
+        border: 2px solid #333;
+    }
+
     span.round-tab i {
         color: #555555;
     }
 
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active {
+        color: #FFF;
+        background-color: #fff;
+        border-color: #dddfeb #dddfeb #fff;
+    }
+
     .wizard li a.active span.round-tab {
-        background: #fff;
+        background: #5bc0de;
         border: 2px solid #5bc0de;
 
     }
@@ -71,7 +83,7 @@
     }
 
     .wizard .nav-tabs>li {
-        width: 19%;
+        width: 25%;
     }
 
     .wizard li a:after {
