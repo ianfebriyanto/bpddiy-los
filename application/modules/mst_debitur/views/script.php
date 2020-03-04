@@ -7,14 +7,18 @@
         });
     });
     $(document).ready(function() {
-        $('#dataTableDeb_perusahaan').DataTable({
+        $('#dataTableMst_debitur').DataTable({
             "processing": true,
             "serverSide": true,
             "order": [],
             "ajax": {
-                url: "<?= base_url('Deb_perusahaan/get_ajax'); ?>",
+                url: "<?= base_url('mst_debitur/get_ajax'); ?>",
                 type: "POST"
             },
+            "columnDefs": [{
+                "targets": [0, 12],
+                "orderable": false,
+            }],
         });
     });
 </script>
