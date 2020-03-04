@@ -13,8 +13,8 @@
 							<p class="card-text"><?= $data['GRUP_DISKRIPSI']; ?></p>
 						</div>
 						<div class="card-footer bg-white">
-							<button type="button" id="deatilBtn" name="detailBtn" class="btn btn-primary" data-toggle="modal" data-target="#detail<?= $data['GRUP_NAMA']; ?>" onClick="simpan(<?= $data['GRUP_ID']; ?>)">Detail</button>
-							<div class="modal fade" id="detail<?= $data['GRUP_NAMA']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<button type="button" id="deatilBtn" name="detailBtn" class="btn btn-primary" data-toggle="modal" data-target="#detail<?= $data['GRUP_ID']; ?>" onClick="simpan(<?= $data['GRUP_ID']; ?>)">Detail</button>
+							<div class="modal fade" id="detail<?= $data['GRUP_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 								<div class="modal-dialog modal-xl" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -24,7 +24,7 @@
 											</button>
 										</div>
 										<div class="modal-header">
-											<button type="button" id="createBtn" name="createBtn" class="btn btn-info btn-md btn createBtn mb-2" data-toggle="modal" data-target="#create<?= $data['GRUP_NAMA']; ?>"> <i class="fa fa-plus-square fa-1x"></i> Tambah kewenangan</button>
+											<button type="button" id="createBtn" name="createBtn" class="btn btn-info btn-md btn createBtn mb-2" data-toggle="modal" data-target="#create<?= $data['GRUP_ID']; ?>"> <i class="fa fa-plus-square fa-1x"></i> Tambah kewenangan</button>
 										</div>
 										<div class="modal-body">
 											<div class="table-responsive">
@@ -49,7 +49,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="modal fade" id="create<?= $data['GRUP_NAMA']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal fade" id="create<?= $data['GRUP_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 								<div class="modal-dialog" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
