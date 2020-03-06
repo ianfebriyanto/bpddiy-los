@@ -17,6 +17,9 @@
 
             $($activeli).next().find('a[data-toggle="tab"]').removeClass("disabled");
             $($activeli).next().find('a[data-toggle="tab"]').click();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 600)
         });
 
 
@@ -27,6 +30,12 @@
 
             $($activeli).prev().find('a[data-toggle="tab"]').removeClass("disabled");
             $($activeli).prev().find('a[data-toggle="tab"]').click();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 600)
+        });
+        $("#btn").click(function() {
+            $("#Outer").show(500);
 
         });
 

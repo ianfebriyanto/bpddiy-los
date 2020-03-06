@@ -38,7 +38,8 @@ class Menu extends MY_Controller
 				"MENU_NAMA" => $this->input->post('MENU_NAMA'),
 				"MENU_LINK" => $this->input->post('MENU_LINK'),
 				"MENU_DISKRIPSI" => $this->input->post('MENU_DISKRIPSI'),
-				"MENU_STATUS" => $this->input->post('MENU_STATUS')
+				"MENU_STATUS" => $this->input->post('MENU_STATUS'),
+				"PARENT_ID" => $this->input->post('PARENT_ID')
 			];
 			$this->Menu_model->createData($data);
 			redirect('menu');
@@ -57,7 +58,8 @@ class Menu extends MY_Controller
 				"MENU_NAMA" => $this->input->post('MENU_NAMAu'),
 				"MENU_LINK" => $this->input->post('MENU_LINKu'),
 				"MENU_DISKRIPSI" => $this->input->post('MENU_DISKRIPSIu'),
-				"MENU_STATUS" => $this->input->post('MENU_STATUS')
+				"MENU_STATUS" => $this->input->post('MENU_STATUS'),
+				"PARENT_ID" => $this->input->post('PARENT_ID')
 			];
 			$this->Menu_model->updateData($id, $data);
 			redirect('menu');
@@ -86,6 +88,7 @@ class Menu extends MY_Controller
 			$row[] = $item->MENU_NAMA;
 			$row[] = $item->MENU_LINK;
 			$row[] = $item->MENU_DISKRIPSI;
+			$row[] = $item->PARENT_ID;
 			$row[] = $item->MENU_STATUS;
 			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->MENU_ID . '">Update</button>
 			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->MENU_ID . '">Delete</button>';

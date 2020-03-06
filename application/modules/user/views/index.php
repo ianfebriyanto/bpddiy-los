@@ -59,6 +59,9 @@ foreach ($user as $data) : ?>
                         <div class="form-group">
                             <label for="GRUP_ID">Level Grup</label>
                             <select class="form-control" id="GRUP_ID" name="GRUP_ID">
+                                <option value="none" selected disabled hidden>
+                                    Pilih grup.
+                                </option>
                                 <?php
                                 foreach ($namaGrup as $data2) : ?>
                                     <option value="<?= $data2['GRUP_ID']; ?>"><?= $data2['GRUP_NAMA']; ?> </option>

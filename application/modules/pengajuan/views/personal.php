@@ -1,9 +1,26 @@
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" id="Outer2">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Pengajuan Personal</h6>
     </div>
     <div class="card-body">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-primary text-white" id="inputGroup-sizing-default">NIK</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Masukkan NIK" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="btn"> Cari</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card shadow mb-4" style="display: none" id="Outer">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Form Pengajuan Personal</h6>
+    </div>
+    <div class="card-body">
         <form class="form">
+
             <div class="wizard">
                 <div class="wizard-inner">
                     <div class="connecting-line"></div>
@@ -175,8 +192,8 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <li><button type="button" class="btn btn-secondary prev-step prev-button">Prev Step</button>
-                                        <button type="button" class="btn btn-primary next-step next-button">Next Step</button></li>
+                                    <li><button type="button" class="btn btn-secondary prev-step prev-button">Kembali</button>
+                                        <button type="button" class="btn btn-primary next-step next-button">Lanjut</button></li>
                                 </div>
                             </div>
                         </ul>
@@ -228,8 +245,8 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <li><button type="button" class="btn btn-secondary prev-step prev-button">Prev Step</button>
-                                        <button type="button" class="btn btn-primary next-step next-button">Next Step</button></li>
+                                    <li><button type="button" class="btn btn-secondary prev-step prev-button">Kembali</button>
+                                        <button type="button" class="btn btn-primary next-step next-button">Lanjut</button></li>
                                 </div>
                             </div>
                         </ul>
@@ -284,7 +301,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <li><button type="button" class="btn btn-secondary prev-step prev-button">Prev Step</button>
+                                    <li><button type="button" class="btn btn-secondary prev-step prev-button">Kembali</button>
                                         <button type="button" class="btn btn-primary next-step next-button">Simpan</button>
                                         <button type="button" class="btn btn-info prev-step prev-button">Cetak</button></li>
                                 </div>

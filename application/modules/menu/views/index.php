@@ -13,6 +13,7 @@
 					<th>Menu Nama</th>
 					<th>Menu Link</th>
 					<th>Menu Diskripsi</th>
+					<th>Menu Parent</th>
 					<th>Menu Status</th>
 					<th>Aksi</th>
 				</tr>
@@ -20,53 +21,65 @@
 		</table>
 	</div>
 </div>
-<?php foreach ($menu as $data) : ?>
-	<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="staticBackdropLabel">Entri Data Menu</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<form action="<?= base_url('menu/createAct') ?>" method="post" enctype="multipart/form-data">
-					<div class="modal-body">
-						<div class=" form-group">
-							<label for="MENU_NAMA">Nama Menu</label>
-							<input type="text" class="form-control form-control-user" id="MENU_NAMA" name="MENU_NAMA" placeholder="Masukkan nama menu.">
-							<?= form_error('MENU_NAMA', '<small class="text-danger pl-3">', '</small>') ?>
-						</div>
-						<div class=" form-group">
-							<label for="MENU_LINK">Link Menu</label>
-							<input type="text" class="form-control form-control-user" id="MENU_LINK" name="MENU_LINK" placeholder="Masukkan link menu.">
-							<?= form_error('MENU_LINK', '<small class="text-danger pl-3">', '</small>') ?>
-						</div>
-						<div class=" form-group">
-							<label for="MENU_DISKRIPSI">Deskripsi Menu</label>
-							<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSI" placeholder="Masukkan deskripsi menu.">
-							<?= form_error('MENU_DISKRIPSI', '<small class="text-danger pl-3">', '</small>') ?>
-						</div>
-						<div class="form-group">
-							<label for="MENU_STATUS">Status</label>
-							<div class="form-check">
-								<input class="form-check-input" type="hidden" id="MENU_STATUS" name="MENU_STATUS" value="0">
-								<input class="form-check-input" type="checkbox" id="MENU_STATUS" name="MENU_STATUS" value="1">
-								<label class="form-check-label" for="gridCheck">
-									Active
-								</label>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-						<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
-					</div>
-					<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
-				</form>
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel">Entri Data Menu</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
+			<form action="<?= base_url('menu/createAct') ?>" method="post" enctype="multipart/form-data">
+				<div class="modal-body">
+					<div class=" form-group">
+						<label for="MENU_NAMA">Nama Menu</label>
+						<input type="text" class="form-control form-control-user" id="MENU_NAMA" name="MENU_NAMA" placeholder="Masukkan nama menu.">
+						<?= form_error('MENU_NAMA', '<small class="text-danger pl-3">', '</small>') ?>
+					</div>
+					<div class=" form-group">
+						<label for="MENU_LINK">Link Menu</label>
+						<input type="text" class="form-control form-control-user" id="MENU_LINK" name="MENU_LINK" placeholder="Masukkan link menu.">
+						<?= form_error('MENU_LINK', '<small class="text-danger pl-3">', '</small>') ?>
+					</div>
+					<div class=" form-group">
+						<label for="MENU_DISKRIPSI">Deskripsi Menu</label>
+						<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSI" placeholder="Masukkan deskripsi menu.">
+						<?= form_error('MENU_DISKRIPSI', '<small class="text-danger pl-3">', '</small>') ?>
+					</div>
+					<div class="form-group">
+						<label for="PARENT_ID">Parent</label>
+						<select class="form-control" id="PARENT_ID" name="PARENT_ID">
+							<option value="none" selected disabled hidden>
+								Pilih parent menu.
+							</option>
+							<?php
+							foreach ($menu as $data2) : ?>
+								<option value="<?= $data2['MENU_ID']; ?>"><?= $data2['MENU_NAMA']; ?> </option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="MENU_STATUS">Status</label>
+						<div class="form-check">
+							<input class="form-check-input" type="hidden" id="MENU_STATUS" name="MENU_STATUS" value="0">
+							<input class="form-check-input" type="checkbox" id="MENU_STATUS" name="MENU_STATUS" value="1">
+							<label class="form-check-label" for="gridCheck">
+								Active
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+					<button type="submit" class="btn btn-primary" value="upload">Simpan</button>
+				</div>
+				<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+			</form>
 		</div>
 	</div>
+</div>
+<?php foreach ($menu as $data) : ?>
 	<div class="modal fade" id="update<?= $data['MENU_ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -92,6 +105,18 @@
 							<label for="MENU_DISKRIPSI">Deskripsi Menu</label>
 							<input type="text" class="form-control form-control-user" id="MENU_DISKRIPSI" name="MENU_DISKRIPSIu" placeholder="Masukkan deskripsi menu." value="<?= $data['MENU_DISKRIPSI']; ?>">
 							<?= form_error('MENU_DISKRIPSIu', '<small class="text-danger pl-3">', '</small>') ?>
+						</div>
+						<div class="form-group">
+							<label for="PARENT_ID">Parent</label>
+							<select class="form-control" id="PARENT_ID" name="PARENT_ID">
+								<option value="none" selected disabled hidden>
+									Pilih parent menu.
+								</option>
+								<?php
+								foreach ($menu as $data2) : ?>
+									<option value="<?= $data2['MENU_ID']; ?>"><?= $data2['MENU_NAMA']; ?> </option>
+								<?php endforeach; ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="MENU_STATUS">Status</label>

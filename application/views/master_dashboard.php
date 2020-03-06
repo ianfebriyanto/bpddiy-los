@@ -18,9 +18,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body id="page-top" class="bg">
     <div id="wrapper">
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+        <ul class="navbar-nav bg-white sidebar accordion toggled mySidenav" id="accordionSidebar" style="position: fixed;z-index:1">
             <li class="sidebar-brand d-flex align-items-center justify-content-center ">
-                <a class="nav-link text-white" href="<?= base_url('dashboard'); ?>">
+                <a class="nav-link" href="<?= base_url('dashboard'); ?>">
                     LOS
                     BPDDIY
                 </a>
@@ -33,7 +33,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
-            <div class="sidebar-heading">
+            <div class="sidebar-heading text-primary">
                 Main Menu
             </div>
             <li class="nav-item">
@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </a>
             </li>
         </ul>
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column bg-white">
             <div id="content">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-white topbar mb-4 static-top">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <?php endforeach; ?>
                             </ul>
                             <div class="form-inline ml-3">
-                                <button type="button" id="logoutBtn" name="logoutBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#logout">Logout <i class="fas fa-sign-out-alt"></i></button>
+                                <button type="button" id="logoutBtn" name="logoutBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#logout"><i class="fas fa-power-off"></i></button>
                                 <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">

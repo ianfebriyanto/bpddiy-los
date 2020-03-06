@@ -63,6 +63,9 @@
 												<div class="form-group">
 													<label for="MENU_ID">Nama Menu</label>
 													<select class="form-control" id="MENU_ID" name="MENU_ID">
+														<option value="none" selected disabled hidden>
+															Pilih menu.
+														</option>
 														<?php
 														foreach ($namaMenuOption as $data3) : ?>
 															<option value="<?= $data3['MENU_ID']; ?>"><?= $data3['MENU_NAMA']; ?> </option>
