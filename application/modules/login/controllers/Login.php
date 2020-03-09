@@ -40,6 +40,8 @@ class Login extends MY_Controller
 					$data = [
 						'USERNAME' => $userLogin['USERNAME'],
 						'GRUP_ID' => $userLogin['GRUP_ID'],
+						'NAMA_LENGKAP' => $userLogin['NAMA_LENGKAP'],
+						'GRUP_NAMA' => $userLogin['GRUP_NAMA'],
 						'is_logged_in' => true
 					];
 					$this->session->set_userdata($data);

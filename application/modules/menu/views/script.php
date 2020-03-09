@@ -11,9 +11,17 @@
             "processing": true,
             "serverSide": true,
             "order": [],
+            "scrollX": true,
+            "language": {
+                processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
+            },
             "ajax": {
                 url: "<?= base_url('menu/get_ajax'); ?>",
                 type: "POST"
+            },
+            "scrollX": true,
+            "language": {
+                processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
             },
             "columnDefs": [{
                     "targets": [0, 2, 3, 4, 5],
@@ -24,6 +32,8 @@
                     "className": "text-center",
                 }
             ],
+
         });
+
     });
 </script>

@@ -12,7 +12,7 @@
             <div class="row row-cols-1 row-cols-md-2">
                 <div class="col mb-0">
                     <div class="card text-center shadow mb-0 border-0">
-                        <img src="<?= base_url('assets/'); ?>images/personal.png" class="mx-auto d-block" style="max-width: 50%; height: auto;">
+                        <img src="<?= base_url('assets/'); ?>images/personal.png" class="mx-auto d-block" style="max-width: 40%; height: auto;">
                         <div class="card-body">
                             <h5 class="card-title">Personal</h5>
                             <p class="card-text">Pengajuan kredit untuk personal.</p>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col mb-0">
                     <div class="card text-center shadow mb-0 border-0">
-                        <img src="<?= base_url('assets/'); ?>images/perusahaan.png" class="mx-auto d-block" style="max-width: 60%; height: auto;">
+                        <img src="<?= base_url('assets/'); ?>images/perusahaan.png" class="mx-auto d-block" style="max-width: 50%; height: auto;">
                         <div class="card-body">
                             <h5 class="card-title">Perusahaan</h5>
                             <p class="card-text">Pengajuan kredit untuk perusahaan.</p>

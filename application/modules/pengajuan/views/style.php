@@ -1,9 +1,5 @@
 <style>
-    .under {
-        border-bottom: 3px solid tomato !important;
-        display: inline-block;
-        padding-bottom: 5px;
-    }
+
 
     .wizard {
         margin: 20px auto;

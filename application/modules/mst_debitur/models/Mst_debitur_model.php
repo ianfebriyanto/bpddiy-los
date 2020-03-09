@@ -27,7 +27,7 @@ class Mst_debitur_model extends CI_Model
     {
         return $this->db->query("SELECT TBL_MENU.MENU_NAMA, TBL_MENU.MENU_LINK, TBL_MENU.MENU_ID  FROM TBL_KEWENANGAN, TBL_GRUP, TBL_MENU WHERE TBL_GRUP.GRUP_ID=$GRUP_ID AND TBL_KEWENANGAN.GRUP_ID = TBL_GRUP.GRUP_ID AND TBL_KEWENANGAN.MENU_ID=TBL_MENU.MENU_ID")->result_array();
     }
-    var $column_order = array(null, 'NAMA_DEB',null, 'NPWP',null, 'EMAIL');
+    var $column_order = array(null, 'NAMA_DEB', null, 'NPWP', null, 'EMAIL');
     var $column_search = array('NAMA_DEB', 'NPWP', 'EMAIL');
     var $order = array('NO_DEB' => 'asc');
     private function _get_datatables_query()
