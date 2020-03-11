@@ -33,6 +33,7 @@ class Login extends MY_Controller
 		$username = $this->input->post('USERNAME');
 		$password = $this->input->post('PASSWORD');
 		$userLogin = $this->db->get_where('TBL_USER', ['USERNAME' => $username])->row_array();
+		$userGrup = $this->db->get_where('TBL_GRUP', ['GRUP_ID' => $userLogin['GRUP_ID']])->row_array();
 
 		if ($userLogin) {
 			if ($userLogin['STATUS'] == 1) {
@@ -41,7 +42,7 @@ class Login extends MY_Controller
 						'USERNAME' => $userLogin['USERNAME'],
 						'GRUP_ID' => $userLogin['GRUP_ID'],
 						'NAMA_LENGKAP' => $userLogin['NAMA_LENGKAP'],
-						'GRUP_NAMA' => $userLogin['GRUP_NAMA'],
+						'GRUP_NAMA' => $userGrup['GRUP_NAMA'],
 						'is_logged_in' => true
 					];
 					$this->session->set_userdata($data);

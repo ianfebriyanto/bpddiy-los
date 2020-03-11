@@ -15,8 +15,7 @@ class User extends MY_Controller
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
 		$data['user'] = $this->User_model->readData();
-		$GRUP_ID = $this->session->userdata('GRUP_ID');
-		$data['namaMenu'] = $this->User_model->readMenu($GRUP_ID);
+		$data['namaMenu'] = readMenu();
 		$data['namaGrup'] = $this->User_model->readNamaGrup();
 		$this->template->load('master_dashboard', 'index', $data);
 		$kewenangan = in_array('/user', array_column($data['namaMenu'], 'MENU_LINK'));

@@ -15,8 +15,7 @@ class Grup extends MY_Controller
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
 		$data['grup'] = $this->Grup_model->readData();
-		$GRUP_ID = $this->session->userdata('GRUP_ID');
-		$data['namaMenu'] = $this->Grup_model->readMenu($GRUP_ID);
+		$data['namaMenu'] = readMenu();
 		$this->template->load('master_dashboard', 'index', $data);
 		$kewenangan = in_array('/grup', array_column($data['namaMenu'], 'MENU_LINK'));
 		$menuStatus = $this->db->get_where('TBL_MENU', ['MENU_LINK' => '/grup'])->row_array();
@@ -28,11 +27,6 @@ class Grup extends MY_Controller
 			redirect('dashboard');
 		}
 	}
-
-	public function a()
-	{
-	}
-
 	public function createAct()
 	{
 		$this->form_validation->set_rules('GRUP_NAMA', 'GRUP_NAMA', 'required|trim');

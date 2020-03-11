@@ -14,8 +14,7 @@ class Dashboard extends MY_Controller
     {
         $data['style']  = $this->load->view('style', '', true);
         $data['script']  = $this->load->view('script', '', true);
-        $GRUP_ID = $this->session->userdata('GRUP_ID');
-        $data['namaMenu'] = $this->Dashboard_model->readMenu($GRUP_ID);
+        $data['namaMenu'] = readMenu();
         $this->template->load('master_dashboard', 'index', $data);
     }
 }

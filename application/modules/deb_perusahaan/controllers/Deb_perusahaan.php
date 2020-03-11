@@ -15,8 +15,7 @@ class Deb_perusahaan extends MY_Controller
         $data['style']  = $this->load->view('style', '', true);
         $data['script']  = $this->load->view('script', '', true);
         $data['Deb_perusahaan'] = $this->Deb_perusahaan_model->readData();
-        $GRUP_ID = $this->session->userdata('GRUP_ID');
-        $data['namaMenu'] = $this->Deb_perusahaan_model->readMenu($GRUP_ID);
+        $data['namaMenu'] = readMenu();
         $this->template->load('master_dashboard', 'index', $data);
     }
     public function createAct()

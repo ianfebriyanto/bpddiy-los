@@ -20,10 +20,6 @@ class Deb_perusahaan_model extends CI_Model
         $this->db->where('NO_DEB', $id);
         $this->db->delete('DEB_PERUSAHAAN');
     }
-    public function readMenu($GRUP_ID)
-    {
-        return $this->db->query("SELECT TBL_MENU.MENU_NAMA, TBL_MENU.MENU_LINK, TBL_MENU.MENU_ID  FROM TBL_KEWENANGAN, TBL_GRUP, TBL_MENU WHERE TBL_GRUP.GRUP_ID=$GRUP_ID AND TBL_KEWENANGAN.GRUP_ID = TBL_GRUP.GRUP_ID AND TBL_KEWENANGAN.MENU_ID=TBL_MENU.MENU_ID")->result_array();
-    }
     var $column_order = array(null, 'NO_DEB', null, 'NO_AKTE_PENDIRIAN', NULL, 'NO_AKTE_PERUBAHAN', null, 'NO_HO');
     var $column_search = array('NAMA_NOTARIS', 'NAMA_PIMPINAN');
     var $order = array('NO_DEB' => 'asc');

@@ -4,33 +4,30 @@ class Deb_personal_model extends CI_Model
 {
     public function readData()
     {
-        return $this->db->get('TBL_DEB_PERSONAL')->result_array();
+        return $this->db->get('DEB_PERSONAL')->result_array();
     }
     public function createData($data)
     {
-        $this->db->insert('TBL_DEB_PERSONAL', $data);
+        $this->db->insert('DEB_PERSONAL', $data);
     }
     public function updateData($id, $data)
     {
         $this->db->where('NO_DEB', $id);
-        $this->db->update('TBL_DEB_PERSONAL', $data);
+        $this->db->update('DEB_PERSONAL', $data);
     }
     public function deleteData($id)
     {
         $this->db->where('NO_DEB', $id);
-        $this->db->delete('TBL_DEB_PERSONAL');
+        $this->db->delete('DEB_PERSONAL');
     }
-    public function readMenu($GRUP_ID)
-    {
-        return $this->db->query("SELECT TBL_MENU.MENU_NAMA, TBL_MENU.MENU_LINK, TBL_MENU.MENU_ID  FROM TBL_KEWENANGAN, TBL_GRUP, TBL_MENU WHERE TBL_GRUP.GRUP_ID=$GRUP_ID AND TBL_KEWENANGAN.GRUP_ID = TBL_GRUP.GRUP_ID AND TBL_KEWENANGAN.MENU_ID=TBL_MENU.MENU_ID")->result_array();
-    }
+
     var $column_order = array(null, 'NO_DEB', NULL, 'NO_IDENTITAS');
     var $column_search = array('NO_DEB');
     var $order = array('NO_DEB' => 'asc');
     private function _get_datatables_query()
     {
         $this->db->select('*');
-        $this->db->from('TBL_DEB_PERSONAL');
+        $this->db->from('DEB_PERSONAL');
         $i = 0;
         foreach ($this->column_search as $item) {
             if (@$_POST['search']['value']) {
@@ -69,7 +66,7 @@ class Deb_personal_model extends CI_Model
     }
     function count_all()
     {
-        $this->db->from('TBL_DEB_PERSONAL');
+        $this->db->from('DEB_PERSONAL');
         return $this->db->count_all_results();
     }
 }

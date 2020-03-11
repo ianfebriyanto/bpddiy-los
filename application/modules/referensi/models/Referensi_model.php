@@ -23,10 +23,6 @@ class Referensi_model extends CI_Model
         $this->db->where('REFERENSI_ID', $id);
         $this->db->delete('TBL_REFERENSI');
     }
-    public function readMenu($GRUP_ID)
-    {
-        return $this->db->query("SELECT TBL_MENU.MENU_NAMA, TBL_MENU.MENU_LINK, TBL_MENU.MENU_ID  FROM TBL_KEWENANGAN, TBL_GRUP, TBL_MENU WHERE TBL_GRUP.GRUP_ID=$GRUP_ID AND TBL_KEWENANGAN.GRUP_ID = TBL_GRUP.GRUP_ID AND TBL_KEWENANGAN.MENU_ID=TBL_MENU.MENU_ID")->result_array();
-    }
     var $column_order = array(null, 'GROUP_ID', 'GROUP_ID2');
     var $column_search = array('GROUP_ID', 'REF', 'DESC', 'GROUP_ID2', 'REF2', 'DESC2');
     var $order = array('REFERENSI_ID' => 'asc');

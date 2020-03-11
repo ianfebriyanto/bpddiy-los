@@ -12,8 +12,7 @@ class Pengajuan extends MY_Controller
     {
         $data['style']  = $this->load->view('style', '', true);
         $data['script']  = $this->load->view('script', '', true);
-        $GRUP_ID = $this->session->userdata('GRUP_ID');
-        $data['namaMenu'] = $this->Pengajuan_model->readMenu($GRUP_ID);
+        $data['namaMenu'] = readMenu();
         $this->template->load('master_dashboard', 'index', $data);
         $kewenangan = in_array('/pengajuan', array_column($data['namaMenu'], 'MENU_LINK'));
         $menuStatus = $this->db->get_where('TBL_MENU', ['MENU_LINK' => '/pengajuan'])->row_array();
@@ -29,16 +28,14 @@ class Pengajuan extends MY_Controller
     {
         $data['style']  = $this->load->view('style', '', true);
         $data['script']  = $this->load->view('script', '', true);
-        $GRUP_ID = $this->session->userdata('GRUP_ID');
-        $data['namaMenu'] = $this->Pengajuan_model->readMenu($GRUP_ID);
+        $data['namaMenu'] = readMenu();
         $this->template->load('master_dashboard', 'personal', $data);
     }
     public function perusahaan()
     {
         $data['style']  = $this->load->view('style', '', true);
         $data['script']  = $this->load->view('script', '', true);
-        $GRUP_ID = $this->session->userdata('GRUP_ID');
-        $data['namaMenu'] = $this->Pengajuan_model->readMenu($GRUP_ID);
+        $data['namaMenu'] = readMenu();
         $this->template->load('master_dashboard', 'perusahaan', $data);
     }
 }

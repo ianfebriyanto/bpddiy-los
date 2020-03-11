@@ -13,12 +13,11 @@ class Kewenangan extends MY_Controller
 	{
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
-		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['kewenangan'] = $this->Kewenangan_model->readData();
 		$data['readKewenangan'] = $this->Kewenangan_model->readKewenangan();
 		$data['namaMenuOption'] = $this->Kewenangan_model->readNamaMenu();
 		$data['namaGrup'] = $this->Kewenangan_model->readNamaGrup();
-		$data['namaMenu'] = $this->Kewenangan_model->readMenu($GRUP_ID);
+		$data['namaMenu'] = readMenu();
 		$this->template->load('master_dashboard', 'index', $data);
 		$kewenangan = in_array('/kewenangan', array_column($data['namaMenu'], 'MENU_LINK'));
 		$menuStatus = $this->db->get_where('TBL_MENU', ['MENU_LINK' => $this->link])->row_array();

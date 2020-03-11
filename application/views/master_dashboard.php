@@ -43,21 +43,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('debitur'); ?>">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#debitur" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-user-tie"></i>
                     <span>Debitur</span>
                 </a>
+                <div id="debitur" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Menu Debitur:</h6>
+                        <a class="collapse-item" href="<?= base_url('deb_personal'); ?>">Personal</a>
+                        <a class="collapse-item" href="<?= base_url('deb_perusahaan');  ?>">Perusahaan</a>
+                    </div>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#administrator" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-users-cog"></i>
                     <span>Administrator</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="administrator" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu Administrator:</h6>
                         <?php foreach ($namaMenu as $data) : ?>
-                            <a class="hehe collapse-item" href="<?= base_url($data['MENU_LINK']) ?>"><?= $data['MENU_NAMA']; ?></a>
+                            <a class="collapse-item" href="<?= base_url($data['MENU_LINK']) ?>"><?= $data['MENU_NAMA']; ?></a>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -69,14 +76,63 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <button class="navbar-toggler shadow" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
                         <ul class="navbar-nav mr-auto">
-                            <h4 class="text-primary"><span class="badge badge-primary mx-2"><?= $this->session->userdata('GRUP_NAMA') ?></span><?= $this->session->userdata('NAMA_LENGKAP') ?></h4>
+                            <div class="text-primary font-weight-bold px-2">
+                                <?= $this->session->userdata('NAMA_LENGKAP') ?> / <?= $this->session->userdata('GRUP_NAMA') ?>
+                            </div>
                         </ul>
+
                         <div class="form-inline my-2 my-lg-0">
-                            <button type="button" id="logoutBtn" name="logoutBtn" class="btn btn-outline-primary" data-toggle="modal" data-target="#logout"><i class="fas fa-power-off"></i></button>
+                            <form class="d-none d-sm-inline-block form-inline mr-auto text-primary ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-white border-0 small" placeholder="Search for something .." aria-label="Search" aria-describedby="basic-addon2">
+                                </div>
+                            </form>
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item dropdown no-arrow">
+                                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn text-primary shadow-sm my-sm-0" type="button"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter"></span></button>
+                                    </a>
+                                    <!-- Dropdown - Alerts -->
+                                    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                                        <h6 class="dropdown-header">
+                                            Pesan
+                                        </h6>
+                                        <a class="dropdown-item text-center small text-gray-500" href="#">Tampilkan Seluruh Pesan</a>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item dropdown no-arrow">
+                                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn text-primary shadow-sm my-sm-0" type="button"><i class="fas fa-bell fa-fw"></i><span class="badge badge-danger badge-counter"></span></button>
+
+                                    </a>
+                                    <!-- Dropdown - Alerts -->
+                                    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                                        <h6 class="dropdown-header">
+                                            Notifikasi
+                                        </h6>
+                                        <a class="dropdown-item text-center small text-gray-500" href="#">Tampilkan Seluruh Notifikasi</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown no-arrow">
+                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn text-primary shadow-sm my-sm-0" type="button"><i class="fas fa-user-circle"></i></button>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                        <a class="dropdown-item" href="<?= base_url('profile'); ?>">
+                                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Profile
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logout">
+                                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Logout
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
                             <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -101,8 +157,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
+                </nav>
             </div>
-            </nav>
             <div class="container-fluid">
                 <?php if (isset($contents)) echo $contents; ?>
             </div>
@@ -117,7 +173,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script src="<?= base_url('assets/'); ?>fontawesome/js/all.js"></script>
 <script src="<?= base_url('assets/'); ?>sb-admin-2.min.js"></script>
 <script type="text/javascript">
-    $('a.nav-link[href$="' + location.pathname + '"]').addClass('active');
+    $('a.collapse-item[href$="' + location.pathname + '"]').addClass('under');
 </script>
 <?php if (isset($script)) echo $script; ?>
 

@@ -13,8 +13,7 @@ class Menu extends MY_Controller
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
 		$data['menu'] = $this->Menu_model->readData();
-		$GRUP_ID = $this->session->userdata('GRUP_ID');
-		$data['namaMenu'] = $this->Menu_model->readMenu($GRUP_ID);
+		$data['namaMenu'] = readMenu();
 		$this->template->load('master_dashboard', 'index', $data);
 		$kewenangan = in_array('/menu', array_column($data['namaMenu'], 'MENU_LINK'));
 		$menuStatus = $this->db->get_where('TBL_MENU', ['MENU_LINK' => '/menu'])->row_array();
