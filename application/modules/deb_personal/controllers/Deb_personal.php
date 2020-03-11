@@ -26,52 +26,8 @@ class Deb_personal extends MY_Controller
 	}
 	public function createAct()
 	{
-		$this->form_validation->set_rules('NO_IDENTITAS', 'NO_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('TGL_IDENTITAS', 'TGL_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('KD_NEGARA', 'KD_NEGARA', 'required|trim');
-		$this->form_validation->set_rules('TEMPAT_LAHIR', 'TEMPAT_LAHIR', 'required|trim');
-		$this->form_validation->set_rules('TGL_LAHIR', 'TGL_LAHIR', 'required|trim');
-		$this->form_validation->set_rules('KD_KELAMIN', 'KD_KELAMIN', 'required|trim');
-		$this->form_validation->set_rules('KD_AGAMA', 'KD_AGAMA', 'required|trim');
-		$this->form_validation->set_rules('KET_AGAMA', 'KET_AGAMA', 'required|trim');
-		$this->form_validation->set_rules('KD_STS_KAWIN', 'KD_STS_KAWIN', 'required|trim');
-		$this->form_validation->set_rules('KD_PENDIDIKAN', 'KD_PENDIDIKAN', 'required|trim');
-		$this->form_validation->set_rules('KET_PENDIDIKAN', 'KET_PENDIDIKAN', 'required|trim');
-		$this->form_validation->set_rules('KD_PENDUDUK', 'KD_PENDUDUK', 'required|trim');
-		$this->form_validation->set_rules('KD_PEKERJAAN', 'KD_PEKERJAAN', 'required|trim');
-		$this->form_validation->set_rules('KET_PEKERJAAN', 'KET_PEKERJAAN', 'required|trim');
-		$this->form_validation->set_rules('ALMT_IDENTITAS', 'ALMT_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('KELURAHAN_IDENTITAS', 'KELURAHAN_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('KECAMATAN_IDENTITAS', 'KECAMATAN_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('KOTA_IDENTITAS', 'KOTA_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('PROVINSI_IDENTITAS', 'PROVINSI_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('NO_TELP_IDENTITAS', 'NO_TELP_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('RT_IDENTITAS', 'RT_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('RW_IDENTITAS', 'RW_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('KD_POS_IDENTITAS', 'KD_POS_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('SISTEM_NAMA', 'SISTEM_NAMA', 'required|trim');
-		$this->form_validation->set_rules('ALMT_TINGGAL', 'ALMT_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KELURAHAN_TINGGAL', 'KELURAHAN_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KECAMATAN_TINGGAL', 'KECAMATAN_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KOTA_TINGGAL', 'KOTA_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('PROVINSI_TINGGAL', 'PROVINSI_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('RT_TINGGAL', 'RT_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('RW_TINGGAL', 'RW_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KD_POS_TINGGAL', 'KD_POS_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('NO_TELP_TINGGAL', 'NO_TELP_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('TGL_MULAI_TINGGAL', 'TGL_MULAI_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KD_STS_TINGGAL', 'KD_STS_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KD_PENGHASILAN', 'KD_PENGHASILAN', 'required|trim');
-		$this->form_validation->set_rules('KD_PENGHASILAN_LAIN', 'KD_PENGHASILAN_LAIN', 'required|trim');
-		$this->form_validation->set_rules('NAMA_PASUTRI', 'NAMA_PASUTRI', 'required|trim');
-		$this->form_validation->set_rules('KD_PEKERJAAN_PASUTRI', 'KD_PEKERJAAN_PASUTRI', 'required|trim');
-		$this->form_validation->set_rules('KET_PEKERJAAN_PASUTRI', 'KET_PEKERJAAN_PASUTRI', 'required|trim');
-		$this->form_validation->set_rules('KD_PENGHASILAN_PASUTRI', 'KD_PENGHASILAN_PASUTRI', 'required|trim');
-		$this->form_validation->set_rules('NAMA_IBU_KANDUNG', 'NAMA_IBU_KANDUNG', 'required|trim');
-		if ($this->form_validation->run() == false) {
-			$this->index();
-		} else {
 			$data = [
+				"NO_DEB" => $this->input->post('NO_DEB'),
 				"NO_IDENTITAS" => $this->input->post('NO_IDENTITAS'),
 				"TGL_IDENTITAS" => $this->input->post('TGL_IDENTITAS'),
 				"KD_NEGARA" => $this->input->post('KD_NEGARA'),
@@ -117,56 +73,13 @@ class Deb_personal extends MY_Controller
 			$this->Z->createData($data);
 			redirect('deb_personal');
 		}
-	}
 
 	public function updateAct()
 	{
-		$this->form_validation->set_rules('NO_IDENTITASu', 'NO_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('TGL_IDENTITASu', 'TGL_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('KD_NEGARAu', 'KD_NEGARA', 'required|trim');
-		$this->form_validation->set_rules('TEMPAT_LAHIRu', 'TEMPAT_LAHIR', 'required|trim');
-		$this->form_validation->set_rules('TGL_LAHIRu', 'TGL_LAHIR', 'required|trim');
-		$this->form_validation->set_rules('KD_KELAMINu', 'KD_KELAMIN', 'required|trim');
-		$this->form_validation->set_rules('KD_AGAMAu', 'KD_AGAMA', 'required|trim');
-		$this->form_validation->set_rules('KET_AGAMAu', 'KET_AGAMA', 'required|trim');
-		$this->form_validation->set_rules('KD_STS_KAWINu', 'KD_STS_KAWIN', 'required|trim');
-		$this->form_validation->set_rules('KD_PENDIDIKANu', 'KD_PENDIDIKAN', 'required|trim');
-		$this->form_validation->set_rules('KET_PENDIDIKANu', 'KET_PENDIDIKAN', 'required|trim');
-		$this->form_validation->set_rules('KD_PENDUDUKu', 'KD_PENDUDUK', 'required|trim');
-		$this->form_validation->set_rules('KD_PEKERJAANu', 'KD_PEKERJAAN', 'required|trim');
-		$this->form_validation->set_rules('KET_PEKERJAANu', 'KET_PEKERJAAN', 'required|trim');
-		$this->form_validation->set_rules('ALMT_IDENTITASu', 'ALMT_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('KELURAHAN_IDENTITASu', 'KELURAHAN_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('KECAMATAN_IDENTITASu', 'KECAMATAN_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('KOTA_IDENTITASu', 'KOTA_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('PROVINSI_IDENTITASu', 'PROVINSI_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('NO_TELP_IDENTITASu', 'NO_TELP_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('RT_IDENTITASu', 'RT_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('RW_IDENTITASu', 'RW_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('KD_POS_IDENTITASu', 'KD_POS_IDENTITAS', 'required|trim');
-		$this->form_validation->set_rules('ALMT_TINGGALu', 'ALMT_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KELURAHAN_TINGGALu', 'KELURAHAN_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KECAMATAN_TINGGALu', 'KECAMATAN_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('PROVINSI_TINGGALu', 'PROVINSI_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('RT_TINGGALu', 'RT_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('RW_TINGGALu', 'RW_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KD_POS_TINGGALu', 'KD_POS_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('NO_TELP_TINGGALu', 'NO_TELP_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('TGL_MULAI_TINGGALu', 'TGL_MULAI_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KD_STS_TINGGALu', 'KD_STS_TINGGAL', 'required|trim');
-		$this->form_validation->set_rules('KD_PENGHASILANu', 'KD_PENGHASILAN', 'required|trim');
-		$this->form_validation->set_rules('KD_PENGHASILAN_LAINu', 'KD_PENGHASILAN_LAIN', 'required|trim');
-		$this->form_validation->set_rules('NAMA_PASUTRIu', 'NAMA_PASUTRI', 'required|trim');
-		$this->form_validation->set_rules('KD_PEKERJAAN_PASUTRIu', 'KD_PEKERJAAN_PASUTRI', 'required|trim');
-		$this->form_validation->set_rules('KET_PEKERJAAN_PASUTRIu', 'KET_PEKERJAAN_PASUTRI', 'required|trim');
-		$this->form_validation->set_rules('KD_PENGHASILAN_PASUTRIu', 'KD_PENGHASILAN_PASUTRI', 'required|trim');
-		$this->form_validation->set_rules('NAMA_IBU_KANDUNGu', 'NAMA_IBU_KANDUNG', 'required|trim');
-
-		if ($this->form_validation->run() == false) {
-			$this->index();
-		} else {
+		
 			$id = $this->input->post('NO_DEB');
 			$data = [
+				"NO_DEB" => $this->input->post('NO_DEB'),
 				"NO_IDENTITAS" => $this->input->post('NO_IDENTITASu'),
 				"TGL_IDENTITAS" => $this->input->post('TGL_IDENTITASu'),
 				"KD_NEGARA" => $this->input->post('KD_NEGARAu'),
@@ -211,7 +124,7 @@ class Deb_personal extends MY_Controller
 			];
 			$this->Z->updateData($id, $data);
 			redirect('deb_personal');
-		}
+		
 	}
 	public function deleteAct()
 	{
@@ -229,6 +142,7 @@ class Deb_personal extends MY_Controller
 			$no++;
 			$row = array();
 			$row[] = $no . ".";
+			$row[] = $item->NO_DEB;
 			$row[] = $item->NO_IDENTITAS;
 			$row[] = $item->TGL_IDENTITAS;
 			$row[] = $item->KD_NEGARA;
@@ -270,8 +184,8 @@ class Deb_personal extends MY_Controller
 			$row[] = $item->KET_PEKERJAAN_PASUTRI;
 			$row[] = $item->KD_PENGHASILAN_PASUTRI;
 			$row[] = $item->NAMA_IBU_KANDUNG;
-			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->NO_DEB . '">Update</button>
-			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->NO_DEB . '">Delete</button>';
+			$row[] = '<button type="button" id="updateBtn" name="update" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->NO_DEB . '">Update</button>
+			<button type="button" id="deleteBtn" name="delete" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->NO_DEB . '">Delete</button>';
 			$data[] = $row;
 		}
 		$output = array(
