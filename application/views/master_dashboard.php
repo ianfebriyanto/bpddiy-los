@@ -52,6 +52,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <h6 class="collapse-header">Menu Debitur:</h6>
                         <a class="collapse-item" href="<?= base_url('deb_personal'); ?>">Personal</a>
                         <a class="collapse-item" href="<?= base_url('deb_perusahaan');  ?>">Perusahaan</a>
+                        <a class="collapse-item" href="<?= base_url('mst_debitur');  ?>">Master</a>
                     </div>
                 </div>
             </li>
@@ -159,7 +160,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                 </nav>
             </div>
-            <div class="container-fluid">
+            <div class="container-fluid ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-white px-0 mb-1">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Library</a></li>
+                        <li class="breadcrumb-item"><a class="under font-weight-bold" href="#">Abdul</a></li>
+                    </ol>
+                </nav>
                 <?php if (isset($contents)) echo $contents; ?>
             </div>
         </div>
