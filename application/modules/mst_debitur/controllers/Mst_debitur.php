@@ -26,32 +26,8 @@ class Mst_debitur extends MY_Controller
 	}
 	public function createAct()
 	{
-		$this->form_validation->set_rules('NAMA_DEB', 'NAMA_DEB', 'required|trim');
-		$this->form_validation->set_rules('KD_JNS_DEB', 'KD_JNS_DEB', 'required|trim');
-		$this->form_validation->set_rules('ALAMAT', 'ALAMAT', 'required|trim');
-		$this->form_validation->set_rules('KELURAHAN', 'KELURAHAN', 'required|trim');
-		$this->form_validation->set_rules('KECAMATAN', 'KECAMATAN', 'required|trim');
-		$this->form_validation->set_rules('KOTA', 'KOTA', 'required|trim');
-		$this->form_validation->set_rules('KD_DATI_II', 'KD_DATI_II', 'required|trim');
-		$this->form_validation->set_rules('RT', 'RT', 'required|trim');
-		$this->form_validation->set_rules('RW', 'RW', 'required|trim');
-		$this->form_validation->set_rules('KD_POS', 'KD_POS', 'required|trim');
-		$this->form_validation->set_rules('NO_TELP', 'NO_TELP', 'required|trim');
-		$this->form_validation->set_rules('NO_SELULAR', 'NO_SELULAR', 'required|trim');
-		$this->form_validation->set_rules('EMAIL', 'EMAIL', 'required|trim');
-		$this->form_validation->set_rules('NPWP', 'NPWP', 'required|trim');
-		$this->form_validation->set_rules('STS_NSB', 'STS_NSB', 'required|trim');
-		$this->form_validation->set_rules('KD_GOL_PML', 'KD_GOL_PML', 'required|trim');
-		$this->form_validation->set_rules('KD_GRUP', 'KD_GRUP', 'required|trim');
-		$this->form_validation->set_rules('FLG_AKTIF', 'FLG_AKTIF', 'required|trim');
-		$this->form_validation->set_rules('KD_STS_DEB', 'KD_STS_DEB', 'required|trim');
-		$this->form_validation->set_rules('TGL_DIBUAT', 'TGL_DIBUAT', 'required|trim');
-		$this->form_validation->set_rules('TGL_DIUBAH', 'TGL_DIUBAH', 'required|trim');
-		$this->form_validation->set_rules('TGL_DIHAPUS', 'TGL_DIHAPUS', 'required|trim');
-		if ($this->form_validation->run() == false) {
-			$this->index();
-		} else {
 			$data = [
+				"NO_DEB" => $this->input->post('NO_DEB'),
 				"NAMA_DEB" => $this->input->post('NAMA_DEB'),
 				"KD_JNS_DEB" => $this->input->post('KD_JNS_DEB'),
 				"ALAMAT" => $this->input->post('ALAMAT'),
@@ -78,37 +54,12 @@ class Mst_debitur extends MY_Controller
 			$this->Mst_debitur_model->createData($data);
 			redirect('mst_debitur');
 		}
-	}
 
 	public function updateAct()
 	{
-		$this->form_validation->set_rules('NAMA_DEBu', 'NAMA_DEB', 'required|trim');
-		$this->form_validation->set_rules('KD_JNS_DEBu', 'KD_JNS_DEB', 'required|trim');
-		$this->form_validation->set_rules('ALAMATu', 'ALAMAT', 'required|trim');
-		$this->form_validation->set_rules('KELURAHANu', 'KELURAHAN', 'required|trim');
-		$this->form_validation->set_rules('KECAMATANu', 'KECAMATAN', 'required|trim');
-		$this->form_validation->set_rules('KOTAu', 'KOTA', 'required|trim');
-		$this->form_validation->set_rules('KD_DATI_IIu', 'KD_DATI_II', 'required|trim');
-		$this->form_validation->set_rules('RTu', 'RT', 'required|trim');
-		$this->form_validation->set_rules('RWu', 'RW', 'required|trim');
-		$this->form_validation->set_rules('KD_POSu', 'KD_POS', 'required|trim');
-		$this->form_validation->set_rules('NO_TELPu', 'NO_TELP', 'required|trim');
-		$this->form_validation->set_rules('NO_SELULARu', 'NO_SELULAR', 'required|trim');
-		$this->form_validation->set_rules('EMAILu', 'EMAIL', 'required|trim');
-		$this->form_validation->set_rules('NPWPu', 'NPWP', 'required|trim');
-		$this->form_validation->set_rules('STS_NSBu', 'STS_NSB', 'required|trim');
-		$this->form_validation->set_rules('KD_GOL_PMLu', 'KD_GOL_PML', 'required|trim');
-		$this->form_validation->set_rules('KD_GRUPu', 'KD_GRUP', 'required|trim');
-		$this->form_validation->set_rules('FLG_AKTIFu', 'FLG_AKTIF', 'required|trim');
-		$this->form_validation->set_rules('KD_STS_DEBu', 'KD_STS_DEB', 'required|trim');
-		$this->form_validation->set_rules('TGL_DIBUATu', 'TGL_DIBUAT', 'required|trim');
-		$this->form_validation->set_rules('TGL_DIUBAHu', 'TGL_DIUBAH', 'required|trim');
-		$this->form_validation->set_rules('TGL_DIHAPUSu', 'TGL_DIHAPUS', 'required|trim');
-		if ($this->form_validation->run() == false) {
-			$this->index();
-		} else {
 			$id = $this->input->post('NO_DEB');
 			$data = [
+				"NO_DEB" => $this->input->post('NO_DEBu'),
 				"NAMA_DEB" => $this->input->post('NAMA_DEBu'),
 				"KD_JNS_DEB" => $this->input->post('KD_JNS_DEBu'),
 				"ALAMAT" => $this->input->post('ALAMATu'),
@@ -134,7 +85,7 @@ class Mst_debitur extends MY_Controller
 			];
 			$this->Mst_debitur_model->updateData($id, $data);
 			redirect('mst_debitur');
-		}
+		
 	}
 	public function deleteAct()
 	{
@@ -152,6 +103,7 @@ class Mst_debitur extends MY_Controller
 			$no++;
 			$row = array();
 			$row[] = $no . ".";
+			$row[] = $item->NO_DEB;
 			$row[] = $item->NAMA_DEB;
 			$row[] = $item->KD_JNS_DEB;
 			$row[] = $item->ALAMAT;
@@ -174,9 +126,8 @@ class Mst_debitur extends MY_Controller
 			$row[] = $item->TGL_DIBUAT;
 			$row[] = $item->TGL_DIUBAH;
 			$row[] = $item->TGL_DIHAPUS;
-
-			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->NO_DEB . '">Update</button>
-			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->NO_DEB . '">Delete</button>';
+			$row[] = '<button type="button" id="updateBtn" name="update" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->NO_DEB . '">Update</button>
+			<button type="button" id="deleteBtn" name="delete" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->NO_DEB . '">Delete</button>';
 			$data[] = $row;
 		}
 		$output = array(
