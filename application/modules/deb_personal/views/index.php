@@ -84,7 +84,7 @@
                         </div>
                         <div class="form-group">
                             <label for="TGL_IDENTITAS">Tgl Identitas</label>
-                            <input type="text" class="form-control form-control-deb_personal" id="TGL_IDENTITAS" name="TGL_IDENTITAS" placeholder="Masukkan Tgl Identitas.">
+                            <input type="date" class="form-control form-control-deb_personal" id="TGL_IDENTITAS" name="TGL_IDENTITAS" placeholder="Masukkan Tgl Identitas.">
                             <?= form_error('TGL_IDENTITAS', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group">
@@ -99,7 +99,7 @@
                         </div>
                         <div class="form-group">
                             <label for="TGL_LAHIR">Tgl lahir</label>
-                            <input type="text" class="form-control form-control-deb_personal" id="TGL_LAHIR" name="TGL_LAHIR" placeholder="Masukkan Tgl lahair.">
+                            <input type="date" class="form-control form-control-deb_personal" id="TGL_LAHIR" name="TGL_LAHIR" placeholder="Masukkan Tgl lahair.">
                             <?= form_error('TGL_LAHIR', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group">
@@ -239,7 +239,7 @@
                         </div>
                         <div class="form-group">
                             <label for="TGL_MULAI_TINGGAL">Tgl Mulai Tinggal</label>
-                            <input type="text" class="form-control form-control-deb_personal" id="TGL_MULAI_TINGGAL" name="TGL_MULAI_TINGGAL" placeholder="Masukkan Tgl Mulai Tinggal.">
+                            <input type="date" class="form-control form-control-deb_personal" id="TGL_MULAI_TINGGAL" name="TGL_MULAI_TINGGAL" placeholder="Masukkan Tgl Mulai Tinggal.">
                             <?= form_error('TGL_MULAI_TINGGAL', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
 
@@ -317,7 +317,7 @@
                         </div>
                         <div class="form-group">
                             <label for="TGL_IDENTITAS">Tgl Identitas</label>
-                            <input type="text" class="form-control form-control-deb_personal" id="TGL_IDENTITAS" name="TGL_IDENTITAS" placeholder="Masukkan Tgl Identitas."value="<?= $data['TGL_IDENTITAS']; ?>">
+                            <input type="date" class="form-control form-control-deb_personal" id="TGL_IDENTITAS" name="TGL_IDENTITAS" placeholder="Masukkan Tgl Identitas."value="<?= $data['TGL_IDENTITAS']; ?>">
                             <?= form_error('TGL_IDENTITAS', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group">
@@ -332,7 +332,7 @@
                         </div>
                         <div class="form-group">
                             <label for="TGL_LAHIR">Tgl lahair</label>
-                            <input type="text" class="form-control form-control-deb_personal" id="TGL_LAHIR" name="TGL_LAHIR" placeholder="Masukkan Tgl lahair."value="<?= $data['TGL_LAHIR']; ?>">
+                            <input type="date" class="form-control form-control-deb_personal" id="TGL_LAHIR" name="TGL_LAHIR" placeholder="Masukkan Tgl lahair."value="<?= $data['TGL_LAHIR']; ?>">
                             <?= form_error('TGL_LAHIR', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
                         <div class="form-group">
@@ -472,7 +472,7 @@
                         </div>
                         <div class="form-group">
                             <label for="TGL_MULAI_TINGGAL">Tgl Mulai Tinggal</label>
-                            <input type="text" class="form-control form-control-deb_personal" id="TGL_MULAI_TINGGAL" name="TGL_MULAI_TINGGAL" placeholder="Masukkan Tgl Mulai Tinggal."value="<?= $data['TGL_MULAI_TINGGAL']; ?>">
+                            <input type="date" class="form-control form-control-deb_personal" id="TGL_MULAI_TINGGAL" name="TGL_MULAI_TINGGAL" placeholder="Masukkan Tgl Mulai Tinggal."value="<?= $data['TGL_MULAI_TINGGAL']; ?>">
                             <?= form_error('TGL_MULAI_TINGGAL', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
 
