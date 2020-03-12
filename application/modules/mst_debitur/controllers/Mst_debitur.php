@@ -17,75 +17,74 @@ class Mst_debitur extends MY_Controller
 		$GRUP_ID = $this->session->userdata('GRUP_ID');
 		$data['namaMenu'] = $this->Mst_debitur_model->readMenu($GRUP_ID);
 		$this->template->load('master_dashboard', 'index', $data);
-		$kewenangan = in_array(12, array_column($data['namaMenu'], 'MENU_ID'));
-		if (!$kewenangan) {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-			Anda tidak memiliki kewenangan untuk mengakses menu tersebut. </div>');
-			redirect('dashboard');
-		}
+		// $kewenangan = in_array(12, array_column($data['namaMenu'], 'MENU_ID'));
+		// if (!$kewenangan) {
+		// 	$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+		// 	Anda tidak memiliki kewenangan untuk mengakses menu tersebut. </div>');
+		// 	redirect('dashboard');
+		// }
 	}
 	public function createAct()
 	{
-			$data = [
-				"NO_DEB" => $this->input->post('NO_DEB'),
-				"NAMA_DEB" => $this->input->post('NAMA_DEB'),
-				"KD_JNS_DEB" => $this->input->post('KD_JNS_DEB'),
-				"ALAMAT" => $this->input->post('ALAMAT'),
-				"KELURAHAN" => $this->input->post('KELURAHAN'),
-				"KECAMATAN" => $this->input->post('KECAMATAN'),
-				"KOTA" => $this->input->post('KOTA'),
-				"KD_DATI_II" => $this->input->post('KD_DATI_II'),
-				"RT" => $this->input->post('RT'),
-				"RW" => $this->input->post('RW'),
-				"KD_POS" => $this->input->post('KD_POS'),
-				"NO_TELP" => $this->input->post('NO_TELP'),
-				"NO_SELULAR" => $this->input->post('NO_SELULAR'),
-				"EMAIL" => $this->input->post('EMAIL'),
-				"NPWP" => $this->input->post('NPWP'),
-				"STS_NSB" => $this->input->post('STS_NSB'),
-				"KD_GOL_PML" => $this->input->post('KD_GOL_PML'),
-				"KD_GRUP" => $this->input->post('KD_GRUP'),
-				"FLG_AKTIF" => $this->input->post('FLG_AKTIF'),
-				"KD_STS_DEB" => $this->input->post('KD_STS_DEB'),
-				"TGL_DIBUAT" => $this->input->post('TGL_DIBUAT'),
-				"TGL_DIUBAH" => $this->input->post('TGL_DIUBAH'),
-				"TGL_DIHAPUS" => $this->input->post('TGL_DIHAPUS'),
-			];
-			$this->Mst_debitur_model->createData($data);
-			redirect('mst_debitur');
-		}
+		$data = [
+			"NO_DEB" => $this->input->post('NO_DEB'),
+			"NAMA_DEB" => $this->input->post('NAMA_DEB'),
+			"KD_JNS_DEB" => $this->input->post('KD_JNS_DEB'),
+			"ALAMAT" => $this->input->post('ALAMAT'),
+			"KELURAHAN" => $this->input->post('KELURAHAN'),
+			"KECAMATAN" => $this->input->post('KECAMATAN'),
+			"KOTA" => $this->input->post('KOTA'),
+			"KD_DATI_II" => $this->input->post('KD_DATI_II'),
+			"RT" => $this->input->post('RT'),
+			"RW" => $this->input->post('RW'),
+			"KD_POS" => $this->input->post('KD_POS'),
+			"NO_TELP" => $this->input->post('NO_TELP'),
+			"NO_SELULAR" => $this->input->post('NO_SELULAR'),
+			"EMAIL" => $this->input->post('EMAIL'),
+			"NPWP" => $this->input->post('NPWP'),
+			"STS_NSB" => $this->input->post('STS_NSB'),
+			"KD_GOL_PML" => $this->input->post('KD_GOL_PML'),
+			"KD_GRUP" => $this->input->post('KD_GRUP'),
+			"FLG_AKTIF" => $this->input->post('FLG_AKTIF'),
+			"KD_STS_DEB" => $this->input->post('KD_STS_DEB'),
+			"TGL_DIBUAT" => $this->input->post('TGL_DIBUAT'),
+			"TGL_DIUBAH" => $this->input->post('TGL_DIUBAH'),
+			"TGL_DIHAPUS" => $this->input->post('TGL_DIHAPUS'),
+		];
+		$this->Mst_debitur_model->createData($data);
+		redirect('mst_debitur');
+	}
 
 	public function updateAct()
 	{
-			$id = $this->input->post('NO_DEB');
-			$data = [
-				"NO_DEB" => $this->input->post('NO_DEBu'),
-				"NAMA_DEB" => $this->input->post('NAMA_DEBu'),
-				"KD_JNS_DEB" => $this->input->post('KD_JNS_DEBu'),
-				"ALAMAT" => $this->input->post('ALAMATu'),
-				"KELURAHAN" => $this->input->post('KELURAHANu'),
-				"KECAMATAN" => $this->input->post('KECAMATANu'),
-				"KOTA" => $this->input->post('KOTAu'),
-				"KD_DATI_II" => $this->input->post('KD_DATI_IIu'),
-				"RT" => $this->input->post('RTu'),
-				"RW" => $this->input->post('RWu'),
-				"KD_POS" => $this->input->post('KD_POSu'),
-				"NO_TELP" => $this->input->post('NO_TELPu'),
-				"NO_SELULAR" => $this->input->post('NO_SELULARu'),
-				"EMAIL" => $this->input->post('EMAILu'),
-				"NPWP" => $this->input->post('NPWPu'),
-				"STS_NSB" => $this->input->post('STS_NSBu'),
-				"KD_GOL_PML" => $this->input->post('KD_GOL_PMLu'),
-				"KD_GRUP" => $this->input->post('KD_GRUPu'),
-				"FLG_AKTIF" => $this->input->post('FLG_AKTIFu'),
-				"KD_STS_DEB" => $this->input->post('KD_STS_DEBu'),
-				"TGL_DIBUAT" => $this->input->post('TGL_DIBUATu'),
-				"TGL_DIUBAH" => $this->input->post('TGL_DIUBAHu'),
-				"TGL_DIHAPUS" => $this->input->post('TGL_DIHAPUSu'),
-			];
-			$this->Mst_debitur_model->updateData($id, $data);
-			redirect('mst_debitur');
-		
+		$id = $this->input->post('NO_DEB');
+		$data = [
+			"NO_DEB" => $this->input->post('NO_DEBu'),
+			"NAMA_DEB" => $this->input->post('NAMA_DEBu'),
+			"KD_JNS_DEB" => $this->input->post('KD_JNS_DEBu'),
+			"ALAMAT" => $this->input->post('ALAMATu'),
+			"KELURAHAN" => $this->input->post('KELURAHANu'),
+			"KECAMATAN" => $this->input->post('KECAMATANu'),
+			"KOTA" => $this->input->post('KOTAu'),
+			"KD_DATI_II" => $this->input->post('KD_DATI_IIu'),
+			"RT" => $this->input->post('RTu'),
+			"RW" => $this->input->post('RWu'),
+			"KD_POS" => $this->input->post('KD_POSu'),
+			"NO_TELP" => $this->input->post('NO_TELPu'),
+			"NO_SELULAR" => $this->input->post('NO_SELULARu'),
+			"EMAIL" => $this->input->post('EMAILu'),
+			"NPWP" => $this->input->post('NPWPu'),
+			"STS_NSB" => $this->input->post('STS_NSBu'),
+			"KD_GOL_PML" => $this->input->post('KD_GOL_PMLu'),
+			"KD_GRUP" => $this->input->post('KD_GRUPu'),
+			"FLG_AKTIF" => $this->input->post('FLG_AKTIFu'),
+			"KD_STS_DEB" => $this->input->post('KD_STS_DEBu'),
+			"TGL_DIBUAT" => $this->input->post('TGL_DIBUATu'),
+			"TGL_DIUBAH" => $this->input->post('TGL_DIUBAHu'),
+			"TGL_DIHAPUS" => $this->input->post('TGL_DIHAPUSu'),
+		];
+		$this->Mst_debitur_model->updateData($id, $data);
+		redirect('mst_debitur');
 	}
 	public function deleteAct()
 	{

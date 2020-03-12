@@ -20,7 +20,6 @@ class Deb_personal_model extends CI_Model
         $this->db->where('NO_DEB', $id);
         $this->db->delete('DEB_PERSONAL');
     }
-
     var $column_order = array(null, 'NO_DEB', NULL, 'NO_IDENTITAS');
     var $column_search = array('NO_DEB');
     var $order = array('NO_DEB' => 'asc');

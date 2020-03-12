@@ -12,13 +12,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link href="<?= base_url('assets/'); ?>bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>datatablesbs/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/'); ?>chartjs/Chart.min.css" rel="stylesheet">
     <script src="<?= base_url('assets/'); ?>datatablesbs/js/jquery-3.3.1.js"></script>
+    <script src="<?= base_url('assets/'); ?>chartjs/Chart.bundle.min.js"></script>
     <?php if (isset($style)) echo $style; ?>
 </head>
 
-<body id="page-top" class="bg ">
+<body id="page-top" class="mb-5">
     <div id="wrapper">
-        <ul class="navbar-nav bg-white sidebar accordion toggled shadow" id="accordionSidebar" style="position: fixed;z-index: 1;overflow-x: hidden;top: 0;bottom: 0;">
+        <ul class="navbar-nav bg-white sidebar accordion toggled shadow" id="accordionSidebar" style="position: fixed;z-index: 1;top: 0;bottom: 0;">
             <li class="sidebar-brand d-flex align-items-center justify-content-center ">
                 <a class="nav-link" href="<?= base_url('dashboard'); ?>">
                     LOS
@@ -71,9 +73,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
             </li>
         </ul>
-        <div id="content-wrapper" class="d-flex flex-column bg-white" style="padding-left: 7.5rem;">
+        <div id="content-wrapper" class="d-flex flex-column bg-white" style="padding-left: 6.5rem;">
             <div id="content">
-                <nav class="navbar navbar-expand-lg navbar-primary bg-white" id="navbar">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbar">
                     <button class="navbar-toggler shadow" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -91,6 +93,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 </div>
                             </form>
                             <ul class="navbar-nav mr-auto">
+                                <li class="nav-item dropdown no-arrow d-sm-none">
+                                    <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn text-primary shadow-sm my-sm-0" type="button"><i class="fas fa-search"></i><span class="badge badge-danger badge-counter"></span></button>
+                                    </a>
+                                    <!-- Dropdown - Messages -->
+                                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                        <form class="form-inline mr-auto w-100 navbar-search">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </li>
                                 <li class="nav-item dropdown no-arrow">
                                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <button class="btn text-primary shadow-sm my-sm-0" type="button"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter"></span></button>
@@ -107,7 +122,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <li class="nav-item dropdown no-arrow">
                                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <button class="btn text-primary shadow-sm my-sm-0" type="button"><i class="fas fa-bell fa-fw"></i><span class="badge badge-danger badge-counter"></span></button>
-
                                     </a>
                                     <!-- Dropdown - Alerts -->
                                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
@@ -159,19 +173,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                     </div>
                 </nav>
-            </div>
-            <div class="container-fluid ">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-white px-0 mb-1">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Library</a></li>
-                        <li class="breadcrumb-item"><a class="under font-weight-bold" href="#">Abdul</a></li>
-                    </ol>
-                </nav>
-                <?php if (isset($contents)) echo $contents; ?>
+                <div class="container-fluid ">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb bg-white px-0 mb-1">
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>"><i class="fas fa-home"></i></a></li>
+                            <?php
+                            $segments = $this->uri->segment_array();
+                            $last_segment = '';
+                            foreach ($segments as $segment) {
+                                $last_segment .= '/' . $segment;
+                                echo ' <li class="breadcrumb-item"><a class="breadcrumb-item" href="' . base_url() . substr($last_segment, 1) . '">' .    ucfirst(str_replace('-', ' ', str_replace('_', ' ', $segment))) . '</a></li>';
+                            }
+                            ?>
+                        </ol>
+                    </nav>
+                    <?php if (isset($contents)) echo $contents; ?>
+                </div>
+                <footer class="sticky-footer" style="position: absolute;bottom: 0;">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright Loan Origination System - BPDDIY &copy; <?= date("Y") ?></span>
+                        </div>
+                    </div>
+                </footer>
             </div>
         </div>
-    </div>
     </div>
 </body>
 <script src="<?= base_url('assets/'); ?>datatablesbs/js/jquery.dataTables.min.js"></script>
@@ -180,8 +206,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script src="<?= base_url('assets/'); ?>bootstrap/bootstrap.min.js"></script>
 <script src="<?= base_url('assets/'); ?>fontawesome/js/all.js"></script>
 <script src="<?= base_url('assets/'); ?>sb-admin-2.min.js"></script>
+
 <script type="text/javascript">
     $('a.collapse-item[href$="' + location.pathname + '"]').addClass('under');
+    $('a.breadcrumb-item[href$="' + location.pathname + '"]').addClass('under');
 </script>
 <?php if (isset($script)) echo $script; ?>
 

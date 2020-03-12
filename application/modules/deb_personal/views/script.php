@@ -16,12 +16,7 @@
                 url: "<?= base_url('deb_personal/get_ajax'); ?>",
                 type: "POST"
             },
-           
+
         });
-    });
-    $('#tanggal').datepicker({
-        format: 'yyyy-mm-dd',
-        daysOfWeekDisabled: "0",
-        autoclose:true,
     });
 </script>
