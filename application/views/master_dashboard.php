@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <?php if (isset($style)) echo $style; ?>
 </head>
 
-<body id="page-top" class="mb-5">
+<body id="page-top">
     <div id="wrapper">
         <ul class="navbar-nav bg-white sidebar accordion toggled shadow" id="accordionSidebar" style="position: fixed;z-index: 1;top: 0;bottom: 0;">
             <li class="sidebar-brand d-flex align-items-center justify-content-center ">
@@ -27,7 +27,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     BPDDIY
                 </a>
             </li>
-            <hr class=" sidebar-divider my-0">
+            <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('dashboard'); ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -73,7 +73,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
             </li>
         </ul>
-        <div id="content-wrapper" class="d-flex flex-column bg-white" style="padding-left: 6.5rem;">
+        <div id="content-wrapper" class="d-flex flex-column bg-white mb-5" style="padding-left: 6.5rem;">
             <div id="content">
                 <nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbar">
                     <button class="navbar-toggler shadow" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </ul>
 
                         <div class="form-inline my-2 my-lg-0">
-                            <form class="d-none d-sm-inline-block form-inline mr-auto text-primary ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <form action="<?= base_url('search') ?>" class="d-none d-sm-inline-block form-inline mr-auto text-primary ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="post" enctype="multipart/form-data">
                                 <div class="input-group">
                                     <input type="text" class="form-control bg-white border-0 small" placeholder="Search for something .." aria-label="Search" aria-describedby="basic-addon2">
                                 </div>
@@ -173,7 +173,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                     </div>
                 </nav>
-                <div class="container-fluid ">
+                <div class="container-fluid">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-white px-0 mb-1">
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>"><i class="fas fa-home"></i></a></li>
@@ -182,7 +182,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             $last_segment = '';
                             foreach ($segments as $segment) {
                                 $last_segment .= '/' . $segment;
-                                echo ' <li class="breadcrumb-item"><a class="breadcrumb-item" href="' . base_url() . substr($last_segment, 1) . '">' .    ucfirst(str_replace('-', ' ', str_replace('_', ' ', $segment))) . '</a></li>';
+                                echo ' <li class="breadcrumb-item"><a class="breadcrumb-item" href="' . base_url() . substr($last_segment, 1) . '">' .    ucwords(ucfirst(str_replace('-', ' ', str_replace('_', ' ', $segment)))) . '</a></li>';
                             }
                             ?>
                         </ol>

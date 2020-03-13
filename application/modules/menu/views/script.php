@@ -24,13 +24,18 @@
                 processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
             },
             "columnDefs": [{
-                    "targets": [0, 2, 3, 4, 5],
+                    "targets": [0, 2, 3, 5, 6],
                     "orderable": false,
                 },
                 {
-                    "targets": [4],
+                    "targets": [5, 6],
                     "className": "text-center",
+                },
+                {
+                    "targets": [6],
+                    "width": "10%",
                 }
+
             ],
 
         });

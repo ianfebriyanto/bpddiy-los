@@ -25,8 +25,8 @@ class Menu_model extends CI_Model
     var $order = array('MENU_ID' => 'asc');
     private function _get_datatables_query()
     {
-        $this->db->select('*');
-        $this->db->from('TBL_MENU');
+        $this->db->select('m.*, (select d.menu_nama from tbl_menu d where d.MENU_ID = m.PARENT_ID) parent_menu_name');
+        $this->db->from('tbl_menu m');
         $i = 0;
         foreach ($this->column_search as $item) {
             if (@$_POST['search']['value']) {
