@@ -140,8 +140,8 @@ class Kewenangan extends MY_Controller
 			$row[] = $item->CREATE;
 			$row[] = $item->UPDATE;
 			$row[] = $item->DELETE;
-			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->KEWENANGAN_ID . '">Update</button>
-			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->KEWENANGAN_ID . '">Delete</button>';
+			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-warning text-white" data-toggle="modal" data-target="#update' . $item->KEWENANGAN_ID . '"><i class="fas fa-edit"></i></button>
+			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-danger" data-toggle="modal" data-target="#delete' . $item->KEWENANGAN_ID . '"><i class="fas fa-trash"></button>';
 			$data[] = $row;
 		}
 		$output = array(

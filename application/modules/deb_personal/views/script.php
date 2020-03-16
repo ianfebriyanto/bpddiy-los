@@ -16,7 +16,15 @@
                 url: "<?= base_url('deb_personal/get_ajax'); ?>",
                 type: "POST"
             },
-
+            "columnDefs": [{
+                    "targets": [0],
+                    "orderable": false,
+                },
+                {
+                    "targets": [6],
+                    "width": "10%",
+                }
+            ],
         });
     });
 </script>

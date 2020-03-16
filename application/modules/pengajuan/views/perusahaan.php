@@ -5,11 +5,11 @@
     <div class="card-body">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text bg-primary text-white" id="inputGroup-sizing-default">NIK</span>
+                <span class="input-group-text bg-primary text-white" id="inputGroup-sizing-default">NPWP</span>
             </div>
-            <input type="text" class="form-control" placeholder="Masukkan NIK" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input type="text" class="form-control" placeholder="Masukkan NPWP" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             <div class="input-group-append">
-                <button class="btn btn-primary" type="button" id="btn"> Cari</button>
+                <button class="btn btn-primary" type="button" id="btn">Cari</button>
             </div>
         </div>
     </div>

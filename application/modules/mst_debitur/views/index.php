@@ -3,7 +3,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Menu Debitur</h6>
     </div>
     <div class="card-header py-3">
-        <div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-danger btn-lg btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> </button> Tambah Data</div>
+        <div class="text-danger m-0 font-weight-bold text-primary"><button type="button" id="createBtn" name="createBtn" class="btn btn-info btn-md btn createBtn mb-2" data-toggle="modal" data-target="#create"> <i class="fa fa-plus-square fa-1x"></i> Tambah Data Master </button> </div>
     </div>
     <div class="card-body">
         <table id="dataTableMst_debitur" class="table table-hover table-bordered" style="width:100%">
@@ -12,27 +12,10 @@
                     <th scope="col">No</th>
                     <th scope="col">No Deb</th>
                     <th scope="col">Nama Deb</th>
-                    <th scope="col">Kd Jns Deb</th>
                     <th scope="col">Alamat</th>
-                    <th scope="col">Kelurahan</th>
-                    <th scope="col">Kecamatan</th>
-                    <th scope="col">Kota</th>
-                    <th scope="col">Kd Dati Ii</th>
-                    <th scope="col">Rt</th>
-                    <th scope="col">Rw</th>
-                    <th scope="col">Kd pos</th>
                     <th scope="col">No Telp</th>
-                    <th scope="col">No Selular</th>
                     <th scope="col">Email</th>
                     <th scope="col">Npwp</th>
-                    <th scope="col">Ts Nsb</th>
-                    <th scope="col">Kd Gol Pml</th>
-                    <th scope="col">Kd Grup</th>
-                    <th scope="col">Flg Aktif</th>
-                    <th scope="col">Kd Sts Seb</th>
-                    <th scope="col">Tgl Dibuat</th>
-                    <th scope="col">Tgl Diubah</th>
-                    <th scope="col">Tgl Dihapus</th>
                     <th>Aksi</th>
                 </tr>
             </thead>

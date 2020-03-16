@@ -135,48 +135,11 @@ class Deb_personal extends MY_Controller
 			$row[] = $no . ".";
 			$row[] = $item->NO_DEB;
 			$row[] = $item->NO_IDENTITAS;
-			$row[] = $item->TGL_IDENTITAS;
-			$row[] = $item->KD_NEGARA;
 			$row[] = $item->TEMPAT_LAHIR;
 			$row[] = $item->TGL_LAHIR;
-			$row[] = $item->KD_KELAMIN;
-			$row[] = $item->KD_AGAMA;
-			$row[] = $item->KET_AGAMA;
-			$row[] = $item->KD_STS_KAWIN;
-			$row[] = $item->KD_PENDIDIKAN;
-			$row[] = $item->KET_PENDIDIKAN;
-			$row[] = $item->KD_PENDUDUK;
-			$row[] = $item->KD_PEKERJAAN;
-			$row[] = $item->KET_PEKERJAAN;
 			$row[] = $item->ALMT_IDENTITAS;
-			$row[] = $item->KELURAHAN_IDENTITAS;
-			$row[] = $item->KECAMATAN_IDENTITAS;
-			$row[] = $item->KOTA_IDENTITAS;
-			$row[] = $item->PROVINSI_IDENTITAS;
-			$row[] = $item->NO_TELP_IDENTITAS;
-			$row[] = $item->RT_IDENTITAS;
-			$row[] = $item->RW_IDENTITAS;
-			$row[] = $item->KD_POS_IDENTITAS;
-			$row[] = $item->ALMT_TINGGAL;
-			$row[] = $item->KELURAHAN_TINGGAL;
-			$row[] = $item->KECAMATAN_TINGGAL;
-			$row[] = $item->KOTA_TINGGAL;
-			$row[] = $item->PROVINSI_TINGGAL;
-			$row[] = $item->RT_TINGGAL;
-			$row[] = $item->RW_TINGGAL;
-			$row[] = $item->KD_POS_TINGGAL;
-			$row[] = $item->NO_TELP_TINGGAL;
-			$row[] = $item->TGL_MULAI_TINGGAL;
-			$row[] = $item->KD_STS_TINGGAL;
-			$row[] = $item->KD_PENGHASILAN;
-			$row[] = $item->KD_PENGHASILAN_LAIN;
-			$row[] = $item->NAMA_PASUTRI;
-			$row[] = $item->KD_PEKERJAAN_PASUTRI;
-			$row[] = $item->KET_PEKERJAAN_PASUTRI;
-			$row[] = $item->KD_PENGHASILAN_PASUTRI;
-			$row[] = $item->NAMA_IBU_KANDUNG;
-			$row[] = '<button type="button" id="updateBtn" name="update" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->NO_DEB . '">Update</button>
-			<button type="button" id="deleteBtn" name="delete" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->NO_DEB . '">Delete</button>';
+			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-warning text-white" data-toggle="modal" data-target="#update' . $item->NO_DEB . '"><i class="fas fa-edit"></i></button>
+			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-danger" data-toggle="modal" data-target="#delete' . $item->NO_DEB . '"><i class="fas fa-trash"></button>';
 			$data[] = $row;
 		}
 		$output = array(

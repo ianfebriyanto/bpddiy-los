@@ -104,29 +104,12 @@ class Mst_debitur extends MY_Controller
 			$row[] = $no . ".";
 			$row[] = $item->NO_DEB;
 			$row[] = $item->NAMA_DEB;
-			$row[] = $item->KD_JNS_DEB;
 			$row[] = $item->ALAMAT;
-			$row[] = $item->KELURAHAN;
-			$row[] = $item->KECAMATAN;
-			$row[] = $item->KOTA;
-			$row[] = $item->KD_DATI_II;
-			$row[] = $item->RT;
-			$row[] = $item->RW;
-			$row[] = $item->KD_POS;
 			$row[] = $item->NO_TELP;
-			$row[] = $item->NO_SELULAR;
 			$row[] = $item->EMAIL;
 			$row[] = $item->NPWP;
-			$row[] = $item->STS_NSB;
-			$row[] = $item->KD_GOL_PML;
-			$row[] = $item->KD_GRUP;
-			$row[] = $item->FLG_AKTIF;
-			$row[] = $item->KD_STS_DEB;
-			$row[] = $item->TGL_DIBUAT;
-			$row[] = $item->TGL_DIUBAH;
-			$row[] = $item->TGL_DIHAPUS;
-			$row[] = '<button type="button" id="updateBtn" name="update" class="btn btn-outline-warning" data-toggle="modal" data-target="#update' . $item->NO_DEB . '">Update</button>
-			<button type="button" id="deleteBtn" name="delete" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete' . $item->NO_DEB . '">Delete</button>';
+			$row[] = '<button type="button" id="updateBtn" name="updateBtn" class="btn btn-warning text-white" data-toggle="modal" data-target="#update' . $item->NO_DEB . '"><i class="fas fa-edit"></i></button>
+			<button type="button" id="deleteBtn" name="deleteBtn" class="btn btn-danger" data-toggle="modal" data-target="#delete' . $item->NO_DEB . '"><i class="fas fa-trash"></button>';
 			$data[] = $row;
 		}
 		$output = array(

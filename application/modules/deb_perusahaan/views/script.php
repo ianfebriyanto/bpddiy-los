@@ -19,6 +19,15 @@
                 url: "<?= base_url('Deb_perusahaan/get_ajax'); ?>",
                 type: "POST"
             },
+            "columnDefs": [{
+                    "targets": [0],
+                    "orderable": false,
+                },
+                {
+                    "targets": [5],
+                    "width": "10%",
+                }
+            ],
         });
     });
 </script>

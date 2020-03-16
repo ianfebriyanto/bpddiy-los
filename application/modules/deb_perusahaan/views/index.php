@@ -11,40 +11,9 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">No Deb</th>
-                    <th scope="col">No Akte Pendirian</th>
-                    <th scope="col">Tgl Akte Pendirian</th>
-                    <th scope="col">No Akte Perubahan</th>
-                    <th scope="col">Tgl Akte Perubahan</th>
-                    <th scope="col">No Akte Pengesahan</th>
-                    <th scope="col">Tgl Akte Pengesahan</th>
-                    <th scope="col">Nama Notaris</th>
-                    <th scope="col">No Adpt</th>
-                    <th scope="col">Tgl Adpt</th>
-                    <th scope="col">No Siup</th>
-                    <th scope="col">Tgl Mulai Siup</th>
-                    <th scope="col">Tgl Akhir Siup</th>
-                    <th scope="col">Penerbit Siup</th>
-                    <th scope="col">No Ho</th>
-                    <th scope="col">Tgl Awal Ho</th>
-                    <th scope="col">Tgl Akhir Ho</th>
-                    <th scope="col">Penerbit Ho</th>
-                    <th scope="col">No Tdp</th>
-                    <th scope="col">Tgl Awal Tdp</th>
-                    <th scope="col">Tgl Akhir Tdp</th>
-                    <th scope="col">Penerbit Tdp</th>
-                    <th scope="col">No Tdr</th>
-                    <th scope="col">Tgl Awal Tdr</th>
-                    <th scope="col">Tgl Akhir Tdr</th>
-                    <th scope="col">Penerbit Tdr</th>
-                    <th scope="col">No Siujk</th>
-                    <th scope="col">Tgl Awal Siujk</th>
-                    <th scope="col">Tgl Akhir Siujk</th>
-                    <th scope="col">Penerbit Siujk</th>
-                    <th scope="col">Kd Sts Hukum</th>
                     <th scope="col">Nama Pimpinan</th>
-                    <th scope="col">Almt Situs Perusahaan</th>
+                    <th scope="col">Alamat Situs Perusahaan</th>
                     <th scope="col">Email Perusahaan</th>
-                    <th scope="col">Kd Bid Usaha</th>
                     <th>Aksi</th>
                 </tr>
             </thead>

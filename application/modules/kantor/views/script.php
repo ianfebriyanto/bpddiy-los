@@ -24,8 +24,12 @@
                     "orderable": false,
                 },
                 {
-                    "targets": [5],
+                    "targets": [5, 6],
                     "className": "text-center",
+                },
+                {
+                    "targets": [6],
+                    "width": "10%",
                 }
             ],
         });

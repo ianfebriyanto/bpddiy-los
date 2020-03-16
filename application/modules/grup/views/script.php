@@ -20,9 +20,14 @@
                 type: "POST"
             },
             "columnDefs": [{
-                "targets": [0, 2, 3],
-                "orderable": false,
-            }],
+                    "targets": [0, 2, 3],
+                    "orderable": false,
+                },
+                {
+                    "targets": [3],
+                    "width": "10%",
+                }
+            ],
         });
     });
 </script>

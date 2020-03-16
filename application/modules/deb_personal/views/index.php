@@ -12,46 +12,9 @@
                     <th scope="col">No</th>
                     <th scope="col">No Deb</th>
                     <th scope="col">No Identitas</th>
-                    <th scope="col">Tgl Identitas</th>
-                    <th scope="col">Kd Negara</th>
                     <th scope="col">Tempat Lahir</th>
                     <th scope="col">Tgl Lahir</th>
-                    <th scope="col">Kd Kelamin</th>
-                    <th scope="col">Kd Agama</th>
-                    <th scope="col">Ket Agama</th>
-                    <th scope="col">Kd Sts Kawin</th>
-                    <th scope="col">Kd Pendidikan</th>
-                    <th scope="col">Ket Pendidikan</th>
-                    <th scope="col">Kd Penduduk</th>
-                    <th scope="col">Kd Pekerjaan</th>
-                    <th scope="col">Ket Pekerjaan</th>
-                    <th scope="col">Almt Identitas</th>
-                    <th scope="col">Kelurahan Identitas</th>
-                    <th scope="col">Kecamatan Identitas</th>
-                    <th scope="col">Kota Identitas</th>
-                    <th scope="col">Provinsi Identitas</th>
-                    <th scope="col">No Telp Identitas</th>
-                    <th scope="col">Rt Identitas</th>
-                    <th scope="col">Rw Identitas</th>
-                    <th scope="col">Kd Pos Identitas</th>
-                    <th scope="col">Almt Tinggal</th>
-                    <th scope="col">Kelurahan Tinggal</th>
-                    <th scope="col">Kecamatan Tinggal</th>
-                    <th scope="col">Kota Tinggal</th>
-                    <th scope="col">Provinsi Tinggal</th>
-                    <th scope="col">Rt Tinggal</th>
-                    <th scope="col">RW Tinggal</th>
-                    <th scope="col">Kd Pos Tinggal</th>
-                    <th scope="col">No Telp Tinggal</th>
-                    <th scope="col">Tgl Mulai Tinggal</th>
-                    <th scope="col">Kd Sts Tinggal</th>
-                    <th scope="col">Kd Penghasilan</th>
-                    <th scope="col">Kd Penghasilan lain</th>
-                    <th scope="col">Nama Pasutri</th>
-                    <th scope="col">Kd Pekerjaan Pasutri</th>
-                    <th scope="col">Ket Pekerjaan Pasutri</th>
-                    <th scope="col">Kd Penghasilan Pasutri</th>
-                    <th scope="col">Nama Ibu Kandung</th>
+                    <th scope="col">Alamat Identitas</th>
                     <th>Aksi</th>
                 </tr>
             </thead>

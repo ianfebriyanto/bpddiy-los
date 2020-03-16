@@ -13,12 +13,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link href="<?= base_url('assets/'); ?>datatablesbs/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>sb-admin-2.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>chartjs/Chart.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <script src="<?= base_url('assets/'); ?>datatablesbs/js/jquery-3.3.1.js"></script>
     <script src="<?= base_url('assets/'); ?>chartjs/Chart.bundle.min.js"></script>
     <?php if (isset($style)) echo $style; ?>
 </head>
 
-<body id="page-top">
+<body id="page-top" style="font-family: 'Nunito', sans-serif !important;">
     <div id="wrapper">
         <ul class="navbar-nav bg-white sidebar accordion toggled shadow" id="accordionSidebar" style="position: fixed;z-index: 1;top: 0;bottom: 0;">
             <li class="sidebar-brand d-flex align-items-center justify-content-center ">

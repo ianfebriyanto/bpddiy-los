@@ -17,14 +17,14 @@
                 type: "POST"
             },
             "columnDefs": [{
-                "targets": [0, 12],
-                "orderable": false,
-            }],
+                    "targets": [0],
+                    "orderable": false,
+                },
+                {
+                    "targets": [7],
+                    "width": "10%",
+                }
+            ],
         });
-    });
-    $('#tanggal').datepicker({
-        format: 'yyyy-mm-dd',
-        daysOfWeekDisabled: "0",
-        autoclose:true,
     });
 </script>
