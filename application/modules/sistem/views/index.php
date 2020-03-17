@@ -107,7 +107,7 @@
                 </div>
                 <form action="<?= base_url('sistem/deleteAct') ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
-                        Anda yakin untuk menghapus data?
+                        Anda yakin untuk menghapus data <?= $data['SISTEM_VERSI']; ?>?
                     </div>
                     <div class="form-sistem">
                         <input type="hidden" class="form-control invisible" id="SISTEM_ID" name="SISTEM_ID" value="<?= $data['SISTEM_ID']; ?>">

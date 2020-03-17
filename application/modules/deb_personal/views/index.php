@@ -501,7 +501,7 @@
                 </div>
                 <form action="<?= base_url('deb_personal/deleteAct') ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
-                        Anda yakin untuk menghapus data?
+                        Anda yakin untuk menghapus data <?= $data['NO_DEB']; ?>?
                     </div>
                     <div class="form-deb_personal">
                         <input type="hidden" class="form-control invisible" id="NO_DEB" name="NO_DEB" value="<?= $data['NO_DEB']; ?>">

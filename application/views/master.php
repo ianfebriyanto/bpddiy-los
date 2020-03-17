@@ -9,10 +9,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="<?= base_url('assets/'); ?>bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <?php if (isset($style)) echo $style; ?>
 </head>
 
-<body class="bg">
+<body id="page-top" class="bg" style="font-family: 'Nunito', sans-serif !important;">
 
     <?php if (isset($contents)) echo $contents; ?>
 

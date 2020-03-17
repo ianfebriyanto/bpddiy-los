@@ -95,7 +95,7 @@
                 </div>
                 <form action="<?= base_url('grup/deleteAct') ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
-                        Anda yakin untuk menghapus data?
+                        Anda yakin untuk menghapus data <?= $data['GRUP_NAMA']; ?>?
                     </div>
                     <div class="form-group">
                         <input type="hidden" class="form-control invisible" id="GRUP_ID" name="GRUP_ID" value="<?= $data['GRUP_ID']; ?>">

@@ -139,7 +139,7 @@
                 </div>
                 <form action="<?= base_url('referensi/deleteAct') ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
-                        Anda yakin untuk menghapus data?
+                        Anda yakin untuk menghapus data <?= $data['REFERENSI_ID']; ?>?
                     </div>
                     <div class="form-group">
                         <input type="hidden" class="form-control invisible" id="REFERENSI_ID" name="REFERENSI_ID" value="<?= $data['REFERENSI_ID']; ?>">

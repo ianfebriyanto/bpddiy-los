@@ -215,7 +215,7 @@
 				</div>
 				<form action="<?= base_url('kewenangan/deleteAct') ?>" method="post" enctype="multipart/form-data">
 					<div class="modal-body">
-						Anda yakin untuk menghapus data?
+						Anda yakin untuk menghapus data <?= $data['MENU_NAMA']; ?> dari <?= $data['GRUP_NAMA']; ?>?
 					</div>
 					<div class="form-group">
 						<input type="hidden" class="form-control invisible" id="KEWENANGAN_ID" name="KEWENANGAN_ID" value="<?= $data['KEWENANGAN_ID']; ?>">

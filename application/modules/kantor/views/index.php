@@ -142,7 +142,7 @@
                 </div>
                 <form action="<?= base_url('kantor/deleteAct') ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
-                        Anda yakin untuk menghapus data?
+                        Anda yakin untuk menghapus data <?= $data['NAME']; ?>?
                     </div>
                     <div class="form-kantor">
                         <input type="hidden" class="form-control invisible" id="KANTOR_ID" name="KANTOR_ID" value="<?= $data['KANTOR_ID']; ?>">

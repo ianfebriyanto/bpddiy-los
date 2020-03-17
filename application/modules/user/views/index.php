@@ -171,7 +171,7 @@ foreach ($user as $data) : ?>
                 </div>
                 <form action="<?= base_url('user/deleteAct') ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
-                        Anda yakin untuk menghapus data?
+                        Anda yakin untuk menghapus data <?= $data['USERNAME']; ?>?
                     </div>
                     <div class="form-user">
                         <input type="hidden" class="form-control invisible" id="USER_ID" name="USER_ID" value="<?= $data['USER_ID']; ?>">

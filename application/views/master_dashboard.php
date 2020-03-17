@@ -37,7 +37,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </li>
             <hr class="sidebar-divider d-none d-md-block">
             <div class="sidebar-heading text-primary">
-                Main Menu
+                Menu Utama
             </div>
             <li class="nav-item ">
                 <a class="nav-link" href="<?= base_url('pengajuan'); ?>">

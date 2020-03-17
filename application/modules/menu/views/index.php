@@ -156,7 +156,7 @@
 				</div>
 				<form action="<?= base_url('menu/deleteAct') ?>" method="post" enctype="multipart/form-data">
 					<div class="modal-body">
-						Anda yakin untuk menghapus data?
+						Anda yakin untuk menghapus data <?= $data['MENU_NAMA']; ?>?
 					</div>
 					<div class="form-group">
 						<input type="hidden" class="form-control invisible" id="MENU_ID" name="MENU_ID" value="<?= $data['MENU_ID']; ?>">
