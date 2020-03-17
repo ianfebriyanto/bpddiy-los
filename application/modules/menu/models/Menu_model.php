@@ -20,9 +20,9 @@ class Menu_model extends CI_Model
         $this->db->where('MENU_ID', $id);
         $this->db->delete('TBL_MENU');
     }
-    var $column_order = array(null, 'MENU_NAMA', NULL, NULL, 'MENU_STATUS');
-    var $column_search = array('MENU_NAMA');
-    var $order = array('MENU_ID' => 'asc');
+    var $column_order = array(null, 'MENU_NAMA', NULL, NULL, 'parent_menu_name');
+    var $column_search = array('MENU_NAMA, parent_menu_name');
+    var $order = array('parent_menu_name' => 'asc');
     private function _get_datatables_query()
     {
         $this->db->select('m.*, (select d.menu_nama from tbl_menu d where d.MENU_ID = m.PARENT_ID) parent_menu_name');

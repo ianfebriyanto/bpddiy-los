@@ -51,7 +51,7 @@
 						<label for="PARENT_ID">Parent</label>
 						<select class="form-control" id="PARENT_ID" name="PARENT_ID">
 							<option value="none" selected disabled hidden>
-								Pilih parent menu.
+								Pilih parent menu
 							</option>
 							<?php
 							foreach ($menu as $data2) : ?>
@@ -110,7 +110,7 @@
 							<label for="PARENT_ID">Parent</label>
 							<select class="form-control" id="PARENT_ID" name="PARENT_ID">
 								<option value="none" selected disabled hidden>
-									Pilih parent menu.
+									Pilih parent menu
 								</option>
 								<?php
 								foreach ($menu as $data2) : ?>

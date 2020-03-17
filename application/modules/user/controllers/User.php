@@ -15,6 +15,7 @@ class User extends MY_Controller
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
 		$data['user'] = $this->User_model->readData();
+		$data['namaParent'] = readParent();
 		$data['namaMenu'] = readMenu();
 		$data['namaGrup'] = $this->User_model->readNamaGrup();
 		$this->template->load('master_dashboard', 'index', $data);

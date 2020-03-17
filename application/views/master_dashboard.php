@@ -21,7 +21,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body id="page-top" style="font-family: 'Nunito', sans-serif !important;">
     <div id="wrapper">
-        <ul class="navbar-nav bg-white sidebar accordion toggled shadow" id="accordionSidebar" style="position: fixed;z-index: 1;top: 0;bottom: 0;">
+        <ul class="navbar-nav bg-white sidebar accordion toggled shadow overflow-auto" id="accordionSidebar" style="position: fixed;z-index: 1;top: 0;bottom: 0;">
             <li class="sidebar-brand d-flex align-items-center justify-content-center ">
                 <a class="nav-link" href="<?= base_url('dashboard'); ?>">
                     LOS
@@ -73,6 +73,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <?php foreach ($namaParent as $data1) : ?>
+                    <a class="nav-link collapsed" href="<?= base_url($data1['MENU_LINK']); ?>" data-toggle="collapse<?php foreach ($namaMenu as $data) :
+                                                                                                                        if (($data1['MENU_ID'] = $data['PARENT_ID']) == NULL) {
+                                                                                                                            echo 'show';
+                                                                                                                        }
+                                                                                                                    endforeach; ?>" data-target=" #<?= $data1['MENU_NAMA']; ?>" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-folder"></i>
+                        <span><?= $data1['MENU_NAMA']; ?></span>
+                    </a>
+                    <div id="<?= $data1['MENU_NAMA']; ?>" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Menu <?= $data1['MENU_NAMA']; ?>:</h6>
+                            <?php foreach ($namaMenu as $data) :
+                                if ($data1['MENU_ID'] == $data['PARENT_ID']) {
+                            ?>
+                                    <a class="collapse-item" href="<?= base_url($data['MENU_LINK']) ?>"><?= $data['MENU_NAMA']; ?></a>
+                            <?php  }
+                            endforeach; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </li>
+
         </ul>
         <div id="content-wrapper" class="d-flex flex-column bg-white mb-5" style="padding-left: 6.5rem;">
             <div id="content">
