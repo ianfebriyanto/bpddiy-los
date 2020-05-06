@@ -13,6 +13,7 @@ class Deb_personal extends MY_Controller
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
 		$data['deb_personal'] = $this->Deb_personal_model->readData();
+		$data['namaParent'] = readParent();
 		$data['namaMenu'] = readMenu();
 		$this->template->load('master_dashboard', 'index', $data);
 	}

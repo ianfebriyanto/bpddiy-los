@@ -13,6 +13,7 @@ class Menu extends MY_Controller
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
 		$data['menu'] = $this->Menu_model->readData();
+		$data['namaParent'] = readParent();
 		$data['namaMenu'] = readMenu();
 		$this->template->load('master_dashboard', 'index', $data);
 		$kewenangan = in_array('/menu', array_column($data['namaMenu'], 'MENU_LINK'));

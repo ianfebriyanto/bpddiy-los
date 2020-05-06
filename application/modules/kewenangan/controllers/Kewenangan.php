@@ -17,6 +17,7 @@ class Kewenangan extends MY_Controller
 		$data['readKewenangan'] = $this->Kewenangan_model->readKewenangan();
 		$data['namaMenuOption'] = $this->Kewenangan_model->readNamaMenu();
 		$data['namaGrup'] = $this->Kewenangan_model->readNamaGrup();
+		$data['namaParent'] = readParent();
 		$data['namaMenu'] = readMenu();
 		$this->template->load('master_dashboard', 'index', $data);
 		$kewenangan = in_array('/kewenangan', array_column($data['namaMenu'], 'MENU_LINK'));

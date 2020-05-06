@@ -15,6 +15,7 @@ class Referensi extends MY_Controller
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
 		$data['referensi'] = $this->Referensi_model->readData();
+		$data['namaParent'] = readParent();
 		$data['namaMenu'] = readMenu();
 		$this->template->load('master_dashboard', 'index', $data);
 		$kewenangan = in_array('/referensi', array_column($data['namaMenu'], 'MENU_LINK'));

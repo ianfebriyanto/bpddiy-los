@@ -39,47 +39,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="sidebar-heading text-primary">
                 Menu Utama
             </div>
-            <li class="nav-item ">
-                <a class="nav-link" href="<?= base_url('pengajuan'); ?>">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <span>Pengajuan</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#debitur" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-user-tie"></i>
-                    <span>Debitur</span>
-                </a>
-                <div id="debitur" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Menu Debitur:</h6>
-                        <a class="collapse-item" href="<?= base_url('deb_personal'); ?>">Personal</a>
-                        <a class="collapse-item" href="<?= base_url('deb_perusahaan');  ?>">Perusahaan</a>
-                        <a class="collapse-item" href="<?= base_url('mst_debitur');  ?>">Master</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#administrator" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-users-cog"></i>
-                    <span>Administrator</span>
-                </a>
-                <div id="administrator" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Menu Administrator:</h6>
-                        <?php foreach ($namaMenu as $data) : ?>
-                            <a class="collapse-item" href="<?= base_url($data['MENU_LINK']) ?>"><?= $data['MENU_NAMA']; ?></a>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </li>
+
             <li class="nav-item">
                 <?php foreach ($namaParent as $data1) : ?>
-                    <a class="nav-link collapsed" href="<?= base_url($data1['MENU_LINK']); ?>" data-toggle="collapse<?php foreach ($namaMenu as $data) :
-                                                                                                                        if (($data1['MENU_ID'] = $data['PARENT_ID']) == NULL) {
-                                                                                                                            echo 'show';
-                                                                                                                        }
-                                                                                                                    endforeach; ?>" data-target=" #<?= $data1['MENU_NAMA']; ?>" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="nav-link collapsed" href="<?= base_url($data1['MENU_LINK']); ?>" data-toggle="collapse" data-target=" #<?= $data1['MENU_NAMA']; ?>" aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-folder"></i>
                         <span><?= $data1['MENU_NAMA']; ?></span>
                     </a>

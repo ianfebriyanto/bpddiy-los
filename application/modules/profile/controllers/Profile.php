@@ -15,6 +15,7 @@ class Profile extends MY_Controller
 		$data['style']  = $this->load->view('style', '', true);
 		$data['script']  = $this->load->view('script', '', true);
 		$data['profile'] = $this->Profile_model->readData();
+		$data['namaParent'] = readParent();
 		$data['namaMenu'] = readMenu();
 		$this->template->load('master_dashboard', 'index', $data);
 	}
